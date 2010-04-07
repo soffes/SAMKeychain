@@ -1,9 +1,9 @@
 //
 //  SSGenericKeychainItem.h
-//  PepperjackCore
+//  SSKeychain
 //
 //  Created by Sam Soffes on 4/6/10.
-//  Copyright 2010 Tasteful Works. All rights reserved.
+//  Copyright 2010 Sam Soffes. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
