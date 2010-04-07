@@ -18,7 +18,7 @@
 
 // Class Methods
 + (SSGenericKeychainItem *)genericKeychainItemForServiceName:(NSString *)aServiceName withUsername:(NSString *)aUsername;
-+ (SSGenericKeychainItem *)createGenericKeychainItemForService:(NSString *)aServiceName withUsername:(NSString *)aUsername password:(NSString *)aPassword;
++ (SSGenericKeychainItem *)createGenericKeychainItemForServiceName:(NSString *)aServiceName withUsername:(NSString *)aUsername password:(NSString *)aPassword;
 + (SSGenericKeychainItem *)genericKeychainItem:(SecKeychainItemRef)item forServiceName:(NSString *)aServiceName username:(NSString *)aUsername password:(NSString *)aPassword;
 + (NSString *)passwordForUsername:(NSString *)aUsername serviceName:(NSString *)aServiceName;
 + (void)setPassword:(NSString *)aPassword forUsername:(NSString *)aUsername serviceName:(NSString *)aServiceName;

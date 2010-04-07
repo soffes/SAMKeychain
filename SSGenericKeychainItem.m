@@ -26,7 +26,7 @@
 }
 
 
-+ (SSGenericKeychainItem *)createGenericKeychainItemForService:(NSString *)aServiceName withUsername:(NSString *)aUsername password:(NSString *)aPassword {
++ (SSGenericKeychainItem *)createGenericKeychainItemForServiceName:(NSString *)aServiceName withUsername:(NSString *)aUsername password:(NSString *)aPassword {
 	if (!aUsername || [aUsername length] == 0 || !aServiceName || [aServiceName length] == 0) {
 		return nil;
 	}
@@ -80,7 +80,7 @@
 	SSKeychainItem *item = [self genericKeychainItemForServiceName:aServiceName withUsername:aUsername];
 	
 	if (item == nil) {
-		[self createGenericKeychainItemForService:aServiceName withUsername:aUsername password:aPassword];
+		[self createGenericKeychainItemForServiceName:aServiceName withUsername:aUsername password:aPassword];
 	} else {
 		item.password = aPassword;
 	}
