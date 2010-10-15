@@ -47,8 +47,8 @@
 		return nil;
 	}
 	
-//	NSString *passwordString = [NSString stringWithCString:passwordCString length:passwordLength];
-	NSString *passwordString = [NSString stringWithCString:passwordCString encoding:NSUTF8StringEncoding];
+	NSString *passwordString = [[NSString alloc] initWithBytes:passwordCString length:passwordLength encoding:NSUTF8StringEncoding];
+
 	SecKeychainItemFreeContent(NULL, passwordCString);
 	
 	return [self internetKeychainItem:item forServer:aServer username:aUsername password:passwordString path:aPath port:aPort protocol:aProtocol];

@@ -63,8 +63,8 @@
 		return nil;
 	}
 	
-//	NSString *passwordString = [NSString stringWithCString:passwordCString length:passwordLength];
-	NSString *passwordString = [NSString stringWithCString:passwordCString encoding:NSUTF8StringEncoding];
+	NSString *passwordString = [[NSString alloc] initWithBytes:passwordCString length:passwordLength encoding:NSUTF8StringEncoding];
+
 	SecKeychainItemFreeContent(NULL, passwordCString);
 	
 	return [self genericKeychainItem:item forServiceName:aServiceName username:aUsername password:passwordString];
