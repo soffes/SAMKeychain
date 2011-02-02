@@ -142,7 +142,7 @@
 	SecKeychainAttribute attributes[1];
 	attributes[0].tag = kSecProtocolItemAttr;
 	attributes[0].length = sizeof(protocol);
-	attributes[0].data = (void *)protocol; // Not sure how to prevent warning here
+	attributes[0].data = (void *)&protocol;
 	
 	SecKeychainAttributeList list;
 	list.count = 1;
