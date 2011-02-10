@@ -6,14 +6,26 @@
 //  Copyright 2009-2010 Sam Soffes. All rights reserved.
 //
 
-enum {
+#import <Security/Security.h>
+
+typedef enum {
 	SSKeychainErrorBadArguments = -1001,
-	SSKeychainErrorNoPassword = -1002
-};
+	SSKeychainErrorNoPassword = -1002,
+	SSKeychainErrorInvalidParameter = errSecParam,
+	SSKeychainErrorFailedToAllocated = errSecAllocate,
+	SSKeychainErrorNotAvailable = errSecNotAvailable,
+	SSKeychainErrorAuthorizationFailed = errSecAuthFailed,
+	SSKeychainErrorDuplicatedItem = errSecDuplicateItem,
+	SSKeychainErrorNotFound = errSecItemNotFound,
+	SSKeychainErrorInteractionNotAllowed = errSecInteractionNotAllowed,
+	SSKeychainErrorFailedToDecode = errSecDecode
+} SSKeychainErrorCode;
 
 extern NSString *SSKeychainErrorDomain;
 
-@interface SSKeychain : NSObject
+@interface SSKeychain : NSObject {
+	
+}
 
 + (NSString *)passwordForService:(NSString *)service account:(NSString *)account;
 + (NSString *)passwordForService:(NSString *)service account:(NSString *)account error:(NSError **)error;

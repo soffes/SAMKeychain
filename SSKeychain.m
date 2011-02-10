@@ -7,7 +7,6 @@
 //
 
 #import "SSKeychain.h"
-#import <Security/Security.h>
 
 NSString *SSKeychainErrorDomain = @"com.samsoffes.sskeychain";
 
