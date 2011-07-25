@@ -3,7 +3,7 @@
 //  SSToolkit
 //
 //  Created by Sam Soffes on 5/19/10.
-//  Copyright 2009-2010 Sam Soffes. All rights reserved.
+//  Copyright 2009-2011 Sam Soffes. All rights reserved.
 //
 
 #import <Security/Security.h>
