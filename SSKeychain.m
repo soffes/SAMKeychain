@@ -25,6 +25,29 @@ NSString *SSKeychainErrorDomain = @"com.samsoffes.sskeychain";
     return dictionary;
 }
 
+#pragma mark - list accounts
++ (NSArray *)accounts {
+    return [self accountsForService:nil error:nil];
+}
++ (NSArray *)accounts:(NSError **)error {
+    return [self accountsForService:nil error:error];
+}
++ (NSArray *)accountsForService:(NSString *)service {
+    return [self accountsForService:service error:nil];
+}
++ (NSArray *)accountsForService:(NSString *)service error:(NSError **)error {
+    OSStatus status = SSKeychainErrorBadArguments;
+	CFArrayRef result = NULL;
+    NSMutableDictionary *query = [self queryForService:service account:nil];
+    [query setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnAttributes];
+    [query setObject:(id)kSecMatchLimitAll forKey:(id)kSecMatchLimit];
+    status = SecItemCopyMatching((CFDictionaryRef)query, (CFTypeRef *)&result);
+    if (status != noErr && error != NULL) {
+		*error = [NSError errorWithDomain:SSKeychainErrorDomain code:status userInfo:nil];
+	}
+    return [(NSArray *)result autorelease];
+}
+
 #pragma mark - get passwords
 + (NSString *)passwordForService:(NSString *)service account:(NSString *)account {
 	return [self passwordForService:service account:account error:nil];
@@ -32,23 +55,21 @@ NSString *SSKeychainErrorDomain = @"com.samsoffes.sskeychain";
 + (NSString *)passwordForService:(NSString *)service account:(NSString *)account error:(NSError **)error {
     OSStatus status = SSKeychainErrorBadArguments;
 	NSString *result = nil;
-	if (service && service) {
+	if (service && account) {
 		CFDataRef data = NULL;
 		NSMutableDictionary *query = [self queryForService:service account:account];
 		[query setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnData];
 		[query setObject:(id)kSecMatchLimitOne forKey:(id)kSecMatchLimit];
 		status = SecItemCopyMatching((CFDictionaryRef)query, (CFTypeRef *)&data);
 		if (status == noErr && CFDataGetLength(data) > 0) {
-			result = [[[NSString alloc] initWithData:(NSData *)data encoding:NSUTF8StringEncoding] autorelease];
+			result = [[NSString alloc] initWithData:(NSData *)data encoding:NSUTF8StringEncoding];
 		}
-		if (data != NULL) {
-			CFRelease(data);
-		}
+		if (data != NULL) { CFRelease(data); }
 	}
 	if (status != noErr && error != NULL) {
 		*error = [NSError errorWithDomain:SSKeychainErrorDomain code:status userInfo:nil];
 	}
-	return result;
+	return [result autorelease];
 }
 
 #pragma delete passwords
@@ -84,7 +105,7 @@ NSString *SSKeychainErrorDomain = @"com.samsoffes.sskeychain";
 	if (status != noErr && error != NULL) {
 		*error = [NSError errorWithDomain:SSKeychainErrorDomain code:status userInfo:nil];
 	}
-	return status == noErr;
+	return (status == noErr);
 }
 
 @end
