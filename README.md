@@ -14,6 +14,12 @@ This was originally inspired by EMKeychain and SDKeychain (both of which are now
 SSKeychain has the following class methods for working with the system keychain:
 
 ```objective-c
+
++ (NSArray *)accounts;
++ (NSArray *)accounts:(NSError **)error;
++ (NSArray *)accountsForService:(NSString *)service;
++ (NSArray *)accountsForService:(NSString *)service error:(NSError **)error;
+
 + (NSString *)passwordForService:(NSString *)service account:(NSString *)account;
 + (NSString *)passwordForService:(NSString *)service account:(NSString *)account error:(NSError **)error;
 
@@ -22,6 +28,7 @@ SSKeychain has the following class methods for working with the system keychain:
 
 + (BOOL)setPassword:(NSString *)password forService:(NSString *)service account:(NSString *)account;
 + (BOOL)setPassword:(NSString *)password forService:(NSString *)service account:(NSString *)account error:(NSError **)error;
+
 ```
 
 Easy as that.
