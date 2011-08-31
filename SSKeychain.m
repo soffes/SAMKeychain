@@ -10,38 +10,36 @@
 
 NSString *SSKeychainErrorDomain = @"com.samsoffes.sskeychain";
 
-@interface SSKeychain (PrivateMethods)
-+ (NSMutableDictionary *)_keychainQueryForService:(NSString *)service account:(NSString *)account;
+@interface SSKeychain ()
++ (NSMutableDictionary *)queryForService:(NSString *)service account:(NSString *)account;
 @end
 
 @implementation SSKeychain
 
-#pragma mark Class Methods
-
-+ (NSMutableDictionary *)_keychainQueryForService:(NSString *)service account:(NSString *)account {
-	return [NSMutableDictionary dictionaryWithObjectsAndKeys:(id)kSecClassGenericPassword, 
-			(id)kSecClass, account, (id)kSecAttrAccount, 
-			service, (id)kSecAttrService, 
-			nil];
+#pragma mark - common methods
++ (NSMutableDictionary *)queryForService:(NSString *)service account:(NSString *)account {
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithCapacity:3];
+    [dictionary setObject:(id)kSecClassGenericPassword forKey:(id)kSecClass];
+    if (service) { [dictionary setObject:service forKey:(id)kSecAttrService]; }
+    if (account) { [dictionary setObject:account forKey:(id)kSecAttrAccount]; }
+    return dictionary;
 }
 
-
+#pragma mark - get passwords
 + (NSString *)passwordForService:(NSString *)service account:(NSString *)account {
 	return [self passwordForService:service account:account error:nil];
 }
-
-
 + (NSString *)passwordForService:(NSString *)service account:(NSString *)account error:(NSError **)error {
 	OSStatus status = SSKeychainErrorBadArguments;
 	NSString *result = nil;
 	
 	if (0 < [service length] && 0 < [account length]) {
 		CFDataRef passwordData = NULL;
-		NSMutableDictionary *keychainQuery = [self _keychainQueryForService:service account:account];
-		[keychainQuery setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnData];
-		[keychainQuery setObject:(id)kSecMatchLimitOne forKey:(id)kSecMatchLimit];
+		NSMutableDictionary *query = [self queryForService:service account:account];
+		[query setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnData];
+		[query setObject:(id)kSecMatchLimitOne forKey:(id)kSecMatchLimit];
 		
-		status = SecItemCopyMatching((CFDictionaryRef)keychainQuery,
+		status = SecItemCopyMatching((CFDictionaryRef)query,
 											  (CFTypeRef *)&passwordData);
 		if (status == noErr && 0 < [(NSData *)passwordData length]) {
 			result = [[[NSString alloc] initWithData:(NSData *)passwordData
@@ -60,17 +58,15 @@ NSString *SSKeychainErrorDomain = @"com.samsoffes.sskeychain";
 	return result;
 }
 
-
+#pragma delete passwords
 + (BOOL)deletePasswordForService:(NSString *)service account:(NSString *)account {
 	return [self deletePasswordForService:service account:account error:nil];
 }
-
-
 + (BOOL)deletePasswordForService:(NSString *)service account:(NSString *)account error:(NSError **)error {
 	OSStatus status = SSKeychainErrorBadArguments;
 	if (0 < [service length] && 0 < [account length]) {
-		NSMutableDictionary *keychainQuery = [self _keychainQueryForService:service account:account];
-		status = SecItemDelete((CFDictionaryRef)keychainQuery);
+		NSMutableDictionary *query = [self queryForService:service account:account];
+		status = SecItemDelete((CFDictionaryRef)query);
 	}
 	
 	if (status != noErr && error != NULL) {
@@ -80,21 +76,19 @@ NSString *SSKeychainErrorDomain = @"com.samsoffes.sskeychain";
 	return status == noErr;
 }
 
-
+#pragma mark - set passwords
 + (BOOL)setPassword:(NSString *)password forService:(NSString *)service account:(NSString *)account {
 	return [self setPassword:password forService:service account:account error:nil];
 }
-
-
 + (BOOL)setPassword:(NSString *)password forService:(NSString *)service account:(NSString *)account error:(NSError **)error {
 	OSStatus status = SSKeychainErrorBadArguments;
 	if (0 < [service length] && 0 < [account length]) {
 		[self deletePasswordForService:service account:account];
 		if (0 < [password length]) {
-			NSMutableDictionary *keychainQuery = [self _keychainQueryForService:service account:account];
+			NSMutableDictionary *query = [self queryForService:service account:account];
 			NSData *passwordData = [password dataUsingEncoding:NSUTF8StringEncoding];
-			[keychainQuery setObject:passwordData forKey:(id)kSecValueData];
-			status = SecItemAdd((CFDictionaryRef)keychainQuery, NULL);
+			[query setObject:passwordData forKey:(id)kSecValueData];
+			status = SecItemAdd((CFDictionaryRef)query, NULL);
 		}
 	}
 	
