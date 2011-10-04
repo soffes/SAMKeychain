@@ -1,0 +1,281 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B25737E2143AC2EC003FACED /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = B25737E1143AC2EC003FACED /* SSKeychain.m */; };
+		B25737E5143AC308003FACED /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25737E4143AC308003FACED /* Security.framework */; };
+		B2A5FAB2143AC134000F6011 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A5FAB1143AC134000F6011 /* SenTestingKit.framework */; };
+		B2A5FAB3143AC134000F6011 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A5FA93143AC133000F6011 /* Cocoa.framework */; };
+		B2A5FAD0143AC25C000F6011 /* SSKeychainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A5FACE143AC25C000F6011 /* SSKeychainTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B25737E0143AC2EC003FACED /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSKeychain.h; path = ../SSKeychain.h; sourceTree = "<group>"; };
+		B25737E1143AC2EC003FACED /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSKeychain.m; path = ../SSKeychain.m; sourceTree = "<group>"; };
+		B25737E4143AC308003FACED /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		B2A5FA93143AC133000F6011 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		B2A5FA96143AC133000F6011 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		B2A5FA97143AC133000F6011 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B2A5FA98143AC133000F6011 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B2A5FAB0143AC134000F6011 /* SSKeychainTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSKeychainTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2A5FAB1143AC134000F6011 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		B2A5FACC143AC25C000F6011 /* SSKeychainTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SSKeychainTests-Info.plist"; sourceTree = SOURCE_ROOT; };
+		B2A5FACD143AC25C000F6011 /* SSKeychainTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychainTests.h; sourceTree = SOURCE_ROOT; };
+		B2A5FACE143AC25C000F6011 /* SSKeychainTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainTests.m; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B2A5FAAC143AC134000F6011 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B25737E5143AC308003FACED /* Security.framework in Frameworks */,
+				B2A5FAB2143AC134000F6011 /* SenTestingKit.framework in Frameworks */,
+				B2A5FAB3143AC134000F6011 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B25737E3143AC2F4003FACED /* SSKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				B25737E0143AC2EC003FACED /* SSKeychain.h */,
+				B25737E1143AC2EC003FACED /* SSKeychain.m */,
+			);
+			name = SSKeychain;
+			sourceTree = "<group>";
+		};
+		B2A5FA84143AC133000F6011 = {
+			isa = PBXGroup;
+			children = (
+				B25737E3143AC2F4003FACED /* SSKeychain */,
+				B2A5FAB6143AC134000F6011 /* SSKeychainTests */,
+				B2A5FA92143AC133000F6011 /* Frameworks */,
+				B2A5FA90143AC133000F6011 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B2A5FA90143AC133000F6011 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B2A5FAB0143AC134000F6011 /* SSKeychainTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B2A5FA92143AC133000F6011 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B25737E4143AC308003FACED /* Security.framework */,
+				B2A5FA93143AC133000F6011 /* Cocoa.framework */,
+				B2A5FAB1143AC134000F6011 /* SenTestingKit.framework */,
+				B2A5FA95143AC133000F6011 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B2A5FA95143AC133000F6011 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B2A5FA96143AC133000F6011 /* AppKit.framework */,
+				B2A5FA97143AC133000F6011 /* CoreData.framework */,
+				B2A5FA98143AC133000F6011 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		B2A5FAB6143AC134000F6011 /* SSKeychainTests */ = {
+			isa = PBXGroup;
+			children = (
+				B2A5FACD143AC25C000F6011 /* SSKeychainTests.h */,
+				B2A5FACE143AC25C000F6011 /* SSKeychainTests.m */,
+				B2A5FACC143AC25C000F6011 /* SSKeychainTests-Info.plist */,
+			);
+			path = SSKeychainTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B2A5FAAF143AC134000F6011 /* SSKeychainTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B2A5FAC4143AC134000F6011 /* Build configuration list for PBXNativeTarget "SSKeychainTests" */;
+			buildPhases = (
+				B2A5FAAB143AC134000F6011 /* Sources */,
+				B2A5FAAC143AC134000F6011 /* Frameworks */,
+				B2A5FAAD143AC134000F6011 /* Resources */,
+				B2A5FAAE143AC134000F6011 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SSKeychainTests;
+			productName = SSKeychainTests;
+			productReference = B2A5FAB0143AC134000F6011 /* SSKeychainTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B2A5FA86143AC133000F6011 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Sam Soffes";
+			};
+			buildConfigurationList = B2A5FA89143AC133000F6011 /* Build configuration list for PBXProject "SSKeychain" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B2A5FA84143AC133000F6011;
+			productRefGroup = B2A5FA90143AC133000F6011 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B2A5FAAF143AC134000F6011 /* SSKeychainTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B2A5FAAD143AC134000F6011 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B2A5FAAE143AC134000F6011 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B2A5FAAB143AC134000F6011 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2A5FAD0143AC25C000F6011 /* SSKeychainTests.m in Sources */,
+				B25737E2143AC2EC003FACED /* SSKeychain.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B2A5FABF143AC134000F6011 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		B2A5FAC0143AC134000F6011 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		B2A5FAC5143AC134000F6011 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				INFOPLIST_FILE = "SSKeychainTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		B2A5FAC6143AC134000F6011 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				INFOPLIST_FILE = "SSKeychainTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B2A5FA89143AC133000F6011 /* Build configuration list for PBXProject "SSKeychain" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2A5FABF143AC134000F6011 /* Debug */,
+				B2A5FAC0143AC134000F6011 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B2A5FAC4143AC134000F6011 /* Build configuration list for PBXNativeTarget "SSKeychainTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2A5FAC5143AC134000F6011 /* Debug */,
+				B2A5FAC6143AC134000F6011 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B2A5FA86143AC133000F6011 /* Project object */;
+}
