@@ -3,9 +3,10 @@
 //  SSToolkit
 //
 //  Created by Sam Soffes on 5/19/10.
-//  Copyright 2009-2011 Sam Soffes. All rights reserved.
+//  Copyright (c) 2009-2011 Sam Soffes. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import <Security/Security.h>
 
 typedef enum {
@@ -23,25 +24,23 @@ typedef enum {
 
 extern NSString *SSKeychainErrorDomain;
 
-@interface SSKeychain : NSObject {
-	
-}
+@interface SSKeychain : NSObject
 
-// get accounts
+// Getting Accounts
 + (NSArray *)accounts;
 + (NSArray *)accounts:(NSError **)error;
 + (NSArray *)accountsForService:(NSString *)service;
 + (NSArray *)accountsForService:(NSString *)service error:(NSError **)error;
 
-// get passwords
+// Getting Passwords
 + (NSString *)passwordForService:(NSString *)service account:(NSString *)account;
 + (NSString *)passwordForService:(NSString *)service account:(NSString *)account error:(NSError **)error;
 
-// delete passwords
+// Deleting Passwords
 + (BOOL)deletePasswordForService:(NSString *)service account:(NSString *)account;
 + (BOOL)deletePasswordForService:(NSString *)service account:(NSString *)account error:(NSError **)error;
 
-// set passwords
+// Setting Passwords
 + (BOOL)setPassword:(NSString *)password forService:(NSString *)service account:(NSString *)account;
 + (BOOL)setPassword:(NSString *)password forService:(NSString *)service account:(NSString *)account error:(NSError **)error;
 
