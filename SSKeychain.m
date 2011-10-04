@@ -18,12 +18,12 @@ static NSString *kSSKeychainErrorDomain = @"com.samsoffes.sskeychain";
 
 #pragma mark - Getting Accounts
 
-+ (NSArray *)accounts {
++ (NSArray *)allAccounts {
     return [self accountsForService:nil error:nil];
 }
 
 
-+ (NSArray *)accounts:(NSError **)error {
++ (NSArray *)allAccounts:(NSError **)error {
     return [self accountsForService:nil error:error];
 }
 

@@ -26,7 +26,7 @@ static NSString *kSSToolkitTestsPassword = @"SSToolkitTestPassword";
 	STAssertEqualObjects(password, kSSToolkitTestsPassword, @"Password reads and writes");
 	
 	// Getting Accounts
-	NSArray *accounts = [SSKeychain accounts];
+	NSArray *accounts = [SSKeychain allAccounts];
 	STAssertTrue([self _accounts:accounts containsAccountWithName:kSSToolkitTestsAccountName], @"All accounts");
 
 	accounts = [SSKeychain accountsForService:kSSToolkitTestsServiceName];

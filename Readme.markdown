@@ -6,32 +6,22 @@ This was originally inspired by EMKeychain and SDKeychain (both of which are now
 
 ## Adding to your project
 
-1. Add Security.framework to your target
-2. Add SSKeychain.h and SSKeychain.m to your project.
+1. Add `Security.framework` to your target
+2. Add `SSKeychain.h` and `SSKeychain.m` to your project.
 
 ## Working with the keychain
 
 SSKeychain has the following class methods for working with the system keychain:
 
 ```objective-c
-
-+ (NSArray *)accounts;
-+ (NSArray *)accounts:(NSError **)error;
-+ (NSArray *)accountsForService:(NSString *)service;
-+ (NSArray *)accountsForService:(NSString *)service error:(NSError **)error;
-
-+ (NSString *)passwordForService:(NSString *)service account:(NSString *)account;
-+ (NSString *)passwordForService:(NSString *)service account:(NSString *)account error:(NSError **)error;
-
-+ (BOOL)deletePasswordForService:(NSString *)service account:(NSString *)account;
-+ (BOOL)deletePasswordForService:(NSString *)service account:(NSString *)account error:(NSError **)error;
-
-+ (BOOL)setPassword:(NSString *)password forService:(NSString *)service account:(NSString *)account;
-+ (BOOL)setPassword:(NSString *)password forService:(NSString *)service account:(NSString *)account error:(NSError **)error;
-
++ (NSArray *)allAccounts;
++ (NSArray *)accountsForService:(NSString *)serviceName;
++ (NSString *)passwordForService:(NSString *)serviceName account:(NSString *)account;
++ (BOOL)deletePasswordForService:(NSString *)serviceName account:(NSString *)account;
++ (BOOL)setPassword:(NSString *)password forService:(NSString *)serviceName account:(NSString *)account;
 ```
 
-Easy as that.
+Easy as that. (See [SSKeychain.h](https://github.com/samsoffes/sskeychain/blob/master/SSKeychain.h) for all of the methods.)
 
 ## Debugging
 

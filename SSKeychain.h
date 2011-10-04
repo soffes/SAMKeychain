@@ -27,21 +27,21 @@ extern NSString *SSKeychainErrorDomain;
 @interface SSKeychain : NSObject
 
 // Getting Accounts
-+ (NSArray *)accounts;
-+ (NSArray *)accounts:(NSError **)error;
-+ (NSArray *)accountsForService:(NSString *)service;
-+ (NSArray *)accountsForService:(NSString *)service error:(NSError **)error;
++ (NSArray *)allAccounts;
++ (NSArray *)allAccounts:(NSError **)error;
++ (NSArray *)accountsForService:(NSString *)serviceName;
++ (NSArray *)accountsForService:(NSString *)serviceName error:(NSError **)error;
 
 // Getting Passwords
-+ (NSString *)passwordForService:(NSString *)service account:(NSString *)account;
-+ (NSString *)passwordForService:(NSString *)service account:(NSString *)account error:(NSError **)error;
++ (NSString *)passwordForService:(NSString *)serviceName account:(NSString *)account;
++ (NSString *)passwordForService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error;
 
 // Deleting Passwords
-+ (BOOL)deletePasswordForService:(NSString *)service account:(NSString *)account;
-+ (BOOL)deletePasswordForService:(NSString *)service account:(NSString *)account error:(NSError **)error;
++ (BOOL)deletePasswordForService:(NSString *)serviceName account:(NSString *)account;
++ (BOOL)deletePasswordForService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error;
 
 // Setting Passwords
-+ (BOOL)setPassword:(NSString *)password forService:(NSString *)service account:(NSString *)account;
-+ (BOOL)setPassword:(NSString *)password forService:(NSString *)service account:(NSString *)account error:(NSError **)error;
++ (BOOL)setPassword:(NSString *)password forService:(NSString *)serviceName account:(NSString *)account;
++ (BOOL)setPassword:(NSString *)password forService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error;
 
 @end
