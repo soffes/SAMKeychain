@@ -34,7 +34,7 @@ Install the documentation into Xcode with the following steps:
     
         http://docs.samsoff.es/com.samsoffes.sskeychain.atom
 
-5. Click Install next the new row reading "SSKeychain Documentation"
+5. Click Install next the new row reading "SSKeychain Documentation". (If you don't see it and didn't get an error, try restarting Xcode.)
 
 Be sure you have the docset selected in the organizer to see results for SSKeychain.
 

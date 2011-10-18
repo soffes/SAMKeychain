@@ -29,7 +29,7 @@ namespace :docs do
       '--create-docset',
       '--publish-docset',
       '--install-docset',
-      '--docset-atom-filename com.samsoffes.keychain.atom',
+      '--docset-atom-filename com.samsoffes.sskeychain.atom',
       '--docset-feed-url http://docs.samsoff.es/%DOCSETATOMFILENAME',
       '--docset-package-url  http://docs.samsoff.es/%DOCSETPACKAGEFILENAME'
       ]
