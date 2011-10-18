@@ -8,7 +8,15 @@
 
 #import "SSKeychain.h"
 
-static NSString *kSSKeychainErrorDomain = @"com.samsoffes.sskeychain";
+NSString *const kSSKeychainErrorDomain = @"com.samsoffes.sskeychain";
+
+NSString *const kSSKeychainAccountKey = @"acct";
+NSString *const kSSKeychainCreatedAtKey = @"cdat";
+NSString *const kSSKeychainClassKey = @"labl";
+NSString *const kSSKeychainDescriptionKey = @"desc";
+NSString *const kSSKeychainLabelKey = @"labl";
+NSString *const kSSKeychainLastModifiedKey = @"mdat";
+NSString *const kSSKeychainWhereKey = @"svce";
 
 @interface SSKeychain ()
 + (NSMutableDictionary *)_queryForService:(NSString *)service account:(NSString *)account;

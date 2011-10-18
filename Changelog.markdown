@@ -5,6 +5,9 @@
 **Unreleased**
 
 * Added VERSION file
+* Added documentation
+* Added string constants for keys in returned dictionaries
+* Renamed `SSKeychainErrorDomain` to `kSSKeychainErrorDomain`
 
 ### Version 0.1.1
 
