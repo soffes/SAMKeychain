@@ -23,6 +23,21 @@ SSKeychain has the following class methods for working with the system keychain:
 
 Easy as that. (See [SSKeychain.h](https://github.com/samsoffes/sskeychain/blob/master/SSKeychain.h) for all of the methods.)
 
+## Documentation
+
+Install the documentation into Xcode with the following steps:
+
+1. Open Xcode Preferences
+2. Choose Downloads
+3. Choose the Documentation tab
+4. Clip the plus button in the bottom right and enter the following URL:
+    
+        http://docs.samsoff.es/com.samsoffes.sskeychain.atom
+
+Be sure you have the docset selected in the organizer to see results for SSKeychain.
+
+You can also **read the [SSKeychain Documentation](http://docs.samsoff.es/SSKeychain/Classes/SSKeychain.html) online.**
+
 ## Debugging
 
 If you saving to the keychain fails, you use the error codes provided in SSKeychain.h. Here's an example:
