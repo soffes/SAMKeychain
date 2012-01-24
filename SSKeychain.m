@@ -83,7 +83,7 @@ NSString *const kSSKeychainWhereKey = @"svce";
 }
 
 
-#pragma Deleting Passwords
+#pragma mark - Deleting Passwords
 
 + (BOOL)deletePasswordForService:(NSString *)service account:(NSString *)account {
 	return [self deletePasswordForService:service account:account error:nil];
