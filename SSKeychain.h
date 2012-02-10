@@ -255,4 +255,35 @@ extern NSString *const kSSKeychainWhereKey;
  */
 + (BOOL)setPassword:(NSString *)password forService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error;
 
+
+///--------------------
+/// @name Configuration
+///--------------------
+
+#if __IPHONE_4_0 && TARGET_OS_IPHONE
+/**
+ Returns the accessibility type for all future passwords saved to the Keychain.
+ 
+ @return Returns the accessibility type.
+ 
+ The return value will be `NULL` or one of the "Keychain Item Accessibility Constants" used for determining when a
+ keychain item should be readable.
+ 
+ @see accessibilityType
+ */
++ (CFTypeRef)accessibilityType;
+
+/**
+ Sets the accessibility type for all future passwords saved to the Keychain.
+ 
+ @param accessibilityType One of the "Keychain Item Accessibility Constants" used for determining when a keychain item
+ should be readable.
+ 
+ If the value is `NULL` (the default), the Keychain default will be used.
+ 
+ @see accessibilityType
+ */
++ (void)setAccessibilityType:(CFTypeRef)accessibilityType;
+#endif
+
 @end

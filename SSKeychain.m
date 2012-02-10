@@ -18,6 +18,10 @@ NSString *const kSSKeychainLabelKey = @"labl";
 NSString *const kSSKeychainLastModifiedKey = @"mdat";
 NSString *const kSSKeychainWhereKey = @"svce";
 
+#if __IPHONE_4_0 && TARGET_OS_IPHONE  
+CFTypeRef SSKeychainAccessibilityType = NULL;
+#endif
+
 @interface SSKeychain ()
 + (NSMutableDictionary *)_queryForService:(NSString *)service account:(NSString *)account;
 @end
@@ -116,8 +120,14 @@ NSString *const kSSKeychainWhereKey = @"svce";
 	if (password && service && account) {
         [self deletePasswordForService:service account:account];
         NSMutableDictionary *query = [self _queryForService:service account:account];
-        NSData *data = [password dataUsingEncoding:NSUTF8StringEncoding];
-        [query setObject:data forKey:(id)kSecValueData];
+        [query setObject:[password dataUsingEncoding:NSUTF8StringEncoding] forKey:(id)kSecValueData];
+		
+#if __IPHONE_4_0 && TARGET_OS_IPHONE
+		if (SSKeychainAccessibilityType) {
+			[dictionary setObject:(id)[self accessibilityType] forKey:(id)kSecAttrAccessible];
+		}
+#endif
+		
         status = SecItemAdd((CFDictionaryRef)query, NULL);
 	}
 	if (status != noErr && error != NULL) {
@@ -127,17 +137,38 @@ NSString *const kSSKeychainWhereKey = @"svce";
 }
 
 
+#pragma mark - Configuration
+
+#if __IPHONE_4_0 && TARGET_OS_IPHONE 
++ (CFTypeRef)accessibilityType {
+	return SSKeychainAccessibilityType;
+}
+
+
++ (void)setAccessibilityType:(CFTypeRef)accessibilityType {
+	CFRetain(accessibilityType);
+	if (SSKeychainAccessibilityType) {
+		CFRelease(SSKeychainAccessibilityType);
+	}
+	SSKeychainAccessibilityType = accessibilityType;
+}
+#endif
+
+
 #pragma mark - Private
 
 + (NSMutableDictionary *)_queryForService:(NSString *)service account:(NSString *)account {
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithCapacity:3];
     [dictionary setObject:(id)kSecClassGenericPassword forKey:(id)kSecClass];
+	
     if (service) {
 		[dictionary setObject:service forKey:(id)kSecAttrService];
 	}
+	
     if (account) {
 		[dictionary setObject:account forKey:(id)kSecAttrAccount];
 	}
+	
     return dictionary;
 }
 
