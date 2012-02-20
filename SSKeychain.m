@@ -124,7 +124,7 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 		
 #if __IPHONE_4_0 && TARGET_OS_IPHONE
 		if (SSKeychainAccessibilityType) {
-			[dictionary setObject:(id)[self accessibilityType] forKey:(id)kSecAttrAccessible];
+			[query setObject:(id)[self accessibilityType] forKey:(id)kSecAttrAccessible];
 		}
 #endif
 		
