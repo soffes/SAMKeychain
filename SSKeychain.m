@@ -67,25 +67,30 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 
 
 + (NSString *)passwordForService:(NSString *)service account:(NSString *)account error:(NSError **)error {
+    NSData *data = [self passwordDataForService:service account:account error:error];
+    return ([data length]) ? [[[NSString alloc] initWithData:(NSData *)data encoding:NSUTF8StringEncoding] autorelease] : nil;
+}
+
+
++ (NSData *)passwordDataForService:(NSString *)service account:(NSString *)account {
+    return [self passwordDataForService:service account:account error:nil];
+}
+
+
++ (NSData *)passwordDataForService:(NSString *)service account:(NSString *)account error:(NSError **)error {
     OSStatus status = SSKeychainErrorBadArguments;
-	NSString *result = nil;
+    NSData *result = nil;
 	if (service && account) {
-		CFDataRef data = NULL;
 		NSMutableDictionary *query = [self _queryForService:service account:account];
 		[query setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnData];
 		[query setObject:(id)kSecMatchLimitOne forKey:(id)kSecMatchLimit];
-		status = SecItemCopyMatching((CFDictionaryRef)query, (CFTypeRef *)&data);
-		if (status == noErr && CFDataGetLength(data) > 0) {
-			result = [[NSString alloc] initWithData:(NSData *)data encoding:NSUTF8StringEncoding];
-		}
-		if (data != NULL) { CFRelease(data); }
+		status = SecItemCopyMatching((CFDictionaryRef)query, (CFTypeRef *)&result);
 	}
 	if (status != noErr && error != NULL) {
 		*error = [NSError errorWithDomain:kSSKeychainErrorDomain code:status userInfo:nil];
 	}
 	return [result autorelease];
 }
-
 
 #pragma mark - Deleting Passwords
 
@@ -116,11 +121,22 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 
 
 + (BOOL)setPassword:(NSString *)password forService:(NSString *)service account:(NSString *)account error:(NSError **)error {
-	OSStatus status = SSKeychainErrorBadArguments;
+    NSData *data = [password dataUsingEncoding:NSUTF8StringEncoding];
+    return [self setPasswordData:data forService:service account:account error:error];
+}
+
+
++ (BOOL)setPasswordData:(NSData *)password forService:(NSString *)service account:(NSString *)account {
+    return [self setPasswordData:password forService:service account:account error:nil];
+}
+
+
++ (BOOL)setPasswordData:(NSData *)password forService:(NSString *)service account:(NSString *)account error:(NSError **)error {
+    OSStatus status = SSKeychainErrorBadArguments;
 	if (password && service && account) {
         [self deletePasswordForService:service account:account];
         NSMutableDictionary *query = [self _queryForService:service account:account];
-        [query setObject:[password dataUsingEncoding:NSUTF8StringEncoding] forKey:(id)kSecValueData];
+        [query setObject:password forKey:(id)kSecValueData];
 		
 #if __IPHONE_4_0 && TARGET_OS_IPHONE
 		if (SSKeychainAccessibilityType) {

@@ -185,6 +185,16 @@ extern NSString *const kSSKeychainWhereKey;
  */
 + (NSString *)passwordForService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error;
 
+/**
+ 
+ */
++ (NSData *)passwordDataForService:(NSString *)serviceName account:(NSString *)account;
+
+/**
+ 
+ */
++ (NSData *)passwordDataForService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error;
+
 
 ///-------------------------
 /// @name Deleting Passwords
@@ -254,6 +264,16 @@ extern NSString *const kSSKeychainWhereKey;
  @see setPassword:forService:account:error:
  */
 + (BOOL)setPassword:(NSString *)password forService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error;
+
+/**
+ 
+ */
++ (BOOL)setPasswordData:(NSData *)password forService:(NSString *)serviceName account:(NSString *)account;
+
+/**
+ 
+ */
++ (BOOL)setPasswordData:(NSData *)password forService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error;
 
 
 ///--------------------
