@@ -6,15 +6,17 @@
 //  Copyright (c) 2011 Sam Soffes. All rights reserved.
 //
 
-#import "SSKeychainTests.h"
+#import <SenTestingKit/SenTestingKit.h>
 #import "SSKeychain.h"
 
 static NSString *kSSToolkitTestsServiceName = @"SSToolkitTestService";
 static NSString *kSSToolkitTestsAccountName = @"SSToolkitTestAccount";
 static NSString *kSSToolkitTestsPassword = @"SSToolkitTestPassword";
 
-@interface SSKeychainTests ()
+@interface SSKeychainTests : SenTestCase
+
 - (BOOL)_accounts:(NSArray *)accounts containsAccountWithName:(NSString *)name;
+
 @end
 
 @implementation SSKeychainTests

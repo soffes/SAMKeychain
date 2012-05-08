@@ -25,7 +25,6 @@
 		B2A5FAB0143AC134000F6011 /* SSKeychainTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSKeychainTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2A5FAB1143AC134000F6011 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		B2A5FACC143AC25C000F6011 /* SSKeychainTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SSKeychainTests-Info.plist"; sourceTree = SOURCE_ROOT; };
-		B2A5FACD143AC25C000F6011 /* SSKeychainTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychainTests.h; sourceTree = SOURCE_ROOT; };
 		B2A5FACE143AC25C000F6011 /* SSKeychainTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainTests.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -94,7 +93,6 @@
 		B2A5FAB6143AC134000F6011 /* SSKeychainTests */ = {
 			isa = PBXGroup;
 			children = (
-				B2A5FACD143AC25C000F6011 /* SSKeychainTests.h */,
 				B2A5FACE143AC25C000F6011 /* SSKeychainTests.m */,
 				B2A5FACC143AC25C000F6011 /* SSKeychainTests-Info.plist */,
 			);
