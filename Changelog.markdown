@@ -1,10 +1,15 @@
 # SSKeychain Changelog
 
+### Version 0.1.3
+
+[Released October 18, 2011](https://github.com/samsoffes/sskeychain/tree/0.1.2)
+
+* Added ARC support
+
 ### Version 0.1.2
 
 [Released October 18, 2011](https://github.com/samsoffes/sskeychain/tree/0.1.2)
 
-* Added VERSION file
 * Added documentation
 * Added string constants for keys in returned dictionaries
 * Renamed `SSKeychainErrorDomain` to `kSSKeychainErrorDomain`

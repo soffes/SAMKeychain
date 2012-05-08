@@ -47,15 +47,26 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 
 + (NSArray *)accountsForService:(NSString *)service error:(NSError **)error {
     OSStatus status = SSKeychainErrorBadArguments;
-	CFArrayRef result = NULL;
     NSMutableDictionary *query = [self _queryForService:service account:nil];
     [query setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnAttributes];
     [query setObject:(id)kSecMatchLimitAll forKey:(id)kSecMatchLimit];
-    status = SecItemCopyMatching((CFDictionaryRef)query, (CFTypeRef *)&result);
+	
+	CFTypeRef result = NULL;
+#if __has_feature(objc_arc)
+    status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &result);
+#else
+	status = SecItemCopyMatching((CFDictionaryRef)query, &result);
+#endif
     if (status != noErr && error != NULL) {
 		*error = [NSError errorWithDomain:kSSKeychainErrorDomain code:status userInfo:nil];
+		return nil;
 	}
+	
+#if __has_feature(objc_arc)
+	return (__bridge_transfer NSArray *)result;
+#else
     return [(NSArray *)result autorelease];
+#endif
 }
 
 
@@ -68,7 +79,15 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 
 + (NSString *)passwordForService:(NSString *)service account:(NSString *)account error:(NSError **)error {
     NSData *data = [self passwordDataForService:service account:account error:error];
-    return ([data length]) ? [[[NSString alloc] initWithData:(NSData *)data encoding:NSUTF8StringEncoding] autorelease] : nil;
+	if (data.length > 0) {
+		NSString *string = [[NSString alloc] initWithData:(NSData *)data encoding:NSUTF8StringEncoding];
+#if !__has_feature(objc_arc)
+		[string autorelease];
+#endif
+		return string;
+	}
+	
+	return nil;
 }
 
 
@@ -79,18 +98,35 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 
 + (NSData *)passwordDataForService:(NSString *)service account:(NSString *)account error:(NSError **)error {
     OSStatus status = SSKeychainErrorBadArguments;
-    NSData *result = nil;
-	if (service && account) {
-		NSMutableDictionary *query = [self _queryForService:service account:account];
-		[query setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnData];
-		[query setObject:(id)kSecMatchLimitOne forKey:(id)kSecMatchLimit];
-		status = SecItemCopyMatching((CFDictionaryRef)query, (CFTypeRef *)&result);
+	if (!service || !account) {
+		if (error) {
+			*error = [NSError errorWithDomain:kSSKeychainErrorDomain code:status userInfo:nil];
+		}
+		return nil;
 	}
+	
+	NSMutableDictionary *query = [self _queryForService:service account:account];
+	[query setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnData];
+	[query setObject:(id)kSecMatchLimitOne forKey:(id)kSecMatchLimit];
+	CFTypeRef result = NULL;
+#if __has_feature(objc_arc)
+	status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &result);
+#else
+	status = SecItemCopyMatching((CFDictionaryRef)query, &result);
+#endif
+	
 	if (status != noErr && error != NULL) {
 		*error = [NSError errorWithDomain:kSSKeychainErrorDomain code:status userInfo:nil];
+		return nil;
 	}
-	return [result autorelease];
+	
+#if __has_feature(objc_arc)
+	return (__bridge_transfer NSData *)result;
+#else
+    return [(NSData *)result autorelease];
+#endif
 }
+
 
 #pragma mark - Deleting Passwords
 
@@ -103,7 +139,11 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 	OSStatus status = SSKeychainErrorBadArguments;
 	if (service && account) {
 		NSMutableDictionary *query = [self _queryForService:service account:account];
+#if __has_feature(objc_arc)
+		status = SecItemDelete((__bridge CFDictionaryRef)query);
+#else
 		status = SecItemDelete((CFDictionaryRef)query);
+#endif
 	}
 	if (status != noErr && error != NULL) {
 		*error = [NSError errorWithDomain:kSSKeychainErrorDomain code:status userInfo:nil];
@@ -144,7 +184,11 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 		}
 #endif
 		
-        status = SecItemAdd((CFDictionaryRef)query, NULL);
+#if __has_feature(objc_arc)
+        status = SecItemAdd((__bridge CFDictionaryRef)query, NULL);
+#else
+		status = SecItemAdd((CFDictionaryRef)query, NULL);
+#endif
 	}
 	if (status != noErr && error != NULL) {
 		*error = [NSError errorWithDomain:kSSKeychainErrorDomain code:status userInfo:nil];
