@@ -9,6 +9,8 @@ This was originally inspired by EMKeychain and SDKeychain (both of which are now
 1. Add `Security.framework` to your target
 2. Add `SSKeychain.h` and `SSKeychain.m` to your project.
 
+Note: Currently SSKeychain does not support Mac OS 10.6.
+
 ## Working with the keychain
 
 SSKeychain has the following class methods for working with the system keychain:
