@@ -4,7 +4,7 @@ task :test do
   system 'xcodebuild -project Tests/SSKeychain.xcodeproj -scheme SSKeychainTestsARC TEST_AFTER_BUILD=YES'
 end
 
-task default: :test
+task :default => :test
 
 namespace :docs do
   header_path = 'SSKeychain/*.h'
