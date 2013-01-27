@@ -24,6 +24,7 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 
 @interface SSKeychain ()
 + (NSMutableDictionary *)_queryForService:(NSString *)service account:(NSString *)account;
++ (NSError *)errorWithCode:(OSStatus) code;
 @end
 
 @implementation SSKeychain
@@ -63,7 +64,7 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 	status = SecItemCopyMatching((CFDictionaryRef)query, &result);
 #endif
     if (status != noErr && error != NULL) {
-		*error = [NSError errorWithDomain:kSSKeychainErrorDomain code:status userInfo:nil];
+		*error = [self errorWithCode:status];
 		return nil;
 	}
 	
@@ -105,7 +106,7 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
     OSStatus status = SSKeychainErrorBadArguments;
 	if (!service || !account) {
 		if (error) {
-			*error = [NSError errorWithDomain:kSSKeychainErrorDomain code:status userInfo:nil];
+			*error = [self errorWithCode:status];
 		}
 		return nil;
 	}
@@ -123,7 +124,7 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 #endif
 	
 	if (status != noErr && error != NULL) {
-		*error = [NSError errorWithDomain:kSSKeychainErrorDomain code:status userInfo:nil];
+		*error = [self errorWithCode:status];
 		return nil;
 	}
 	
@@ -153,7 +154,7 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 #endif
 	}
 	if (status != noErr && error != NULL) {
-		*error = [NSError errorWithDomain:kSSKeychainErrorDomain code:status userInfo:nil];
+		*error = [self errorWithCode:status];
 	}
 	return (status == noErr);
     
@@ -206,7 +207,7 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 #endif
 	}
 	if (status != noErr && error != NULL) {
-		*error = [NSError errorWithDomain:kSSKeychainErrorDomain code:status userInfo:nil];
+		*error = [self errorWithCode:status];
 	}
 	return (status == noErr);
 }
@@ -257,6 +258,34 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 	}
 	
     return dictionary;
+}
+
+
++ (NSError *)errorWithCode:(OSStatus) code {
+    NSString *message = nil;
+    switch (code) {
+        case errSecSuccess:
+            return nil;
+            
+        case SSKeychainErrorBadArguments:
+            message = @"Some of the arguments were invalid";
+            break;
+            
+        case SSKeychainErrorNoPassword:
+            message = @"There was no password";
+            break;
+            
+        default:
+#if __has_feature(objc_arc)
+            message = (__bridge_transfer NSString *)SecCopyErrorMessageString(code, NULL);
+#else
+            message = [(id) SecCopyErrorMessageString(status, NULL) autorelease];
+#endif
+    }
+    
+    return [NSError errorWithDomain:kSSKeychainErrorDomain
+                               code:code
+                           userInfo:@{ NSLocalizedDescriptionKey : message } ];
 }
 
 @end

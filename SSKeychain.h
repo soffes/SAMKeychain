@@ -12,7 +12,7 @@
 /** Error codes that can be returned in NSError objects. */
 typedef enum {
 	/** No error. */
-	SSKeychainErrorNone = noErr,
+	SSKeychainErrorNone = errSecSuccess,
 	
 	/** Some of the arguments were invalid. */
 	SSKeychainErrorBadArguments = -1001,
