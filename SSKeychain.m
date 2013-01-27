@@ -24,7 +24,7 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 
 @interface SSKeychain ()
 + (NSMutableDictionary *)_queryForService:(NSString *)service account:(NSString *)account;
-+ (NSError *)errorWithCode:(OSStatus) code;
++ (NSError *)_errorWithCode:(OSStatus) code;
 @end
 
 @implementation SSKeychain
@@ -64,7 +64,7 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 	status = SecItemCopyMatching((CFDictionaryRef)query, &result);
 #endif
     if (status != noErr && error != NULL) {
-		*error = [self errorWithCode:status];
+		*error = [self _errorWithCode:status];
 		return nil;
 	}
 	
@@ -106,7 +106,7 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
     OSStatus status = SSKeychainErrorBadArguments;
 	if (!service || !account) {
 		if (error) {
-			*error = [self errorWithCode:status];
+			*error = [self _errorWithCode:status];
 		}
 		return nil;
 	}
@@ -124,7 +124,7 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 #endif
 	
 	if (status != noErr && error != NULL) {
-		*error = [self errorWithCode:status];
+		*error = [self _errorWithCode:status];
 		return nil;
 	}
 	
@@ -154,7 +154,7 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 #endif
 	}
 	if (status != noErr && error != NULL) {
-		*error = [self errorWithCode:status];
+		*error = [self _errorWithCode:status];
 	}
 	return (status == noErr);
     
@@ -207,7 +207,7 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 #endif
 	}
 	if (status != noErr && error != NULL) {
-		*error = [self errorWithCode:status];
+		*error = [self _errorWithCode:status];
 	}
 	return (status == noErr);
 }
@@ -261,7 +261,7 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 }
 
 
-+ (NSError *)errorWithCode:(OSStatus) code {
++ (NSError *)_errorWithCode:(OSStatus) code {
     NSString *message = nil;
     switch (code) {
         case errSecSuccess:
