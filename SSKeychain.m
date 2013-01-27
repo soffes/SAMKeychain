@@ -146,11 +146,18 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 	OSStatus status = SSKeychainErrorBadArguments;
 	if (service && account) {
 		NSMutableDictionary *query = [self _queryForService:service account:account];
+        CFTypeRef result;
 #if __has_feature(objc_arc)
-		status = SecItemDelete((__bridge CFDictionaryRef)query);
+        [query setObject:(__bridge id)kCFBooleanTrue forKey:(__bridge id)kSecReturnRef];
+        status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &result);
 #else
-		status = SecItemDelete((CFDictionaryRef)query);
+        [query setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnRef];
+        status = SecItemCopyMatching((CFDictionaryRef)query, &result);
 #endif
+        if (errSecSuccess == status) {
+            status = SecKeychainItemDelete((SecKeychainItemRef) result);
+            CFRelease(result);
+        }
 	}
 	if (status != noErr && error != NULL) {
 		*error = [NSError errorWithDomain:kSSKeychainErrorDomain code:status userInfo:nil];
