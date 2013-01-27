@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21D08CD616B4E1A500F41F3A /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D08CD516B4E1A500F41F3A /* SSKeychain.m */; };
+		21D08CDB16B4E20300F41F3A /* SSKeychainTestsARC-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21D08CDA16B4E20300F41F3A /* SSKeychainTestsARC-Info.plist */; };
+		21D08CE016B4E2B500F41F3A /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D08CD516B4E1A500F41F3A /* SSKeychain.m */; };
 		B2059B5D1559058C003D2FAC /* SSKeychainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A5FACE143AC25C000F6011 /* SSKeychainTests.m */; };
-		B2059B5E1559058C003D2FAC /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = B25737E1143AC2EC003FACED /* SSKeychain.m */; };
 		B2059B601559058C003D2FAC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25737E4143AC308003FACED /* Security.framework */; };
 		B2059B611559058C003D2FAC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A5FAB1143AC134000F6011 /* SenTestingKit.framework */; };
 		B2059B621559058C003D2FAC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A5FA93143AC133000F6011 /* Cocoa.framework */; };
-		B25737E2143AC2EC003FACED /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = B25737E1143AC2EC003FACED /* SSKeychain.m */; };
 		B25737E5143AC308003FACED /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25737E4143AC308003FACED /* Security.framework */; };
 		B2A5FAB2143AC134000F6011 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A5FAB1143AC134000F6011 /* SenTestingKit.framework */; };
 		B2A5FAB3143AC134000F6011 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A5FA93143AC133000F6011 /* Cocoa.framework */; };
@@ -20,10 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		21D08CD416B4E1A500F41F3A /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
+		21D08CD516B4E1A500F41F3A /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
+		21D08CDA16B4E20300F41F3A /* SSKeychainTestsARC-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SSKeychainTestsARC-Info.plist"; sourceTree = SOURCE_ROOT; };
 		B2059B681559058C003D2FAC /* SSKeychainTestsARC.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSKeychainTestsARC.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B2059B691559058C003D2FAC /* SSKeychainTestsARC-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SSKeychainTestsARC-Info.plist"; path = "/Users/samsoffes/Code/sskeychain/Tests/SSKeychainTestsARC-Info.plist"; sourceTree = "<absolute>"; };
-		B25737E0143AC2EC003FACED /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSKeychain.h; path = ../SSKeychain.h; sourceTree = "<group>"; };
-		B25737E1143AC2EC003FACED /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SSKeychain.m; path = ../SSKeychain.m; sourceTree = "<group>"; };
 		B25737E4143AC308003FACED /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		B2A5FA93143AC133000F6011 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		B2A5FA96143AC133000F6011 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -59,19 +60,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B25737E3143AC2F4003FACED /* SSKeychain */ = {
+		21D08CD316B4E1A500F41F3A /* SSKeychain */ = {
 			isa = PBXGroup;
 			children = (
-				B25737E0143AC2EC003FACED /* SSKeychain.h */,
-				B25737E1143AC2EC003FACED /* SSKeychain.m */,
+				21D08CD416B4E1A500F41F3A /* SSKeychain.h */,
+				21D08CD516B4E1A500F41F3A /* SSKeychain.m */,
 			);
 			name = SSKeychain;
+			path = ../SSKeychain;
 			sourceTree = "<group>";
 		};
 		B2A5FA84143AC133000F6011 = {
 			isa = PBXGroup;
 			children = (
-				B25737E3143AC2F4003FACED /* SSKeychain */,
+				21D08CD316B4E1A500F41F3A /* SSKeychain */,
 				B2A5FAB6143AC134000F6011 /* SSKeychainTests */,
 				B2A5FA92143AC133000F6011 /* Frameworks */,
 				B2A5FA90143AC133000F6011 /* Products */,
@@ -113,7 +115,7 @@
 			children = (
 				B2A5FACE143AC25C000F6011 /* SSKeychainTests.m */,
 				B2A5FACC143AC25C000F6011 /* SSKeychainTests-Info.plist */,
-				B2059B691559058C003D2FAC /* SSKeychainTestsARC-Info.plist */,
+				21D08CDA16B4E20300F41F3A /* SSKeychainTestsARC-Info.plist */,
 			);
 			path = SSKeychainTests;
 			sourceTree = "<group>";
@@ -163,7 +165,7 @@
 		B2A5FA86143AC133000F6011 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Sam Soffes";
 			};
 			buildConfigurationList = B2A5FA89143AC133000F6011 /* Build configuration list for PBXProject "SSKeychain" */;
@@ -196,6 +198,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21D08CDB16B4E20300F41F3A /* SSKeychainTestsARC-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,7 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2059B5D1559058C003D2FAC /* SSKeychainTests.m in Sources */,
-				B2059B5E1559058C003D2FAC /* SSKeychain.m in Sources */,
+				21D08CE016B4E2B500F41F3A /* SSKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,7 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2A5FAD0143AC25C000F6011 /* SSKeychainTests.m in Sources */,
-				B25737E2143AC2EC003FACED /* SSKeychain.m in Sources */,
+				21D08CD616B4E1A500F41F3A /* SSKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

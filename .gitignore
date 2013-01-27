@@ -5,3 +5,5 @@
 *.xcworkspace
 xcuserdata
 Documentation
+DerivedData
+build
