@@ -46,7 +46,8 @@ You can also **read the [SSKeychain Documentation](http://docs.samsoff.es/SSKeyc
 
 ## Debugging
 
-If you saving to the keychain fails, you use the error codes provided in SSKeychain.h. Here's an example:
+If your saving to the keychain fails, use the NSError object to handle it. You can invoke `[error code]` to get the numeric error
+code. A few values are defined in SSKeychain.h, and the rest in SecBase.h.
 
 ```objective-c
 NSError *error = nil;
@@ -54,6 +55,8 @@ NSString *password = [SSKeychain passwordForService:@"MyService" account:@"samso
 
 if ([error code] == SSKeychainErrorNotFound) {
     NSLog(@"Password not found");
+} else if (error != nil) {
+	NSLog(@"Some other error occurred: %@", error);
 }
 ```
 
