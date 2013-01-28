@@ -63,7 +63,7 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 #else
 	status = SecItemCopyMatching((CFDictionaryRef)query, &result);
 #endif
-    if (status != noErr && error != NULL) {
+    if (status != errSecSuccess && error != NULL) {
 		*error = [self _errorWithCode:status];
 		return nil;
 	}
@@ -123,7 +123,7 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 	status = SecItemCopyMatching((CFDictionaryRef)query, &result);
 #endif
 	
-	if (status != noErr && error != NULL) {
+	if (status != errSecSuccess && error != NULL) {
 		*error = [self _errorWithCode:status];
 		return nil;
 	}
@@ -160,10 +160,10 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
             CFRelease(result);
         }
 	}
-	if (status != noErr && error != NULL) {
+	if (status != errSecSuccess && error != NULL) {
 		*error = [self _errorWithCode:status];
 	}
-	return (status == noErr);
+	return (status == errSecSuccess);
     
 }
 
@@ -213,10 +213,10 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 		status = SecItemAdd((CFDictionaryRef)query, NULL);
 #endif
 	}
-	if (status != noErr && error != NULL) {
+	if (status != errSecSuccess && error != NULL) {
 		*error = [self _errorWithCode:status];
 	}
-	return (status == noErr);
+	return (status == errSecSuccess);
 }
 
 
