@@ -289,10 +289,14 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
             message = [(id) SecCopyErrorMessageString(status, NULL) autorelease];
 #endif
     }
-    
+
+    NSDictionary *userInfo = nil;
+    if (message != nil) {
+        userInfo = @{ NSLocalizedDescriptionKey : message };
+    }
     return [NSError errorWithDomain:kSSKeychainErrorDomain
                                code:code
-                           userInfo:@{ NSLocalizedDescriptionKey : message } ];
+                           userInfo:userInfo];
 }
 
 @end
