@@ -147,18 +147,24 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 	OSStatus status = SSKeychainErrorBadArguments;
 	if (service && account) {
 		NSMutableDictionary *query = [self _queryForService:service account:account];
+#if TARGET_OS_IPHONE && __has_feature(objc_arc)
+		status = SecItemDelete((__bridge CFDictionaryRef)query);
+#elif TARGET_OS_IPHONE
+		status = SecItemDelete((CFDictionaryRef)query);
+#else
         CFTypeRef result;
-#if __has_feature(objc_arc)
+    #if __has_feature(objc_arc)
         [query setObject:(__bridge id)kCFBooleanTrue forKey:(__bridge id)kSecReturnRef];
         status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &result);
-#else
+    #else
         [query setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnRef];
         status = SecItemCopyMatching((CFDictionaryRef)query, &result);
-#endif
+    #endif
         if (errSecSuccess == status) {
             status = SecKeychainItemDelete((SecKeychainItemRef) result);
             CFRelease(result);
         }
+#endif
 	}
 	if (status != errSecSuccess && error != NULL) {
 		*error = [self _errorWithCode:status];
@@ -271,25 +277,29 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 + (NSError *)_errorWithCode:(OSStatus) code {
     NSString *message = nil;
     switch (code) {
-        case errSecSuccess:
-            return nil;
-            
-        case SSKeychainErrorBadArguments:
-            message = @"Some of the arguments were invalid";
-            break;
-            
-        case SSKeychainErrorNoPassword:
-            message = @"There was no password";
-            break;
-            
+        case errSecSuccess: return nil;
+        case SSKeychainErrorBadArguments: message = @"Some of the arguments were invalid"; break;
+          
+#if TARGET_OS_IPHONE
+        case errSecUnimplemented: message = @"Function or operation not implemented"; break;
+        case errSecParam: message = @"One or more parameters passed to a function were not valid"; break;
+        case errSecAllocate: message = @"Failed to allocate memory"; break;
+        case errSecNotAvailable: message = @"No keychain is available. You may need to restart your computer"; break;
+        case errSecDuplicateItem: message = @"The specified item already exists in the keychain"; break;
+        case errSecItemNotFound: message = @"The specified item could not be found in the keychain"; break;
+        case errSecInteractionNotAllowed: message = @"User interaction is not allowed"; break;
+        case errSecDecode: message = @"Unable to decode the provided data"; break;
+        case errSecAuthFailed: message = @"The user name or passphrase you entered is not correct"; break;
+        default: message = @"Refer to SecBase.h for description";
+#elif __has_feature(objc_arc)
         default:
-#if __has_feature(objc_arc)
             message = (__bridge_transfer NSString *)SecCopyErrorMessageString(code, NULL);
 #else
-            message = [(id) SecCopyErrorMessageString(status, NULL) autorelease];
+        default:
+            message = [(id) SecCopyErrorMessageString(code, NULL) autorelease];
 #endif
     }
-
+    
     NSDictionary *userInfo = nil;
     if (message != nil) {
         userInfo = @{ NSLocalizedDescriptionKey : message };
