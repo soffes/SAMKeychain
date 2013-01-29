@@ -9,40 +9,16 @@
 #import <Foundation/Foundation.h>
 #import <Security/Security.h>
 
-/** Error codes that can be returned in NSError objects. */
+
+/**
+ Error code specific to SSKeychain that can be returned in NSError objects.
+ For codes returned by the operating system, refer to SecBase.h for your platform.
+ */
 typedef enum {
-	/** No error. */
-	SSKeychainErrorNone = errSecSuccess,
-	
+    
 	/** Some of the arguments were invalid. */
 	SSKeychainErrorBadArguments = -1001,
-	
-	/** There was no password. */
-	SSKeychainErrorNoPassword = -1002,
-	
-	/** One or more parameters passed internally were not valid. */
-	SSKeychainErrorInvalidParameter = errSecParam,
-	
-	/** Failed to allocate memory. */
-	SSKeychainErrorFailedToAllocated = errSecAllocate,
-	
-	/** No trust results are available. */
-	SSKeychainErrorNotAvailable = errSecNotAvailable,
-	
-	/** Authorization/Authentication failed. */
-	SSKeychainErrorAuthorizationFailed = errSecAuthFailed,
-	
-	/** The item already exists. */
-	SSKeychainErrorDuplicatedItem = errSecDuplicateItem,
-	
-	/** The item cannot be found.*/
-	SSKeychainErrorNotFound = errSecItemNotFound,
-	
-	/** Interaction with the Security Server is not allowed. */
-	SSKeychainErrorInteractionNotAllowed = errSecInteractionNotAllowed,
-	
-	/** Unable to decode the provided data. */
-	SSKeychainErrorFailedToDecode = errSecDecode
+    
 } SSKeychainErrorCode;
 
 extern NSString *const kSSKeychainErrorDomain;
