@@ -124,6 +124,24 @@ extern NSString *const kSSKeychainWhereKey;
  */
 + (NSArray *)accountsForService:(NSString *)serviceName error:(NSError **)error;
 
+#if __IPHONE_3_0 && TARGET_OS_IPHONE
+/**
+ Returns an array containing the Keychain's accounts for a given service, or `nil` if the Keychain doesn't have any
+ accounts for the given service.
+
+ @param serviceName The service for which to return the corresponding accounts.
+ 
+ @param accessGroup Access group in which to search for corresponding accounts.
+
+ @param error If accessing the accounts fails, upon return contains an error that describes the problem.
+
+ @return An array of dictionaries containing the Keychain's accountsfor a given `serviceName`, or `nil` if the Keychain
+ doesn't have any accounts for the given `serviceName`. The order of the objects in the array isn't defined.
+
+ @see accountsForService:
+ */
++ (NSArray *)accountsForService:(NSString *)serviceName accessGroup:(NSString *)accessGroup error:(NSError **)error;
+#endif
 
 ///------------------------
 /// @name Getting Passwords
@@ -161,6 +179,27 @@ extern NSString *const kSSKeychainWhereKey;
  */
 + (NSString *)passwordForService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error;
 
+#if __IPHONE_3_0 && TARGET_OS_IPHONE
+/**
+ Returns a string containing the password for a given account and service, or `nil` if the Keychain doesn't have a
+ password for the given parameters.
+
+ @param serviceName The service for which to return the corresponding password.
+
+ @param account The account for which to return the corresponding password.
+
+ @param accessGroup Access group in which to search for corresponding accounts.
+
+ @param error If accessing the password fails, upon return contains an error that describes the problem.
+
+ @return Returns a string containing the password for a given account and service, or `nil` if the Keychain doesn't
+ have a password for the given parameters.
+
+ @see passwordForService:account:
+ */
++ (NSString *)passwordForService:(NSString *)serviceName account:(NSString *)account accessGroup:(NSString *)accessGroup  error:(NSError **)error;
+#endif
+
 /**
  Returns the password data for a given account and service, or `nil` if the Keychain doesn't have data 
  for the given parameters.
@@ -195,6 +234,26 @@ extern NSString *const kSSKeychainWhereKey;
  */
 + (NSData *)passwordDataForService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error;
 
+#if __IPHONE_3_0 && TARGET_OS_IPHONE
+/**
+ Returns the password data for a given account and service, or `nil` if the Keychain doesn't have data
+ for the given parameters.
+
+ @param serviceName The service for which to return the corresponding password.
+
+ @param account The account for which to return the corresponding password.
+ 
+ @param accessGroup Access group in which to search for corresponding accounts.
+
+ @param error If accessing the password fails, upon return contains an error that describes the problem.
+
+ @return Returns a the password data for the given account and service, or `nil` if the Keychain doesn't
+ have a password for the given parameters.
+
+ @see passwordDataForService:account:
+ */
++ (NSData *)passwordDataForService:(NSString *)serviceName account:(NSString *)account accessGroup:(NSString *)accessGroup error:(NSError **)error;
+#endif
 
 ///-------------------------
 /// @name Deleting Passwords
@@ -228,6 +287,24 @@ extern NSString *const kSSKeychainWhereKey;
  */
 + (BOOL)deletePasswordForService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error;
 
+#if __IPHONE_3_0 && TARGET_OS_IPHONE
+/**
+ Deletes a password from the Keychain.
+
+ @param serviceName The service for which to delete the corresponding password.
+
+ @param account The account for which to delete the corresponding password.
+ 
+ @param accessGroup Access group in which to search for corresponding accounts.
+
+ @param error If deleting the password fails, upon return contains an error that describes the problem.
+
+ @return Returns `YES` on success, or `NO` on failure.
+
+ @see deletePasswordForService:account:
+ */
++ (BOOL)deletePasswordForService:(NSString *)serviceName account:(NSString *)account accessGroup:(NSString *)accessGroup error:(NSError **)error;
+#endif
 
 ///------------------------
 /// @name Setting Passwords
@@ -265,6 +342,27 @@ extern NSString *const kSSKeychainWhereKey;
  */
 + (BOOL)setPassword:(NSString *)password forService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error;
 
+#if __IPHONE_3_0 && TARGET_OS_IPHONE
+/**
+ Sets a password in the Keychain.
+
+ @param password The password to store in the Keychain.
+
+ @param serviceName The service for which to set the corresponding password.
+
+ @param account The account for which to set the corresponding password.
+ 
+ @param accessGroup Access group in to in which to store the corresponding password.
+
+ @param error If setting the password fails, upon return contains an error that describes the problem.
+
+ @return Returns `YES` on success, or `NO` on failure.
+
+ @see setPassword:forService:account:
+ */
++ (BOOL)setPassword:(NSString *)password forService:(NSString *)serviceName account:(NSString *)account accessGroup:(NSString *)accessGroup error:(NSError **)error;
+#endif
+
 /**
  Sets arbirary data in the Keychain.
  
@@ -299,6 +397,26 @@ extern NSString *const kSSKeychainWhereKey;
  */
 + (BOOL)setPasswordData:(NSData *)password forService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error;
 
+#if __IPHONE_3_0 && TARGET_OS_IPHONE
+/**
+ Sets arbirary data in the Keychain.
+
+ @param password The data to store in the Keychain.
+
+ @param serviceName The service for which to set the corresponding password.
+
+ @param account The account for which to set the corresponding password.
+ 
+ @param accessGroup Access group in to in which to store the corresponding password.
+
+ @param error If setting the password fails, upon return contains an error that describes the problem.
+
+ @return Returns `YES` on success, or `NO` on failure.
+
+ @see setPasswordData:forService:account:
+ */
++ (BOOL)setPasswordData:(NSData *)password forService:(NSString *)serviceName account:(NSString *)account accessGroup:(NSString *)accessGroup error:(NSError **)error;
+#endif
 
 ///--------------------
 /// @name Configuration
