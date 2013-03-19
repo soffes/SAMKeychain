@@ -28,10 +28,10 @@ static NSString *kSSToolkitTestsPassword = @"SSToolkitTestPassword";
 	STAssertEqualObjects(password, kSSToolkitTestsPassword, @"Password reads and writes");
 	
 	// Getting Accounts
-	NSArray *accounts = [SSKeychain allAccounts];
+	NSArray *accounts = [SSKeychain accountsForService:nil error:nil];
 	STAssertTrue([self _accounts:accounts containsAccountWithName:kSSToolkitTestsAccountName], @"All accounts");
 
-	accounts = [SSKeychain accountsForService:kSSToolkitTestsServiceName];
+	accounts = [SSKeychain accountsForService:kSSToolkitTestsServiceName error:nil];
 	STAssertTrue([self _accounts:accounts containsAccountWithName:kSSToolkitTestsAccountName], @"Account for service");
 	
 	// Deleting Passwords

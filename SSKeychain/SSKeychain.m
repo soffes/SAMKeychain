@@ -34,49 +34,48 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 #endif
 
 @interface SSKeychain ()
-+ (NSMutableDictionary *)_queryForService:(NSString *)service
-                                  account:(NSString *)account
-                              accessGroup:(NSString *)accessGroup;
+
++ (NSMutableDictionary *)_queryForService:(NSString *)service account:(NSString *)account accessGroup:(NSString *)group;
 + (NSError *)_errorWithCode:(OSStatus) code;
 
-+ (NSArray *)accountsForService:(NSString *)serviceName accessGroup:(NSString *)accessGroup error:(NSError **)error;
-+ (NSString *)passwordForService:(NSString *)serviceName account:(NSString *)account accessGroup:(NSString *)accessGroup  error:(NSError **)error;
-+ (NSData *)passwordDataForService:(NSString *)serviceName account:(NSString *)account accessGroup:(NSString *)accessGroup error:(NSError **)error;
-+ (BOOL)deletePasswordForService:(NSString *)serviceName account:(NSString *)account accessGroup:(NSString *)accessGroup error:(NSError **)error;
-+ (BOOL)setPassword:(NSString *)password forService:(NSString *)serviceName account:(NSString *)account accessGroup:(NSString *)accessGroup error:(NSError **)error;
-+ (BOOL)setPasswordData:(NSData *)password forService:(NSString *)serviceName account:(NSString *)account accessGroup:(NSString *)accessGroup error:(NSError **)error;
++ (NSArray *)accountsForService:(NSString *)service accessGroup:(NSString *)group error:(NSError **)error;
++ (NSString *)passwordForService:(NSString *)service account:(NSString *)account accessGroup:(NSString *)group error:(NSError **)error;
++ (NSData *)passwordDataForService:(NSString *)service account:(NSString *)account accessGroup:(NSString *)group error:(NSError **)error;
++ (BOOL)deletePasswordForService:(NSString *)service account:(NSString *)account accessGroup:(NSString *)group error:(NSError **)error;
++ (BOOL)setPassword:(NSString *)password forService:(NSString *)service account:(NSString *)account accessGroup:(NSString *)group error:(NSError **)error;
++ (BOOL)setPasswordData:(NSData *)password forService:(NSString *)service account:(NSString *)account accessGroup:(NSString *)group error:(NSError **)error;
 
 @end
 
 @implementation SSKeychain
 
-#pragma mark - Getting Accounts
+#pragma mark - Classic methods
 
-+ (NSArray *)allAccounts {
-    return [self accountsForService:nil error:nil];
++ (NSString *)passwordForService:(NSString *)serviceName account:(NSString *)account {
+	return [self passwordForService:serviceName account:account error:nil];
 }
 
 
-+ (NSArray *)allAccounts:(NSError **)error {
-    return [self accountsForService:nil error:error];
++ (BOOL)deletePasswordForService:(NSString *)serviceName account:(NSString *)account {
+    return [self deletePasswordForService:serviceName account:account error:nil];
 }
 
 
-+ (NSArray *)accountsForService:(NSString *)service {
-    return [self accountsForService:service error:nil];
++ (BOOL)setPassword:(NSString *)password forService:(NSString *)serviceName account:(NSString *)account {
+	return [self setPassword:password forService:serviceName account:account error:nil];
 }
 
 
-+ (NSArray *)accountsForService:(NSString *)serviceName error:(NSError **)error {
-    return [self accountsForService:serviceName accessGroup:nil error:error];
+#pragma mark - Get accounts
+
++ (NSArray *)accountsForService:(NSString *)service error:(NSError **)error {
+    return [self accountsForService:service accessGroup:nil error:error];
 }
 
 
-+ (NSArray *)accountsForService:(NSString *)service
-                    accessGroup:(NSString *)accessGroup
-                          error:(NSError **)error {
++ (NSArray *)accountsForService:(NSString *)service accessGroup:(NSString *)group error:(NSError **)error {
     OSStatus status = SSKeychainErrorBadArguments;
-    NSMutableDictionary *query = [self _queryForService:service account:nil accessGroup:accessGroup];
+    NSMutableDictionary *query = [self _queryForService:service account:nil accessGroup:group];
     query[(id)kSecReturnAttributes] = (id)kCFBooleanTrue;
     query[(id)kSecMatchLimit] = (id)kSecMatchLimitAll;
 	
@@ -91,28 +90,22 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 }
 
 
-#pragma mark - Getting Passwords
+#pragma mark - Get passwords
 
-+ (NSString *)passwordForService:(NSString *)service account:(NSString *)account {
-	return [self passwordForService:service account:account error:nil];
++ (NSString *)passwordForService:(NSString *)service account:(NSString *)account error:(NSError **)error {
+    return [self passwordForService:service account:account accessGroup:nil error:error];
 }
 
 
-+ (NSString *)passwordForService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error {
-    return [self passwordForService:serviceName account:account accessGroup:nil error:error];
++ (NSData *)passwordDataForService:(NSString *)service account:(NSString *)account error:(NSError **)error {
+    return [self passwordDataForService:service account:account accessGroup:nil error:error];
 }
 
 
-+ (NSString *)passwordForService:(NSString *)service
-                         account:(NSString *)account
-                     accessGroup:(NSString *)accessGroup
-                           error:(NSError **)error {
-    NSData *data = [self passwordDataForService:service
-                                        account:account
-                                    accessGroup:accessGroup
-                                          error:error];
-	if (data.length > 0) {
-		NSString *string = [[NSString alloc] initWithData:(NSData *)data encoding:NSUTF8StringEncoding];
++ (NSString *)passwordForService:(NSString *)service account:(NSString *)account accessGroup:(NSString *)group error:(NSError **)error {
+    NSData *data = [self passwordDataForService:service account:account accessGroup:group error:error];
+	if ([data length]) {
+		NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         return SSKeychainAutorelease(string);
 	}
 	
@@ -120,20 +113,7 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 }
 
 
-+ (NSData *)passwordDataForService:(NSString *)service account:(NSString *)account {
-    return [self passwordDataForService:service account:account error:nil];
-}
-
-
-+ (NSData *)passwordDataForService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error {
-    return [self passwordDataForService:serviceName account:account accessGroup:nil error:error];
-}
-
-
-+ (NSData *)passwordDataForService:(NSString *)service
-                           account:(NSString *)account
-                       accessGroup:(NSString *)accessGroup
-                             error:(NSError **)error {
++ (NSData *)passwordDataForService:(NSString *)service account:(NSString *)account accessGroup:(NSString *)group error:(NSError **)error {
     OSStatus status = SSKeychainErrorBadArguments;
 	if (!service || !account) {
 		if (error) {
@@ -143,7 +123,7 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 	}
 	
 	CFTypeRef result = NULL;	
-	NSMutableDictionary *query = [self _queryForService:service account:account accessGroup:accessGroup];
+	NSMutableDictionary *query = [self _queryForService:service account:account accessGroup:group];
     query[(id)kSecReturnData] = (id)kCFBooleanTrue;
     query[(id)kSecMatchLimit] = (id)kSecMatchLimitOne;
     status = SecItemCopyMatching((SSKeychainBridgedCast(CFDictionaryRef))query, &result);
@@ -157,25 +137,18 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 }
 
 
-#pragma mark - Deleting Passwords
+#pragma mark - Delete Passwords
 
-+ (BOOL)deletePasswordForService:(NSString *)service account:(NSString *)account {
-	return [self deletePasswordForService:service account:account error:nil];
+
++ (BOOL)deletePasswordForService:(NSString *)service account:(NSString *)account error:(NSError **)error {
+    return [self deletePasswordForService:service account:account accessGroup:nil error:error];
 }
 
 
-+ (BOOL)deletePasswordForService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error {
-    return [self deletePasswordForService:serviceName account:account accessGroup:nil error:error];
-}
-
-
-+ (BOOL)deletePasswordForService:(NSString *)service
-                         account:(NSString *)account
-                     accessGroup:(NSString *)accessGroup
-                           error:(NSError **)error {
++ (BOOL)deletePasswordForService:(NSString *)service account:(NSString *)account accessGroup:(NSString *)group error:(NSError **)error {
 	OSStatus status = SSKeychainErrorBadArguments;
 	if (service && account) {
-        NSMutableDictionary *query = [self _queryForService:service account:account accessGroup:accessGroup];
+        NSMutableDictionary *query = [self _queryForService:service account:account accessGroup:group];
 #if TARGET_OS_IPHONE
         status = SecItemDelete((SSKeychainBridgedCast(CFDictionaryRef))query);
 #else
@@ -197,25 +170,21 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 }
 
 
-#pragma mark - Setting Passwords
+#pragma mark - Set Passwords
 
-+ (BOOL)setPassword:(NSString *)password forService:(NSString *)service account:(NSString *)account {
-	return [self setPassword:password forService:service account:account error:nil];
++ (BOOL)setPassword:(NSString *)password forService:(NSString *)service account:(NSString *)account error:(NSError **)error {
+    return [self setPassword:password forService:service account:account accessGroup:nil error:error];
 }
 
 
-+ (BOOL)setPassword:(NSString *)password forService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error {
-    return [self setPassword:password forService:serviceName account:account accessGroup:nil error:error];
++ (BOOL)setPasswordData:(NSData *)password forService:(NSString *)service account:(NSString *)account error:(NSError **)error {
+    return [self setPasswordData:password forService:service account:account accessGroup:nil error:error];
 }
 
 
-+ (BOOL)setPassword:(NSString *)password
-         forService:(NSString *)service
-            account:(NSString *)account
-        accessGroup:(NSString *)accessGroup
-              error:(NSError **)error {
++ (BOOL)setPassword:(NSString *)password forService:(NSString *)service account:(NSString *)account accessGroup:(NSString *)group error:(NSError **)error {
     NSData *data = [password dataUsingEncoding:NSUTF8StringEncoding];
-    return [self setPasswordData:data forService:service account:account accessGroup:accessGroup error:error];
+    return [self setPasswordData:data forService:service account:account accessGroup:group error:error];
 }
 
 
@@ -224,22 +193,11 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 }
 
 
-+ (BOOL)setPasswordData:(NSData *)password forService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error {
-    return [self setPasswordData:password forService:serviceName account:account accessGroup:nil error:error];
-}
-
-
-+ (BOOL)setPasswordData:(NSData *)password
-             forService:(NSString *)service
-                account:(NSString *)account
-            accessGroup:(NSString *)accessGroup
-                  error:(NSError **)error {
++ (BOOL)setPasswordData:(NSData *)password forService:(NSString *)service account:(NSString *)account accessGroup:(NSString *)group error:(NSError **)error {
     OSStatus status = SSKeychainErrorBadArguments;
 	if (password && service && account) {
         [self deletePasswordForService:service account:account];
-        NSMutableDictionary *query = [self _queryForService:service
-                                                    account:account
-                                                accessGroup:accessGroup];
+        NSMutableDictionary *query = [self _queryForService:service account:account accessGroup:group];
         query[(id)kSecValueData] = password;
 		
 #if __IPHONE_4_0 && TARGET_OS_IPHONE
