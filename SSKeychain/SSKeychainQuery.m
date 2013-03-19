@@ -59,8 +59,9 @@
         query[(SSKeychainBridgedCast(id))kSecAttrLabel] = self.label;
     }
 #if __IPHONE_4_0 && TARGET_OS_IPHONE
-    if (SSKeychainAccessibilityType) {
-        query[(SSKeychainBridgedCast(id))kSecAttrAccessible] = (id)[SSKeychain accessibilityType];
+	CFTypeRef accessibilityType = [SSKeychain accessibilityType];
+    if (accessibilityType) {
+        query[(SSKeychainBridgedCast(id))kSecAttrAccessible] = (SSKeychainBridgedCast(id))accessibilityType;
     }
 #endif
     status = SecItemAdd((SSKeychainBridgedCast(CFDictionaryRef))query, NULL);
