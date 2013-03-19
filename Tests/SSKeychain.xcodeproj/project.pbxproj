@@ -10,8 +10,6 @@
 		21D08CD616B4E1A500F41F3A /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D08CD516B4E1A500F41F3A /* SSKeychain.m */; };
 		21D08CDB16B4E20300F41F3A /* SSKeychainTestsARC-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21D08CDA16B4E20300F41F3A /* SSKeychainTestsARC-Info.plist */; };
 		21D08CE016B4E2B500F41F3A /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D08CD516B4E1A500F41F3A /* SSKeychain.m */; };
-		3B10BA0016F804C100066B6A /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B10B9FF16F804C100066B6A /* SSKeychainQuery.m */; };
-		3B10BA0116F804C100066B6A /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B10B9FF16F804C100066B6A /* SSKeychainQuery.m */; };
 		B2059B5D1559058C003D2FAC /* SSKeychainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A5FACE143AC25C000F6011 /* SSKeychainTests.m */; };
 		B2059B601559058C003D2FAC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25737E4143AC308003FACED /* Security.framework */; };
 		B2059B611559058C003D2FAC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A5FAB1143AC134000F6011 /* SenTestingKit.framework */; };
@@ -26,8 +24,6 @@
 		21D08CD416B4E1A500F41F3A /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
 		21D08CD516B4E1A500F41F3A /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
 		21D08CDA16B4E20300F41F3A /* SSKeychainTestsARC-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SSKeychainTestsARC-Info.plist"; sourceTree = SOURCE_ROOT; };
-		3B10B9FE16F804C100066B6A /* SSKeychainQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychainQuery.h; sourceTree = "<group>"; };
-		3B10B9FF16F804C100066B6A /* SSKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainQuery.m; sourceTree = "<group>"; };
 		B2059B681559058C003D2FAC /* SSKeychainTestsARC.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSKeychainTestsARC.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B25737E4143AC308003FACED /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		B2A5FA93143AC133000F6011 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -69,8 +65,6 @@
 			children = (
 				21D08CD416B4E1A500F41F3A /* SSKeychain.h */,
 				21D08CD516B4E1A500F41F3A /* SSKeychain.m */,
-				3B10B9FE16F804C100066B6A /* SSKeychainQuery.h */,
-				3B10B9FF16F804C100066B6A /* SSKeychainQuery.m */,
 			);
 			name = SSKeychain;
 			path = ../SSKeychain;
@@ -246,7 +240,6 @@
 			files = (
 				B2059B5D1559058C003D2FAC /* SSKeychainTests.m in Sources */,
 				21D08CE016B4E2B500F41F3A /* SSKeychain.m in Sources */,
-				3B10BA0116F804C100066B6A /* SSKeychainQuery.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,7 +249,6 @@
 			files = (
 				B2A5FAD0143AC25C000F6011 /* SSKeychainTests.m in Sources */,
 				21D08CD616B4E1A500F41F3A /* SSKeychain.m in Sources */,
-				3B10BA0016F804C100066B6A /* SSKeychainQuery.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

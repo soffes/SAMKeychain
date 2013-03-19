@@ -8,7 +8,7 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-#import "SSKeychainQuery.h"
+#import "SSKeychain.h"
 
 static NSString *kSSToolkitTestsServiceName = @"SSToolkitTestService";
 static NSString *kSSToolkitTestsAccountName = @"SSToolkitTestAccount";
