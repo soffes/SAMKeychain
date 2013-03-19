@@ -121,13 +121,13 @@ NSString *const kSSKeychainWhereKey = @"svce";
     [self delete:nil];
     
     NSMutableDictionary *query = [self query];
-    query[(id)kSecValueData] = self.passwordData;
+    query[(SSKeychainBridgedCast(id))kSecValueData] = self.passwordData;
     if (self.label) {
-        query[(id)kSecAttrLabel] = self.label;
+        query[(SSKeychainBridgedCast(id))kSecAttrLabel] = self.label;
     }
 #if __IPHONE_4_0 && TARGET_OS_IPHONE
     if (SSKeychainAccessibilityType) {
-        query[(id)kSecAttrAccessible] = (id)[SSKeychain accessibilityType];
+        query[(SSKeychainBridgedCast(id))kSecAttrAccessible] = (id)[SSKeychain accessibilityType];
     }
 #endif
     status = SecItemAdd((SSKeychainBridgedCast(CFDictionaryRef))query, NULL);
@@ -173,8 +173,8 @@ NSString *const kSSKeychainWhereKey = @"svce";
 - (NSArray *)fetchAll:(NSError **)error {
     OSStatus status = SSKeychainErrorBadArguments;
     NSMutableDictionary *query = [self query];
-    query[(id)kSecReturnAttributes] = (id)kCFBooleanTrue;
-    query[(id)kSecMatchLimit] = (id)kSecMatchLimitAll;
+    query[(SSKeychainBridgedCast(id))kSecReturnAttributes] = (SSKeychainBridgedCast(id))kCFBooleanTrue;
+    query[(SSKeychainBridgedCast(id))kSecMatchLimit] = (SSKeychainBridgedCast(id))kSecMatchLimitAll;
 	
 	CFTypeRef result = NULL;
     status = SecItemCopyMatching((SSKeychainBridgedCast(CFDictionaryRef))query, &result);
@@ -198,8 +198,8 @@ NSString *const kSSKeychainWhereKey = @"svce";
 	
 	CFTypeRef result = NULL;
 	NSMutableDictionary *query = [self query];
-    query[(id)kSecReturnData] = (id)kCFBooleanTrue;
-    query[(id)kSecMatchLimit] = (id)kSecMatchLimitOne;
+    query[(SSKeychainBridgedCast(id))kSecReturnData] = (SSKeychainBridgedCast(id))kCFBooleanTrue;
+    query[(SSKeychainBridgedCast(id))kSecMatchLimit] = (SSKeychainBridgedCast(id))kSecMatchLimitOne;
     status = SecItemCopyMatching((SSKeychainBridgedCast(CFDictionaryRef))query, &result);
 	
 	if (status != errSecSuccess && error != NULL) {
@@ -239,19 +239,19 @@ NSString *const kSSKeychainWhereKey = @"svce";
 
 - (NSMutableDictionary *)query {
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithCapacity:3];
-    dictionary[(id)kSecClass] = (id)kSecClassGenericPassword;
+    dictionary[(SSKeychainBridgedCast(id))kSecClass] = (SSKeychainBridgedCast(id))kSecClassGenericPassword;
     
     if (self.service) {
-        dictionary[(id)kSecAttrService] = self.service;
+        dictionary[(SSKeychainBridgedCast(id))kSecAttrService] = self.service;
     }
     
     if (self.account) {
-        dictionary[(id)kSecAttrAccount] = self.account;
+        dictionary[(SSKeychainBridgedCast(id))kSecAttrAccount] = self.account;
     }
     
 #if __IPHONE_3_0 && TARGET_OS_IPHONE
     if (self.accessGroup) {
-        dictionary[(id)kSecAttrAccessGroup] = self.accessGroup;
+        dictionary[(SSKeychainBridgedCast(id))kSecAttrAccessGroup] = self.accessGroup;
     }
 #endif
     
