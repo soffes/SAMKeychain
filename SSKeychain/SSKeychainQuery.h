@@ -20,13 +20,26 @@ typedef enum {
     
 } SSKeychainErrorCode;
 
+/** SSKeychain error domain */
 extern NSString * const SSKeychainErrorDomain;
 
 @interface SSKeychainQuery : NSObject
 
+/** kSecAttrAccount */
 @property (nonatomic, copy) NSString *account;
+
+/** kSecAttrService */
 @property (nonatomic, copy) NSString *service;
+
+/** kSecAttrLabel */
+@property (nonatomic, copy) NSString *label;
+
+/** kSecAttrAccessGroup (only used on iOS) */
 @property (nonatomic, copy) NSString *accessGroup;
+
+/**
+ You do not need to set both of these.
+ */
 @property (nonatomic, copy) NSString *password;
 @property (nonatomic, copy) NSData *passwordData;
 

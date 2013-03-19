@@ -60,6 +60,9 @@ NSString * const SSKeychainErrorDomain = @"com.samsoffes.sskeychain";
     
     NSMutableDictionary *query = [self query];
     query[(id)kSecValueData] = self.passwordData;
+    if (self.label) {
+        query[(id)kSecAttrLabel] = self.label;
+    }
 #if __IPHONE_4_0 && TARGET_OS_IPHONE
     if (SSKeychainAccessibilityType) {
         query[(id)kSecAttrAccessible] = (id)[self accessibilityType];
