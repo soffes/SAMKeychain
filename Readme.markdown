@@ -7,7 +7,7 @@ This was originally inspired by EMKeychain and SDKeychain (both of which are now
 ## Adding to your project
 
 1. Add `Security.framework` to your target
-2. Add `SSKeychain.h` and `SSKeychain.m` to your project.
+2. Add `SSKeychain.h`, `SSKeychain.m`, `SSKeychainQuery.h`, and `SSKeychainQuery.m` to your project.
 
 You don't need to do anything regarding ARC. SSKeychain will detect if you're not using ARC and add the required memory management code.
 
@@ -25,7 +25,7 @@ SSKeychain has the following class methods for working with the system keychain:
 + (BOOL)setPassword:(NSString *)password forService:(NSString *)serviceName account:(NSString *)account;
 ```
 
-Easy as that. (See [SSKeychain.h](https://github.com/samsoffes/sskeychain/blob/master/SSKeychain.h) for all of the methods.)
+Easy as that. (See [SSKeychain.h](https://github.com/soffes/sskeychain/blob/master/SSKeychain/SSKeychain.h) and [SSKeychainQuery.h](https://github.com/soffes/sskeychain/blob/master/SSKeychain/SSKeychainQuery.h)) for all of the methods.)
 
 ## Documentation
 
