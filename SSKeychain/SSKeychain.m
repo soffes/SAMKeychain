@@ -18,7 +18,18 @@ NSString *const kSSKeychainLabelKey = @"labl";
 NSString *const kSSKeychainLastModifiedKey = @"mdat";
 NSString *const kSSKeychainWhereKey = @"svce";
 
-#if __IPHONE_4_0 && TARGET_OS_IPHONE  
+#if __has_feature(objc_arc)
+    #define SSKeychainBridgedCast(type) __bridge type
+    #define SSKeychainBridgeTransferCast(type) __bridge_transfer type
+    #define SSKeychainAutorelease(stmt) stmt
+#else
+    #define SSKeychainBridgedCast(type) type
+    #define SSKeychainBridgeTransferCast(type) type
+    #define SSKeychainAutorelease(stmt) [stmt autorelease]
+#endif
+
+
+#if __IPHONE_4_0 && TARGET_OS_IPHONE
 CFTypeRef SSKeychainAccessibilityType = NULL;
 #endif
 
@@ -65,33 +76,18 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
                     accessGroup:(NSString *)accessGroup
                           error:(NSError **)error {
     OSStatus status = SSKeychainErrorBadArguments;
-    NSMutableDictionary *query = [self _queryForService:service
-                                                account:nil
-                                            accessGroup:accessGroup];
-#if __has_feature(objc_arc)
-	[query setObject:(__bridge id)kCFBooleanTrue forKey:(__bridge id)kSecReturnAttributes];
-    [query setObject:(__bridge id)kSecMatchLimitAll forKey:(__bridge id)kSecMatchLimit];
-#else
-    [query setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnAttributes];
-    [query setObject:(id)kSecMatchLimitAll forKey:(id)kSecMatchLimit];
-#endif
+    NSMutableDictionary *query = [self _queryForService:service account:nil accessGroup:accessGroup];
+    query[(id)kSecReturnAttributes] = (id)kCFBooleanTrue;
+    query[(id)kSecMatchLimit] = (id)kSecMatchLimitAll;
 	
 	CFTypeRef result = NULL;
-#if __has_feature(objc_arc)
-    status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &result);
-#else
-	status = SecItemCopyMatching((CFDictionaryRef)query, &result);
-#endif
+    status = SecItemCopyMatching((SSKeychainBridgedCast(CFDictionaryRef))query, &result);
     if (status != errSecSuccess && error != NULL) {
 		*error = [self _errorWithCode:status];
 		return nil;
 	}
-	
-#if __has_feature(objc_arc)
-	return (__bridge_transfer NSArray *)result;
-#else
-    return [(NSArray *)result autorelease];
-#endif
+    
+    return SSKeychainAutorelease((SSKeychainBridgeTransferCast(NSArray *))result);
 }
 
 
@@ -117,10 +113,7 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
                                           error:error];
 	if (data.length > 0) {
 		NSString *string = [[NSString alloc] initWithData:(NSData *)data encoding:NSUTF8StringEncoding];
-#if !__has_feature(objc_arc)
-		[string autorelease];
-#endif
-		return string;
+        return SSKeychainAutorelease(string);
 	}
 	
 	return nil;
@@ -150,29 +143,17 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
 	}
 	
 	CFTypeRef result = NULL;	
-	NSMutableDictionary *query = [self _queryForService:service
-                                                account:account
-                                            accessGroup:accessGroup];
-#if __has_feature(objc_arc)
-	[query setObject:(__bridge id)kCFBooleanTrue forKey:(__bridge id)kSecReturnData];
-	[query setObject:(__bridge id)kSecMatchLimitOne forKey:(__bridge id)kSecMatchLimit];
-	status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &result);
-#else
-	[query setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnData];
-	[query setObject:(id)kSecMatchLimitOne forKey:(id)kSecMatchLimit];
-	status = SecItemCopyMatching((CFDictionaryRef)query, &result);
-#endif
+	NSMutableDictionary *query = [self _queryForService:service account:account accessGroup:accessGroup];
+    query[(id)kSecReturnData] = (id)kCFBooleanTrue;
+    query[(id)kSecMatchLimit] = (id)kSecMatchLimitOne;
+    status = SecItemCopyMatching((SSKeychainBridgedCast(CFDictionaryRef))query, &result);
 	
 	if (status != errSecSuccess && error != NULL) {
 		*error = [self _errorWithCode:status];
 		return nil;
 	}
-	
-#if __has_feature(objc_arc)
-	return (__bridge_transfer NSData *)result;
-#else
-    return [(NSData *)result autorelease];
-#endif
+    
+    return SSKeychainAutorelease((SSKeychainBridgeTransferCast(NSData *))result);
 }
 
 
@@ -194,33 +175,25 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
                            error:(NSError **)error {
 	OSStatus status = SSKeychainErrorBadArguments;
 	if (service && account) {
-		NSMutableDictionary *query = [self _queryForService:service
-                                                    account:account
-                                                accessGroup:accessGroup];
-#if TARGET_OS_IPHONE && __has_feature(objc_arc)
-		status = SecItemDelete((__bridge CFDictionaryRef)query);
-#elif TARGET_OS_IPHONE
-		status = SecItemDelete((CFDictionaryRef)query);
+        NSMutableDictionary *query = [self _queryForService:service account:account accessGroup:accessGroup];
+#if TARGET_OS_IPHONE
+        status = SecItemDelete((SSKeychainBridgedCast(CFDictionaryRef))query);
 #else
-        CFTypeRef result;
-    #if __has_feature(objc_arc)
-        [query setObject:(__bridge id)kCFBooleanTrue forKey:(__bridge id)kSecReturnRef];
-        status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &result);
-    #else
-        [query setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnRef];
-        status = SecItemCopyMatching((CFDictionaryRef)query, &result);
-    #endif
-        if (errSecSuccess == status) {
-            status = SecKeychainItemDelete((SecKeychainItemRef) result);
+        CFTypeRef result = NULL;
+        query[(id)kSecReturnRef] = (id)kCFBooleanTrue;
+        status = SecItemCopyMatching((SSKeychainBridgedCast(CFDictionaryRef))query, &result);
+        if (status == errSecSuccess) {
+            status = SecKeychainItemDelete((SecKeychainItemRef)result);
             CFRelease(result);
         }
 #endif
-	}
-	if (status != errSecSuccess && error != NULL) {
-		*error = [self _errorWithCode:status];
-	}
-	return (status == errSecSuccess);
+        
+        if (status != errSecSuccess && error != NULL) {
+            *error = [self _errorWithCode:status];
+        }
+    }
     
+    return (status == errSecSuccess);
 }
 
 
@@ -267,31 +240,21 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
         NSMutableDictionary *query = [self _queryForService:service
                                                     account:account
                                                 accessGroup:accessGroup];
-#if __has_feature(objc_arc)
-		[query setObject:password forKey:(__bridge id)kSecValueData];
-#else
-		[query setObject:password forKey:(id)kSecValueData];
-#endif
+        query[(id)kSecValueData] = password;
 		
 #if __IPHONE_4_0 && TARGET_OS_IPHONE
 		if (SSKeychainAccessibilityType) {
-#if __has_feature(objc_arc)
-			[query setObject:(id)[self accessibilityType] forKey:(__bridge id)kSecAttrAccessible];
-#else
-			[query setObject:(id)[self accessibilityType] forKey:(id)kSecAttrAccessible];
-#endif
+            query[(id)kSecAttrAccessible] = (id)[self accessibilityType];
 		}
 #endif
-		
-#if __has_feature(objc_arc)
-        status = SecItemAdd((__bridge CFDictionaryRef)query, NULL);
-#else
-		status = SecItemAdd((CFDictionaryRef)query, NULL);
-#endif
+        
+        status = SecItemAdd((SSKeychainBridgedCast(CFDictionaryRef))query, NULL);
 	}
+    
 	if (status != errSecSuccess && error != NULL) {
 		*error = [self _errorWithCode:status];
 	}
+    
 	return (status == errSecSuccess);
 }
 
@@ -320,37 +283,22 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
                                   account:(NSString *)account
                               accessGroup:(NSString *)accessGroup {
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithCapacity:3];
-#if __has_feature(objc_arc)
-    [dictionary setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
-#else
-	[dictionary setObject:(id)kSecClassGenericPassword forKey:(id)kSecClass];
-#endif
-	
+    dictionary[(id)kSecClass] = (id)kSecClassGenericPassword;
+    
     if (service) {
-#if __has_feature(objc_arc)
-		[dictionary setObject:service forKey:(__bridge id)kSecAttrService];
-#else
-		[dictionary setObject:service forKey:(id)kSecAttrService];
-#endif
-	}
-	
+        dictionary[(id)kSecAttrService] = service;
+    }
+    
     if (account) {
-#if __has_feature(objc_arc)
-		[dictionary setObject:account forKey:(__bridge id)kSecAttrAccount];
-#else
-		[dictionary setObject:account forKey:(id)kSecAttrAccount];
-#endif
-	}
+        dictionary[(id)kSecAttrAccount] = account;
+    }
+    
 #if __IPHONE_3_0 && TARGET_OS_IPHONE
     if (accessGroup) {
-#if __has_feature(objc_arc)
-		[dictionary setObjec:accessGroup forKey:(__bridge id)kSecAttrAccessGroup];
-#else
-		[dictionary setObject:accessGroup forKey:(id)kSecAttrAccessGroup];
+        dictionary[(id)kSecAttrAccessGroup] = accessGroup;
+    }
 #endif
-	}
-#endif
-
+    
     return dictionary;
 }
 
@@ -372,12 +320,9 @@ CFTypeRef SSKeychainAccessibilityType = NULL;
         case errSecDecode: message = @"Unable to decode the provided data"; break;
         case errSecAuthFailed: message = @"The user name or passphrase you entered is not correct"; break;
         default: message = @"Refer to SecBase.h for description";
-#elif __has_feature(objc_arc)
-        default:
-            message = (__bridge_transfer NSString *)SecCopyErrorMessageString(code, NULL);
 #else
         default:
-            message = [(id) SecCopyErrorMessageString(code, NULL) autorelease];
+            message = SSKeychainAutorelease((SSKeychainBridgeTransferCast(NSString *))SecCopyErrorMessageString(code, NULL));
 #endif
     }
     
