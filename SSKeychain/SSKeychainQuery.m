@@ -13,11 +13,6 @@
 
 @implementation SSKeychainQuery
 
-@synthesize account = _account;
-@synthesize service = _service;
-@synthesize accessGroup = _accessGroup;
-@synthesize passwordData = _passwordData;
-
 #pragma mark - Public
 
 - (BOOL)save:(NSError **)error {
@@ -136,11 +131,6 @@
         return [[NSString alloc] initWithData:_passwordData encoding:NSUTF8StringEncoding];
     }
     return nil;
-}
-
-
-- (void)setPasswordData:(NSData *)data {
-    _passwordData = [data copy];
 }
 
 
