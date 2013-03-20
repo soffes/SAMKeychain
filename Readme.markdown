@@ -1,6 +1,6 @@
 # SSKeychain
 
-SSKeychain is a simple wrapper for accessing accounts, getting passwords, setting passwords, and deleting passwords using the system Keychain on Mac OS X and iOS. SSKeychain works in ARC and non-ARC projects.
+SSKeychain is a simple wrapper for accessing accounts, getting passwords, setting passwords, and deleting passwords using the system Keychain on Mac OS X and iOS.
 
 This was originally inspired by EMKeychain and SDKeychain (both of which are now gone). Thanks to the authors. SSKeychain has since switched to a simpler implementation that was abstracted from [SSToolkit](http://sstoolk.it).
 
@@ -9,7 +9,7 @@ This was originally inspired by EMKeychain and SDKeychain (both of which are now
 1. Add `Security.framework` to your target
 2. Add `SSKeychain.h`, `SSKeychain.m`, `SSKeychainQuery.h`, and `SSKeychainQuery.m` to your project.
 
-You don't need to do anything regarding ARC. SSKeychain will detect if you're not using ARC and add the required memory management code.
+SSKeychain requires ARC.
 
 Note: Currently SSKeychain does not support Mac OS 10.6.
 
@@ -35,7 +35,7 @@ Install the documentation into Xcode with the following steps:
 2. Choose Downloads
 3. Choose the Documentation tab
 4. Click the plus button in the bottom right and enter the following URL:
-    
+
         http://docs.samsoff.es/com.samsoffes.sskeychain.atom
 
 5. Click Install next the new row reading "SSKeychain Documentation". (If you don't see it and didn't get an error, try restarting Xcode.)

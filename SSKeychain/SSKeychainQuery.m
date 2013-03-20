@@ -11,34 +11,12 @@
 #import "SSKeychainQuery.h"
 #import "SSKeychain.h"
 
-#if __has_feature(objc_arc)
-    #define SSKeychainBridgedCast(type) __bridge type
-    #define SSKeychainBridgeTransferCast(type) __bridge_transfer type
-    #define SSKeychainAutorelease(stmt) stmt
-#else
-    #define SSKeychainBridgedCast(type) type
-    #define SSKeychainBridgeTransferCast(type) type
-    #define SSKeychainAutorelease(stmt) [stmt autorelease]
-#endif
-
 @implementation SSKeychainQuery
 
 @synthesize account = _account;
 @synthesize service = _service;
 @synthesize accessGroup = _accessGroup;
 @synthesize passwordData = _passwordData;
-
-#pragma mark - NSObject
-
-#if !__has_feature(objc_arc)
-- (void)dealloc {
-    [_account release]; _account = nil;
-    [_service release]; _service = nil;
-    [_accessGroup release]; _accessGroup = nil;
-    [_passwordData release]; _passwordData = nil;
-    [super dealloc];
-}
-#endif
 
 #pragma mark - Public
 
@@ -54,17 +32,17 @@
     [self delete:nil];
     
     NSMutableDictionary *query = [self query];
-    [query setObject:self.passwordData forKey:(SSKeychainBridgedCast(id))kSecValueData];
+    [query setObject:self.passwordData forKey:(__bridge id)kSecValueData];
     if (self.label) {
-        [query setObject:self.label forKey:(SSKeychainBridgedCast(id))kSecAttrLabel];
+        [query setObject:self.label forKey:(__bridge id)kSecAttrLabel];
     }
 #if __IPHONE_4_0 && TARGET_OS_IPHONE
 	CFTypeRef accessibilityType = [SSKeychain accessibilityType];
     if (accessibilityType) {
-        [query setObject:(SSKeychainBridgedCast(id))accessibilityType forKey:(SSKeychainBridgedCast(id))kSecAttrAccessible];
+        [query setObject:@(__bridge accessibilityType) forKey:@(__bridge kSecAttrAccessible)];
     }
 #endif
-    status = SecItemAdd((SSKeychainBridgedCast(CFDictionaryRef))query, NULL);
+    status = SecItemAdd((__bridge CFDictionaryRef)query, NULL);
     
 	if (status != errSecSuccess && error != NULL) {
 		*error = [[self class] errorWithCode:status];
@@ -88,8 +66,8 @@
     status = SecItemDelete((SSKeychainBridgedCast(CFDictionaryRef))query);
 #else
     CFTypeRef result = NULL;
-    [query setObject:(SSKeychainBridgedCast(id))kCFBooleanTrue forKey:(SSKeychainBridgedCast(id))kSecReturnRef];
-    status = SecItemCopyMatching((SSKeychainBridgedCast(CFDictionaryRef))query, &result);
+    [query setObject:@YES forKey:(__bridge id)kSecReturnRef];
+    status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &result);
     if (status == errSecSuccess) {
         status = SecKeychainItemDelete((SecKeychainItemRef)result);
         CFRelease(result);
@@ -107,17 +85,17 @@
 - (NSArray *)fetchAll:(NSError **)error {
     OSStatus status = SSKeychainErrorBadArguments;
     NSMutableDictionary *query = [self query];
-    [query setObject:(SSKeychainBridgedCast(id))kCFBooleanTrue forKey:(SSKeychainBridgedCast(id))kSecReturnAttributes];
-    [query setObject:(SSKeychainBridgedCast(id))kSecMatchLimitAll forKey:(SSKeychainBridgedCast(id))kSecMatchLimit];
+    [query setObject:@YES forKey:(__bridge id)kSecReturnAttributes];
+    [query setObject:(__bridge id)kSecMatchLimitAll forKey:(__bridge id)kSecMatchLimit];
 	
 	CFTypeRef result = NULL;
-    status = SecItemCopyMatching((SSKeychainBridgedCast(CFDictionaryRef))query, &result);
+    status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &result);
     if (status != errSecSuccess && error != NULL) {
 		*error = [[self class] errorWithCode:status];
 		return nil;
 	}
-    
-    return SSKeychainAutorelease((SSKeychainBridgeTransferCast(NSArray *))result);
+
+    return (__bridge NSArray *)result;
 }
 
 
@@ -132,16 +110,16 @@
 	
 	CFTypeRef result = NULL;
 	NSMutableDictionary *query = [self query];
-    [query setObject:(SSKeychainBridgedCast(id))kCFBooleanTrue forKey:(SSKeychainBridgedCast(id))kSecReturnData];
-    [query setObject:(SSKeychainBridgedCast(id))kSecMatchLimitOne forKey:(SSKeychainBridgedCast(id))kSecMatchLimit];
-    status = SecItemCopyMatching((SSKeychainBridgedCast(CFDictionaryRef))query, &result);
+    [query setObject:@YES forKey:(__bridge_transfer id)kSecReturnData];
+    [query setObject:(__bridge id)kSecMatchLimitOne forKey:(__bridge id)kSecMatchLimit];
+    status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &result);
 	
 	if (status != errSecSuccess && error != NULL) {
 		*error = [[self class] errorWithCode:status];
 		return NO;
 	}
     
-    self.passwordData = SSKeychainAutorelease((SSKeychainBridgeTransferCast(NSData *))result);
+    self.passwordData = (__bridge_transfer NSData *)result;
     return YES;
 }
 
@@ -155,16 +133,13 @@
 
 - (NSString *)password {
     if (_passwordData) {
-        return SSKeychainAutorelease([[NSString alloc] initWithData:_passwordData encoding:NSUTF8StringEncoding]);
+        return [[NSString alloc] initWithData:_passwordData encoding:NSUTF8StringEncoding];
     }
     return nil;
 }
 
 
 - (void)setPasswordData:(NSData *)data {
-#if !__has_feature(objc_arc)
-    [_passwordData release];
-#endif
     _passwordData = [data copy];
 }
 
@@ -173,19 +148,19 @@
 
 - (NSMutableDictionary *)query {
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithCapacity:3];
-    [dictionary setObject:(SSKeychainBridgedCast(id))kSecClassGenericPassword forKey:(SSKeychainBridgedCast(id))kSecClass];
+    [dictionary setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
     
     if (self.service) {
-        [dictionary setObject:self.service forKey:(SSKeychainBridgedCast(id))kSecAttrService];
+        [dictionary setObject:self.service forKey:(__bridge id)kSecAttrService];
     }
     
     if (self.account) {
-        [dictionary setObject:self.account forKey:(SSKeychainBridgedCast(id))kSecAttrAccount];
+        [dictionary setObject:self.account forKey:(__bridge id)kSecAttrAccount];
     }
     
 #if __IPHONE_3_0 && TARGET_OS_IPHONE
     if (self.accessGroup) {
-        [dictionary setObject:self.accessGroup forKey:(SSKeychainBridgedCast(id))kSecAttrAccessGroup];
+        [dictionary setObject:self.accessGroup forKey:(__bridge id)kSecAttrAccessGroup];
     }
 #endif
     
@@ -212,7 +187,7 @@
         default: message = @"Refer to SecBase.h for description";
 #else
         default:
-            message = SSKeychainAutorelease((SSKeychainBridgeTransferCast(NSString *))SecCopyErrorMessageString(code, NULL));
+            message = (__bridge_transfer NSString *)SecCopyErrorMessageString(code, NULL);
 #endif
     }
     

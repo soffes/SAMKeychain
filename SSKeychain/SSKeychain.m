@@ -17,12 +17,6 @@ NSString *const kSSKeychainLabelKey = @"labl";
 NSString *const kSSKeychainLastModifiedKey = @"mdat";
 NSString *const kSSKeychainWhereKey = @"svce";
 
-#if __has_feature(objc_arc)
-    #define SSKeychainAutorelease(stmt) stmt
-#else
-    #define SSKeychainAutorelease(stmt) [stmt autorelease]
-#endif
-
 #if __IPHONE_4_0 && TARGET_OS_IPHONE
     CFTypeRef SSKeychainAccessibilityType = NULL;
 #endif
@@ -30,7 +24,7 @@ NSString *const kSSKeychainWhereKey = @"svce";
 @implementation SSKeychain
 
 + (NSString *)passwordForService:(NSString *)serviceName account:(NSString *)account {
-    SSKeychainQuery *query = SSKeychainAutorelease([[SSKeychainQuery alloc] init]);
+    SSKeychainQuery *query = [[SSKeychainQuery alloc] init];
     query.service = serviceName;
     query.account = account;
     [query fetch:nil];
@@ -39,7 +33,7 @@ NSString *const kSSKeychainWhereKey = @"svce";
 
 
 + (BOOL)deletePasswordForService:(NSString *)serviceName account:(NSString *)account {
-    SSKeychainQuery *query = SSKeychainAutorelease([[SSKeychainQuery alloc] init]);
+    SSKeychainQuery *query = [[SSKeychainQuery alloc] init];
     query.service = serviceName;
     query.account = account;
     return [query delete:nil];
@@ -47,7 +41,7 @@ NSString *const kSSKeychainWhereKey = @"svce";
 
 
 + (BOOL)setPassword:(NSString *)password forService:(NSString *)serviceName account:(NSString *)account {
-    SSKeychainQuery *query = SSKeychainAutorelease([[SSKeychainQuery alloc] init]);
+    SSKeychainQuery *query = [[SSKeychainQuery alloc] init];
     query.service = serviceName;
     query.account = account;
     query.password = password;
@@ -61,7 +55,7 @@ NSString *const kSSKeychainWhereKey = @"svce";
 
 
 + (NSArray *)accountsForService:(NSString *)serviceName {
-    SSKeychainQuery *query = SSKeychainAutorelease([[SSKeychainQuery alloc] init]);
+    SSKeychainQuery *query = [[SSKeychainQuery alloc] init];
     query.service = serviceName;
     return [query fetchAll:nil];
 }
@@ -83,5 +77,3 @@ NSString *const kSSKeychainWhereKey = @"svce";
 #endif
 
 @end
-
-

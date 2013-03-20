@@ -1,7 +1,6 @@
 desc 'Run the tests'
 task :test do
   system 'xcodebuild -project Tests/SSKeychain.xcodeproj -scheme SSKeychainTests TEST_AFTER_BUILD=YES'
-  system 'xcodebuild -project Tests/SSKeychain.xcodeproj -scheme SSKeychainTestsARC TEST_AFTER_BUILD=YES'
 end
 
 task :default => :test

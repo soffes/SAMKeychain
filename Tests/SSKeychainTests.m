@@ -33,9 +33,6 @@ static NSString *kSSToolkitTestsPassword = @"SSToolkitTestPassword";
     query.service = kSSToolkitTestsServiceName;
     query.account = kSSToolkitTestsAccountName;
     STAssertTrue([query save:&error], @"Unable to save item: %@", error);
-#if !__has_feature(objc_arc)
-    [query release];
-#endif
     
     // check password
     query = [[SSKeychainQuery alloc] init];
@@ -43,9 +40,6 @@ static NSString *kSSToolkitTestsPassword = @"SSToolkitTestPassword";
     query.account = kSSToolkitTestsAccountName;
     STAssertTrue([query fetch:&error], @"Unable to fetch keychain item: %@", error);
     STAssertEqualObjects(query.password, kSSToolkitTestsPassword, @"Passwords were not equal");
-#if !__has_feature(objc_arc)
-    [query release];
-#endif
     
     // check all accounts
     query = [[SSKeychainQuery alloc] init];
@@ -58,18 +52,12 @@ static NSString *kSSToolkitTestsPassword = @"SSToolkitTestPassword";
     accounts = [query fetchAll:&error];
     STAssertNotNil(accounts, @"Unable to fetch accounts: %@", error);
     STAssertTrue([self _accounts:accounts containsAccountWithName:kSSToolkitTestsAccountName], @"Matching account was not returned");
-#if !__has_feature(objc_arc)
-    [query release];
-#endif
     
     // delete password
     query = [[SSKeychainQuery alloc] init];
     query.service = kSSToolkitTestsServiceName;
     query.account = kSSToolkitTestsAccountName;
     STAssertTrue([query delete:&error], @"Unable to delete password: %@", error);
-#if !__has_feature(objc_arc)
-    [query release];
-#endif
 }
 
 
