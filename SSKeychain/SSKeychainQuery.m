@@ -34,7 +34,7 @@
 #if __IPHONE_4_0 && TARGET_OS_IPHONE
 	CFTypeRef accessibilityType = [SSKeychain accessibilityType];
     if (accessibilityType) {
-        [query setObject:@(__bridge accessibilityType) forKey:@(__bridge kSecAttrAccessible)];
+        [query setObject:(__bridge id)accessibilityType forKey:(__bridge id)kSecAttrAccessible];
     }
 #endif
     status = SecItemAdd((__bridge CFDictionaryRef)query, NULL);
@@ -58,7 +58,7 @@
     
     NSMutableDictionary *query = [self query];
 #if TARGET_OS_IPHONE
-    status = SecItemDelete((SSKeychainBridgedCast(CFDictionaryRef))query);
+    status = SecItemDelete((__bridge CFDictionaryRef)query);
 #else
     CFTypeRef result = NULL;
     [query setObject:@YES forKey:(__bridge id)kSecReturnRef];
