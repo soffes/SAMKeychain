@@ -7,6 +7,7 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+
 #import "SSKeychain.h"
 
 static NSString *kSSToolkitTestsServiceName = @"SSToolkitTestService";
@@ -22,22 +23,41 @@ static NSString *kSSToolkitTestsPassword = @"SSToolkitTestPassword";
 @implementation SSKeychainTests
 
 - (void)testAll {
-	// Getting & Setings Passwords
-	[SSKeychain setPassword:kSSToolkitTestsPassword forService:kSSToolkitTestsServiceName account:kSSToolkitTestsAccountName];
-	NSString *password = [SSKeychain passwordForService:kSSToolkitTestsServiceName account:kSSToolkitTestsAccountName];
-	STAssertEqualObjects(password, kSSToolkitTestsPassword, @"Password reads and writes");
-	
-	// Getting Accounts
-	NSArray *accounts = [SSKeychain allAccounts];
-	STAssertTrue([self _accounts:accounts containsAccountWithName:kSSToolkitTestsAccountName], @"All accounts");
-
-	accounts = [SSKeychain accountsForService:kSSToolkitTestsServiceName];
-	STAssertTrue([self _accounts:accounts containsAccountWithName:kSSToolkitTestsAccountName], @"Account for service");
-	
-	// Deleting Passwords
-	[SSKeychain deletePasswordForService:kSSToolkitTestsServiceName account:kSSToolkitTestsAccountName];
-	password = [SSKeychain passwordForService:kSSToolkitTestsServiceName account:kSSToolkitTestsAccountName];
-	STAssertNil(password, @"Password deletes");
+    SSKeychainQuery *query = nil;
+    NSError *error = nil;
+    NSArray *accounts = nil;
+    
+    // create a new keychain item
+    query = [[SSKeychainQuery alloc] init];
+    query.password = kSSToolkitTestsPassword;
+    query.service = kSSToolkitTestsServiceName;
+    query.account = kSSToolkitTestsAccountName;
+    STAssertTrue([query save:&error], @"Unable to save item: %@", error);
+    
+    // check password
+    query = [[SSKeychainQuery alloc] init];
+    query.service = kSSToolkitTestsServiceName;
+    query.account = kSSToolkitTestsAccountName;
+    STAssertTrue([query fetch:&error], @"Unable to fetch keychain item: %@", error);
+    STAssertEqualObjects(query.password, kSSToolkitTestsPassword, @"Passwords were not equal");
+    
+    // check all accounts
+    query = [[SSKeychainQuery alloc] init];
+    accounts = [query fetchAll:&error];
+    STAssertNotNil(accounts, @"Unable to fetch accounts: %@", error);
+    STAssertTrue([self _accounts:accounts containsAccountWithName:kSSToolkitTestsAccountName], @"Matching account was not returned");
+    
+    // check accounts for service
+    query.service = kSSToolkitTestsServiceName;
+    accounts = [query fetchAll:&error];
+    STAssertNotNil(accounts, @"Unable to fetch accounts: %@", error);
+    STAssertTrue([self _accounts:accounts containsAccountWithName:kSSToolkitTestsAccountName], @"Matching account was not returned");
+    
+    // delete password
+    query = [[SSKeychainQuery alloc] init];
+    query.service = kSSToolkitTestsServiceName;
+    query.account = kSSToolkitTestsAccountName;
+    STAssertTrue([query delete:&error], @"Unable to delete password: %@", error);
 }
 
 

@@ -1,7 +1,16 @@
 desc 'Run the tests'
 task :test do
-  system 'xcodebuild -project Tests/SSKeychain.xcodeproj -scheme SSKeychainTests TEST_AFTER_BUILD=YES'
-  system 'xcodebuild -project Tests/SSKeychain.xcodeproj -scheme SSKeychainTestsARC TEST_AFTER_BUILD=YES'
+  command = 'xcodebuild -project Tests/SSKeychain.xcodeproj -scheme SSKeychainTests TEST_AFTER_BUILD=YES 2>&1'
+  IO.popen(command) do |io|
+    while line = io.gets do
+      puts line
+      if line == "** BUILD SUCCEEDED **\n"
+        exit 0
+      elsif line == "** BUILD FAILED **\n"
+        exit 1
+      end
+    end
+  end
 end
 
 task :default => :test
