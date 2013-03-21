@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Security/Security.h>
 
 /**
  Simple interface for querying or modifying keychain items.
