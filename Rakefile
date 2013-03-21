@@ -1,16 +1,7 @@
 desc 'Run the tests'
 task :test do
-  command = 'xcodebuild -project Tests/SSKeychain.xcodeproj -scheme SSKeychainTests TEST_AFTER_BUILD=YES 2>&1'
-  IO.popen(command) do |io|
-    while line = io.gets do
-      puts line
-      if line == "** BUILD SUCCEEDED **\n"
-        exit 0
-      elsif line == "** BUILD FAILED **\n"
-        exit 1
-      end
-    end
-  end
+  test_scheme 'SSKeychainTests-Mac'
+  test_scheme 'SSKeychainTests-iOS'
 end
 
 task :default => :test
@@ -50,5 +41,19 @@ namespace :docs do
       '--docset-package-url  http://docs.samsoff.es/%DOCSETPACKAGEFILENAME'
       ]
     `appledoc #{appledoc_options.join(' ')} #{extra_options.join(' ')} #{header_path}`
+  end
+end
+
+def test_scheme(scheme)
+  command = "xcodebuild -project Tests/SSKeychain.xcodeproj -scheme #{scheme} TEST_AFTER_BUILD=YES 2>&1"
+  IO.popen(command) do |io|
+    while line = io.gets do
+      puts line
+      if line == "** BUILD SUCCEEDED **\n"
+        return 0
+      elsif line == "** BUILD FAILED **\n"
+        return 1
+      end
+    end
   end
 end

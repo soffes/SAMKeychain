@@ -13,9 +13,19 @@
 
 @implementation SSKeychainQuery
 
+@synthesize account = _account;
+@synthesize service = _service;
+@synthesize label = _label;
+@synthesize passwordData = _passwordData;
+
+#if __IPHONE_3_0 && TARGET_OS_IPHONE
+@synthesize accessGroup = _accessGroup;
+#endif
+
+
 #pragma mark - Public
 
-- (BOOL)save:(NSError **)error {
+- (BOOL)save:(NSError *__autoreleasing *)error {
     OSStatus status = SSKeychainErrorBadArguments;
     if (!self.service || !self.account || !self.passwordData) {
 		if (error) {
@@ -47,7 +57,7 @@
 }
 
 
-- (BOOL)delete:(NSError **)error {
+- (BOOL)delete:(NSError *__autoreleasing *)error {
     OSStatus status = SSKeychainErrorBadArguments;
     if (!self.service || !self.account) {
 		if (error) {
@@ -77,7 +87,7 @@
 }
 
 
-- (NSArray *)fetchAll:(NSError **)error {
+- (NSArray *)fetchAll:(NSError *__autoreleasing *)error {
     OSStatus status = SSKeychainErrorBadArguments;
     NSMutableDictionary *query = [self query];
     [query setObject:@YES forKey:(__bridge id)kSecReturnAttributes];
@@ -94,7 +104,7 @@
 }
 
 
-- (BOOL)fetch:(NSError **)error {
+- (BOOL)fetch:(NSError *__autoreleasing *)error {
     OSStatus status = SSKeychainErrorBadArguments;
 	if (!self.service || !self.account) {
 		if (error) {
@@ -127,8 +137,8 @@
 
 
 - (NSString *)password {
-    if (_passwordData) {
-        return [[NSString alloc] initWithData:_passwordData encoding:NSUTF8StringEncoding];
+    if (self.passwordData) {
+        return [[NSString alloc] initWithData:self.passwordData encoding:NSUTF8StringEncoding];
     }
     return nil;
 }
