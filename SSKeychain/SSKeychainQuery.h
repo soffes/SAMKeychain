@@ -28,11 +28,20 @@
 @property (nonatomic, copy) NSString *accessGroup;
 #endif
 
+/** Root storage for password information */
+@property (nonatomic, copy) NSData *passwordData;
+
 /**
- You do not need to set both of these.
+ This property automatically transitions between an object and the value of 
+ `passwordData` using NSKeyedArchiver and NSKeyedUnarchiver.
+ */
+@property (nonatomic, copy) id<NSCoding> passwordObject;
+
+/**
+ Convenience accessor for setting and getting a password string. This simply
+ calls to `passwordObject`.
  */
 @property (nonatomic, copy) NSString *password;
-@property (nonatomic, copy) NSData *passwordData;
 
 /**
  Save the receiver's attributes as a keychain item. Existing items with the
