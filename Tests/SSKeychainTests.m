@@ -41,6 +41,21 @@ static NSString *kSSToolkitTestsPassword = @"SSToolkitTestPassword";
     STAssertTrue([query fetch:&error], @"Unable to fetch keychain item: %@", error);
     STAssertEqualObjects(query.password, kSSToolkitTestsPassword, @"Passwords were not equal");
     
+    // set password to a dictionary
+    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                [NSNumber numberWithInteger:1], @"number",
+                                @"4 8 15 16 23 42", @"string",
+                                nil];
+    query.passwordObject = dictionary;
+    STAssertTrue([query save:&error], @"Unable to save item: %@", error);
+    
+    // check password
+    query = [[SSKeychainQuery alloc] init];
+    query.service = kSSToolkitTestsServiceName;
+    query.account = kSSToolkitTestsAccountName;
+    STAssertTrue([query fetch:&error], @"Unable to fetch keychain item: %@", error);
+    STAssertEqualObjects(query.passwordObject, dictionary, @"Passwords were not equal");
+    
     // check all accounts
     query = [[SSKeychainQuery alloc] init];
     accounts = [query fetchAll:&error];
