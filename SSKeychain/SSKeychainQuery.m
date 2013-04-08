@@ -135,17 +135,23 @@
 
 
 - (id<NSCoding>)passwordObject {
-    return [NSKeyedUnarchiver unarchiveObjectWithData:self.passwordData];
+    if ([self.passwordData length]) {
+        return [NSKeyedUnarchiver unarchiveObjectWithData:self.passwordData];
+    }
+    return nil;
 }
 
 
 - (void)setPassword:(NSString *)password {
-    self.passwordObject = password;
+    self.passwordData = [password dataUsingEncoding:NSUTF8StringEncoding];
 }
 
 
 - (NSString *)password {
-    return (id)self.passwordObject;
+    if ([self.passwordData length]) {
+        return [[NSString alloc] initWithData:self.passwordData encoding:NSUTF8StringEncoding];
+    }
+    return nil;
 }
 
 

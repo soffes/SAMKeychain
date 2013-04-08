@@ -38,8 +38,8 @@
 @property (nonatomic, copy) id<NSCoding> passwordObject;
 
 /**
- Convenience accessor for setting and getting a password string. This simply
- calls to `passwordObject`.
+ Convenience accessor for setting and getting a password string. Passes through
+ to `passwordData` using UTF-8 string encoding.
  */
 @property (nonatomic, copy) NSString *password;
 
