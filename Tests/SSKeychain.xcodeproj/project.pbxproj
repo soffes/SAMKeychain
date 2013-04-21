@@ -130,7 +130,7 @@
 				21261F0216FB97B2000F3341 /* SSKeychainTests-Mac-Info.plist */,
 				21261F1216FB97B9000F3341 /* SSKeychainTests-iOS-Info.plist */,
 			);
-			path = SSKeychainTests;
+			name = SSKeychainTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

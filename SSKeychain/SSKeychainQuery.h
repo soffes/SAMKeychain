@@ -35,7 +35,7 @@
  This property automatically transitions between an object and the value of 
  `passwordData` using NSKeyedArchiver and NSKeyedUnarchiver.
  */
-@property (nonatomic, copy) id<NSCoding> passwordObject;
+@property (nonatomic, copy) id<NSSecureCoding> passwordObject;
 
 /**
  Convenience accessor for setting and getting a password string. Passes through
