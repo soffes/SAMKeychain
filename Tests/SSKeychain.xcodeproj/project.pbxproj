@@ -23,8 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		21261F0216FB97B2000F3341 /* SSKeychainTests-Mac-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SSKeychainTests-Mac-Info.plist"; path = "/Users/soffes/Code/soffes/sskeychain/Tests/SSKeychainTests-Mac-Info.plist"; sourceTree = "<absolute>"; };
-		21261F1216FB97B9000F3341 /* SSKeychainTests-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SSKeychainTests-iOS-Info.plist"; path = "/Users/soffes/Code/soffes/sskeychain/Tests/SSKeychainTests-iOS-Info.plist"; sourceTree = "<absolute>"; };
+		21261F0216FB97B2000F3341 /* SSKeychainTests-Mac-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SSKeychainTests-Mac-Info.plist"; sourceTree = "<group>"; };
+		21261F1216FB97B9000F3341 /* SSKeychainTests-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SSKeychainTests-iOS-Info.plist"; sourceTree = "<group>"; };
 		21261F1316FB9824000F3341 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		21261F1716FB983B000F3341 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		21261F1E16FB98B9000F3341 /* SSKeychainTests-iOS.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SSKeychainTests-iOS.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,7 +40,7 @@
 		B2A5FA98143AC133000F6011 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B2A5FAB0143AC134000F6011 /* SSKeychainTests-Mac.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SSKeychainTests-Mac.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2A5FAB1143AC134000F6011 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		B2A5FACE143AC25C000F6011 /* SSKeychainTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainTests.m; sourceTree = SOURCE_ROOT; };
+		B2A5FACE143AC25C000F6011 /* SSKeychainTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +130,7 @@
 				21261F0216FB97B2000F3341 /* SSKeychainTests-Mac-Info.plist */,
 				21261F1216FB97B9000F3341 /* SSKeychainTests-iOS-Info.plist */,
 			);
-			path = SSKeychainTests;
+			name = SSKeychainTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
