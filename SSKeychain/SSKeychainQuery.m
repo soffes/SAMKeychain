@@ -157,9 +157,11 @@
     }
     
 #if __IPHONE_3_0 && TARGET_OS_IPHONE
+#if !(TARGET_IPHONE_SIMULATOR)
     if (self.accessGroup) {
         [dictionary setObject:self.accessGroup forKey:(__bridge id)kSecAttrAccessGroup];
     }
+#endif
 #endif
     
     return dictionary;
