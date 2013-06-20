@@ -31,9 +31,9 @@
 		}
 		return NO;
 	}
-    
+
     [self delete:nil];
-    
+
     NSMutableDictionary *query = [self query];
     [query setObject:self.passwordData forKey:(__bridge id)kSecValueData];
     if (self.label) {
@@ -46,11 +46,11 @@
     }
 #endif
     status = SecItemAdd((__bridge CFDictionaryRef)query, NULL);
-    
+
 	if (status != errSecSuccess && error != NULL) {
 		*error = [[self class] errorWithCode:status];
 	}
-    
+
 	return (status == errSecSuccess);
 }
 
@@ -63,7 +63,7 @@
 		}
 		return NO;
 	}
-    
+
     NSMutableDictionary *query = [self query];
 #if TARGET_OS_IPHONE
     status = SecItemDelete((__bridge CFDictionaryRef)query);
@@ -76,11 +76,11 @@
         CFRelease(result);
     }
 #endif
-    
+
     if (status != errSecSuccess && error != NULL) {
         *error = [[self class] errorWithCode:status];
     }
-    
+
     return (status == errSecSuccess);
 }
 
@@ -90,7 +90,7 @@
     NSMutableDictionary *query = [self query];
     [query setObject:@YES forKey:(__bridge id)kSecReturnAttributes];
     [query setObject:(__bridge id)kSecMatchLimitAll forKey:(__bridge id)kSecMatchLimit];
-	
+
 	CFTypeRef result = NULL;
     status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &result);
     if (status != errSecSuccess && error != NULL) {
@@ -110,18 +110,18 @@
 		}
 		return NO;
 	}
-	
+
 	CFTypeRef result = NULL;
 	NSMutableDictionary *query = [self query];
     [query setObject:@YES forKey:(__bridge_transfer id)kSecReturnData];
     [query setObject:(__bridge id)kSecMatchLimitOne forKey:(__bridge id)kSecMatchLimit];
     status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &result);
-	
+
 	if (status != errSecSuccess && error != NULL) {
 		*error = [[self class] errorWithCode:status];
 		return NO;
 	}
-    
+
     self.passwordData = (__bridge_transfer NSData *)result;
     return YES;
 }
@@ -129,12 +129,12 @@
 
 #pragma mark - Accessors
 
-- (void)setPasswordObject:(id<NSSecureCoding>)object {
+- (void)setPasswordObject:(id<NSCoding>)object {
     self.passwordData = [NSKeyedArchiver archivedDataWithRootObject:object];
 }
 
 
-- (id<NSSecureCoding>)passwordObject {
+- (id<NSCoding>)passwordObject {
     if ([self.passwordData length]) {
         return [NSKeyedUnarchiver unarchiveObjectWithData:self.passwordData];
     }
@@ -160,15 +160,15 @@
 - (NSMutableDictionary *)query {
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithCapacity:3];
     [dictionary setObject:(__bridge id)kSecClassGenericPassword forKey:(__bridge id)kSecClass];
-    
+
     if (self.service) {
         [dictionary setObject:self.service forKey:(__bridge id)kSecAttrService];
     }
-    
+
     if (self.account) {
         [dictionary setObject:self.account forKey:(__bridge id)kSecAttrAccount];
     }
-    
+
 #if __IPHONE_3_0 && TARGET_OS_IPHONE
 #if !(TARGET_IPHONE_SIMULATOR)
     if (self.accessGroup) {
@@ -176,7 +176,7 @@
     }
 #endif
 #endif
-    
+
     return dictionary;
 }
 
@@ -186,7 +186,7 @@
     switch (code) {
         case errSecSuccess: return nil;
         case SSKeychainErrorBadArguments: message = @"Some of the arguments were invalid"; break;
-            
+
 #if TARGET_OS_IPHONE
         case errSecUnimplemented: {
 			message = @"Function or operation not implemented";
@@ -232,7 +232,7 @@
             message = (__bridge_transfer NSString *)SecCopyErrorMessageString(code, NULL);
 #endif
     }
-    
+
     NSDictionary *userInfo = nil;
     if (message != nil) {
         userInfo = @{ NSLocalizedDescriptionKey : message };

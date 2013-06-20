@@ -18,7 +18,7 @@ NSString *const kSSKeychainLastModifiedKey = @"mdat";
 NSString *const kSSKeychainWhereKey = @"svce";
 
 #if __IPHONE_4_0 && TARGET_OS_IPHONE
-    CFTypeRef SSKeychainAccessibilityType = NULL;
+    static CFTypeRef SSKeychainAccessibilityType = NULL;
 #endif
 
 @implementation SSKeychain
@@ -28,7 +28,7 @@ NSString *const kSSKeychainWhereKey = @"svce";
 }
 
 
-+ (NSString *)passwordForService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error {
++ (NSString *)passwordForService:(NSString *)serviceName account:(NSString *)account error:(NSError *__autoreleasing *)error {
     SSKeychainQuery *query = [[SSKeychainQuery alloc] init];
     query.service = serviceName;
     query.account = account;
@@ -42,7 +42,7 @@ NSString *const kSSKeychainWhereKey = @"svce";
 }
 
 
-+ (BOOL)deletePasswordForService:(NSString *)serviceName account:(NSString *)account  error:(NSError **)error {
++ (BOOL)deletePasswordForService:(NSString *)serviceName account:(NSString *)account error:(NSError *__autoreleasing *)error {
     SSKeychainQuery *query = [[SSKeychainQuery alloc] init];
     query.service = serviceName;
     query.account = account;
@@ -55,7 +55,7 @@ NSString *const kSSKeychainWhereKey = @"svce";
 }
 
 
-+ (BOOL)setPassword:(NSString *)password forService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error {
++ (BOOL)setPassword:(NSString *)password forService:(NSString *)serviceName account:(NSString *)account error:(NSError *__autoreleasing *)error {
     SSKeychainQuery *query = [[SSKeychainQuery alloc] init];
     query.service = serviceName;
     query.account = account;

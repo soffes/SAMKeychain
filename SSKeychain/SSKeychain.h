@@ -14,10 +14,10 @@
  platform.
  */
 typedef enum {
-    
+
 	/** Some of the arguments were invalid. */
 	SSKeychainErrorBadArguments = -1001,
-    
+
 } SSKeychainErrorCode;
 
 /** SSKeychain error domain */
@@ -28,7 +28,7 @@ extern NSString *const kSSKeychainAccountKey;
 
 /**
  Time the item was created.
- 
+
  The value will be a string.
  */
 extern NSString *const kSSKeychainCreatedAtKey;
@@ -43,7 +43,7 @@ extern NSString *const kSSKeychainDescriptionKey;
 extern NSString *const kSSKeychainLabelKey;
 
 /** Time the item was last modified.
- 
+
  The value will be a string.
  */
 extern NSString *const kSSKeychainLastModifiedKey;
@@ -54,7 +54,7 @@ extern NSString *const kSSKeychainWhereKey;
 /**
  Simple wrapper for accessing accounts, getting passwords, setting passwords, and deleting passwords using the system
  Keychain on Mac OS X and iOS.
- 
+
  This was originally inspired by EMKeychain and SDKeychain (both of which are now gone). Thanks to the authors.
  SSKeychain has since switched to a simpler implementation that was abstracted from [SSToolkit](http://sstoolk.it).
  */
@@ -65,11 +65,11 @@ extern NSString *const kSSKeychainWhereKey;
 /**
  Returns a string containing the password for a given account and service, or `nil` if the Keychain doesn't have a
  password for the given parameters.
- 
+
  @param serviceName The service for which to return the corresponding password.
- 
+
  @param account The account for which to return the corresponding password.
- 
+
  @return Returns a string containing the password for a given account and service, or `nil` if the Keychain doesn't
  have a password for the given parameters.
  */
@@ -79,11 +79,11 @@ extern NSString *const kSSKeychainWhereKey;
 
 /**
  Deletes a password from the Keychain.
- 
+
  @param serviceName The service for which to delete the corresponding password.
- 
+
  @param account The account for which to delete the corresponding password.
- 
+
  @return Returns `YES` on success, or `NO` on failure.
  */
 + (BOOL)deletePasswordForService:(NSString *)serviceName account:(NSString *)account;
@@ -92,13 +92,13 @@ extern NSString *const kSSKeychainWhereKey;
 
 /**
  Sets a password in the Keychain.
- 
+
  @param password The password to store in the Keychain.
- 
+
  @param serviceName The service for which to set the corresponding password.
- 
+
  @param account The account for which to set the corresponding password.
- 
+
  @return Returns `YES` on success, or `NO` on failure.
  */
 + (BOOL)setPassword:(NSString *)password forService:(NSString *)serviceName account:(NSString *)account;
@@ -107,10 +107,10 @@ extern NSString *const kSSKeychainWhereKey;
 
 /**
  Returns an array containing the Keychain's accounts, or `nil` if the Keychain has no accounts.
- 
+
  See the `NSString` constants declared in SSKeychain.h for a list of keys that can be used when accessing the
  dictionaries returned by this method.
- 
+
  @return An array of dictionaries containing the Keychain's accounts, or `nil` if the Keychain doesn't have any
  accounts. The order of the objects in the array isn't defined.
  */
@@ -120,12 +120,12 @@ extern NSString *const kSSKeychainWhereKey;
 /**
  Returns an array containing the Keychain's accounts for a given service, or `nil` if the Keychain doesn't have any
  accounts for the given service.
- 
+
  See the `NSString` constants declared in SSKeychain.h for a list of keys that can be used when accessing the
  dictionaries returned by this method.
- 
+
  @param serviceName The service for which to return the corresponding accounts.
- 
+
  @return An array of dictionaries containing the Keychain's accountsfor a given `serviceName`, or `nil` if the Keychain
  doesn't have any accounts for the given `serviceName`. The order of the objects in the array isn't defined.
  */
@@ -137,24 +137,24 @@ extern NSString *const kSSKeychainWhereKey;
 #if __IPHONE_4_0 && TARGET_OS_IPHONE
 /**
  Returns the accessibility type for all future passwords saved to the Keychain.
- 
+
  @return Returns the accessibility type.
- 
+
  The return value will be `NULL` or one of the "Keychain Item Accessibility
  Constants" used for determining when a keychain item should be readable.
- 
+
  @see setAccessibilityType
  */
 + (CFTypeRef)accessibilityType;
 
 /**
  Sets the accessibility type for all future passwords saved to the Keychain.
- 
+
  @param accessibilityType One of the "Keychain Item Accessibility Constants"
  used for determining when a keychain item should be readable.
- 
+
  If the value is `NULL` (the default), the Keychain default will be used.
- 
+
  @see accessibilityType
  */
 + (void)setAccessibilityType:(CFTypeRef)accessibilityType;
