@@ -27,6 +27,8 @@ Easy as that. (See [SSKeychain.h](https://github.com/soffes/sskeychain/blob/mast
 
 ## Documentation
 
+### Use prepared documentation
+
 Install the documentation into Xcode with the following steps:
 
 1. Open Xcode Preferences
@@ -41,6 +43,15 @@ Install the documentation into Xcode with the following steps:
 Be sure you have the docset selected in the organizer to see results for SSKeychain.
 
 You can also **read the [SSKeychain Documentation](http://docs.samsoff.es/SSKeychain/Classes/SSKeychain.html) online.**
+
+### Build own documentation
+
+1. Download SSKeychain and change into the folder
+2. Execute:
+
+        `appledoc --project-name="SSKeychain" --project-company="Sam Soffes" --company-id="com.samsoffes" --project-version="1.1.0" SSKeychain/`
+
+appledoc can be easily installed through homebrew (`$ brew install appledoc`) or from here: `https://github.com/tomaz/appledoc`.
 
 ## Debugging
 
