@@ -20,6 +20,9 @@
 @synthesize accessGroup = _accessGroup;
 #endif
 
+#if __IPHONE_7_0 || __MAC_10_9
+@synthesize synchronizable = _synchronizable;
+#endif
 
 #pragma mark - Public
 
@@ -175,6 +178,12 @@
         [dictionary setObject:self.accessGroup forKey:(__bridge id)kSecAttrAccessGroup];
     }
 #endif
+#endif
+    
+#if __IPHONE_7_0 || __MAC_10_9
+    if (self.isSynchronizable) {
+        [dictionary setObject:@YES forKey:(__bridge id)(kSecAttrSynchronizable)];
+    }
 #endif
 
     return dictionary;
