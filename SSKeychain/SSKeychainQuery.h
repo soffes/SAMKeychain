@@ -28,6 +28,11 @@
 @property (nonatomic, copy) NSString *accessGroup;
 #endif
 
+#if __IPHONE_7_0 || __MAC_10_9
+/** kSecAttrSynchronizable */
+@property (nonatomic, getter = isSynchronizable) BOOL synchronizable;
+#endif
+
 /** Root storage for password information */
 @property (nonatomic, copy) NSData *passwordData;
 
