@@ -46,7 +46,7 @@ NSString *const kSSKeychainWhereKey = @"svce";
     SSKeychainQuery *query = [[SSKeychainQuery alloc] init];
     query.service = serviceName;
     query.account = account;
-    return [query delete:error];
+    return [query deleteItem:error];
 }
 
 

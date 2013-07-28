@@ -9,6 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <Security/Security.h>
 
+#ifdef __IPHONE_7_0
+	#define SSKEYCHAIN_SYNCHRONIZABLE_AVAILABLE 1
+#endif
+
+#ifdef __MAC_10_9
+	#define SSKEYCHAIN_SYNCHRONIZABLE_AVAILABLE 1
+#endif
+
 /**
  Simple interface for querying or modifying keychain items.
  */
@@ -28,7 +36,7 @@
 @property (nonatomic, copy) NSString *accessGroup;
 #endif
 
-#if __IPHONE_7_0 || __MAC_10_9
+#ifdef SSKEYCHAIN_SYNCHRONIZABLE_AVAILABLE
 /** kSecAttrSynchronizable */
 @property (nonatomic, getter = isSynchronizable) BOOL synchronizable;
 #endif
@@ -65,7 +73,7 @@
 
  @return `YES` if saving was successful, `NO` otherwise.
  */
-- (BOOL)delete:(NSError **)error;
+- (BOOL)deleteItem:(NSError **)error;
 
 /**
  Fetch all keychain items that match the given account, service, and access

@@ -72,7 +72,7 @@ static NSString *kSSToolkitTestsPassword = @"SSToolkitTestPassword";
     query = [[SSKeychainQuery alloc] init];
     query.service = kSSToolkitTestsServiceName;
     query.account = kSSToolkitTestsAccountName;
-    STAssertTrue([query delete:&error], @"Unable to delete password: %@", error);
+    STAssertTrue([query deleteItem:&error], @"Unable to delete password: %@", error);
 }
 
 

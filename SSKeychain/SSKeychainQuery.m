@@ -20,7 +20,7 @@
 @synthesize accessGroup = _accessGroup;
 #endif
 
-#if __IPHONE_7_0 || __MAC_10_9
+#ifdef SSKEYCHAIN_SYNCHRONIZABLE_AVAILABLE
 @synthesize synchronizable = _synchronizable;
 #endif
 
@@ -35,7 +35,7 @@
 		return NO;
 	}
 
-    [self delete:nil];
+    [self deleteItem:nil];
 
     NSMutableDictionary *query = [self query];
     [query setObject:self.passwordData forKey:(__bridge id)kSecValueData];
@@ -58,7 +58,7 @@
 }
 
 
-- (BOOL)delete:(NSError *__autoreleasing *)error {
+- (BOOL)deleteItem:(NSError *__autoreleasing *)error {
     OSStatus status = SSKeychainErrorBadArguments;
     if (!self.service || !self.account) {
 		if (error) {
@@ -180,7 +180,7 @@
 #endif
 #endif
     
-#if __IPHONE_7_0 || __MAC_10_9
+#ifdef SSKEYCHAIN_SYNCHRONIZABLE_AVAILABLE
     if (self.isSynchronizable) {
         [dictionary setObject:@YES forKey:(__bridge id)(kSecAttrSynchronizable)];
     }
