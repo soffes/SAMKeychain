@@ -1,13 +1,13 @@
-Pod::Spec.new do |s|
-  s.name         = 'SSKeychain'
-  s.version      = '1.1.0'
-  s.summary      = 'Simple Cocoa wrapper for the keychain that works on Mac and iOS.'
-  s.homepage     = 'https://github.com/soffes/sskeychain'
-  s.author       = { 'Sam Soffes' => 'sam@soff.es' }
-  s.source       = { :git => 'https://github.com/soffes/sskeychain.git', :tag => 'v1.1.0' }
-  s.description  = 'SSKeychain is a simple utility class for making the system keychain less sucky.'
-  s.source_files = 'SSKeychain/*.{h,m}'
-  s.frameworks   = 'Security'
-  s.requires_arc = true
-  s.license      = { :type => 'MIT', :file => 'LICENSE' }
+Pod::Spec.new do |spec|
+  spec.name         = 'SSKeychain'
+  spec.version      = '1.2.0'
+  spec.summary      = 'Simple Cocoa wrapper for the keychain that works on Mac and iOS.'
+  spec.homepage     = 'https://github.com/soffes/sskeychain'
+  spec.author       = { 'Sam Soffes' => 'sam@soff.es' }
+  spec.source       = { :git => 'https://github.com/soffes/sskeychain.git', :tag => "v#{spec.version}" }
+  spec.description  = 'SSKeychain is a simple utility class for making the system keychain less sucky.'
+  spec.source_files = 'SSKeychain/*.{h,m}'
+  spec.frameworks   = 'Security'
+  spec.requires_arc = true
+  spec.license      = { :type => 'MIT', :file => 'LICENSE' }
 end
