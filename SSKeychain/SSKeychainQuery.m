@@ -101,7 +101,7 @@
 		return nil;
 	}
 
-    return (__bridge NSArray *)result;
+    return (__bridge_transfer NSArray *)result;
 }
 
 
