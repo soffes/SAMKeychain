@@ -40,6 +40,7 @@ static NSString *kSSToolkitTestsLabel = @"SSToolkitLabel";
     query = [[SSKeychainQuery alloc] init];
     query.service = kSSToolkitTestsServiceName;
     query.account = kSSToolkitTestsAccountName;
+    query.password = nil;
     STAssertTrue([query fetch:&error], @"Unable to fetch keychain item: %@", error);
     STAssertEqualObjects(query.password, kSSToolkitTestsPassword, @"Passwords were not equal");
     
@@ -55,6 +56,7 @@ static NSString *kSSToolkitTestsLabel = @"SSToolkitLabel";
     query = [[SSKeychainQuery alloc] init];
     query.service = kSSToolkitTestsServiceName;
     query.account = kSSToolkitTestsAccountName;
+    query.passwordObject = nil;
     STAssertTrue([query fetch:&error], @"Unable to fetch keychain item: %@", error);
     STAssertEqualObjects(query.passwordObject, dictionary, @"Passwords were not equal");
     
