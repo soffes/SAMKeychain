@@ -9,10 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <Security/Security.h>
 
-#ifdef __IPHONE_7_0
-	#define SSKEYCHAIN_SYNCHRONIZABLE_AVAILABLE 1
-#endif
-
 #ifdef __MAC_10_9
 	#define SSKEYCHAIN_SYNCHRONIZABLE_AVAILABLE 1
 #endif
