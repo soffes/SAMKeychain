@@ -116,7 +116,7 @@
 
 	CFTypeRef result = NULL;
 	NSMutableDictionary *query = [self query];
-    [query setObject:@YES forKey:(__bridge_transfer id)kSecReturnData];
+    [query setObject:@YES forKey:(__bridge id)kSecReturnData];
     [query setObject:(__bridge id)kSecMatchLimitOne forKey:(__bridge id)kSecMatchLimit];
     status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &result);
 
