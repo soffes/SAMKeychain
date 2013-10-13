@@ -34,10 +34,12 @@ SSKeychain has the following class methods for working with the system keychain:
 + (NSArray *)accountsForService:(NSString *)serviceName;
 + (NSString *)passwordForService:(NSString *)serviceName account:(NSString *)account;
 + (BOOL)deletePasswordForService:(NSString *)serviceName account:(NSString *)account;
++ (void)setAccessibilityType:kSecAttrAccessibleAfterFirstUnlock;
 + (BOOL)setPassword:(NSString *)password forService:(NSString *)serviceName account:(NSString *)account;
 ```
 
 Easy as that. (See [SSKeychain.h](https://github.com/soffes/sskeychain/blob/master/SSKeychain/SSKeychain.h) and [SSKeychainQuery.h](https://github.com/soffes/sskeychain/blob/master/SSKeychain/SSKeychainQuery.h) for all of the methods.)
+
 
 ## Documentation
 
@@ -69,6 +71,10 @@ Obviously, you should do something more sophisticated. You can just call `[error
 
 Working with the keychain is pretty sucky. You should really check for errors and failures. This library doesn't make it any more stable, it just wraps up all of the annoying C APIs.
 
+You also really should not use the default but set the `accessibilityType`.
+`kSecAttrAccessibleWhenUnlocked` should work for most applications. See
+[Apple Documentation](https://developer.apple.com/library/ios/DOCUMENTATION/Security/Reference/keychainservices/Reference/reference.html#//apple_ref/doc/constant_group/Keychain_Item_Accessibility_Constants)
+for other options.
 
 ## Thanks
 

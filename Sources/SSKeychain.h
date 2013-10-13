@@ -186,7 +186,10 @@ extern NSString *const kSSKeychainWhereKey;
  @param accessibilityType One of the "Keychain Item Accessibility Constants"
  used for determining when a keychain item should be readable.
 
- If the value is `NULL` (the default), the Keychain default will be used.
+ If the value is `NULL` (the default), the Keychain default will be used which
+ is highly insecure. You really should use at least `kSecAttrAccessibleAfterFirstUnlock`
+ for background applications or `kSecAttrAccessibleWhenUnlocked` for all
+ other applications.
 
  @see accessibilityType
  */
