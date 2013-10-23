@@ -34,7 +34,7 @@ SSKeychain has the following class methods for working with the system keychain:
 + (NSArray *)accountsForService:(NSString *)serviceName;
 + (NSString *)passwordForService:(NSString *)serviceName account:(NSString *)account;
 + (BOOL)deletePasswordForService:(NSString *)serviceName account:(NSString *)account;
-+ (void)setAccessibilityType:kSecAttrAccessibleAfterFirstUnlock;
++ (void)setAccessibilityType:(CFTypeRef)accessibilityType;
 + (BOOL)setPassword:(NSString *)password forService:(NSString *)serviceName account:(NSString *)account;
 ```
 
