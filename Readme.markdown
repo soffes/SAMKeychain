@@ -4,6 +4,14 @@ SSKeychain is a simple wrapper for accessing accounts, getting passwords, settin
 
 ## Adding to Your Project
 
+Simply add the following to your Podfile if you're using CocoaPods:
+
+``` ruby
+pod 'SSKeychain'
+```
+
+To manually add to your project:
+
 1. Add `Security.framework` to your target
 2. Add `SSKeychain.h`, `SSKeychain.m`, `SSKeychainQuery.h`, and `SSKeychainQuery.m` to your project.
 
@@ -29,29 +37,7 @@ Easy as that. (See [SSKeychain.h](https://github.com/soffes/sskeychain/blob/mast
 
 ### Use prepared documentation
 
-Install the documentation into Xcode with the following steps:
-
-1. Open Xcode Preferences
-2. Choose Downloads
-3. Choose the Documentation tab
-4. Click the plus button in the bottom right and enter the following URL:
-
-        http://docs.samsoff.es/com.samsoffes.sskeychain.atom
-
-5. Click Install next the new row reading "SSKeychain Documentation". (If you don't see it and didn't get an error, try restarting Xcode.)
-
-Be sure you have the docset selected in the organizer to see results for SSKeychain.
-
-You can also **read the [SSKeychain Documentation](http://docs.samsoff.es/SSKeychain/Classes/SSKeychain.html) online.**
-
-### Build own documentation
-
-1. Download SSKeychain and change into the folder
-2. Execute:
-
-        `appledoc --project-name="SSKeychain" --project-company="Sam Soffes" --company-id="com.samsoffes" --project-version="1.1.0" SSKeychain/`
-
-appledoc can be easily installed through homebrew (`$ brew install appledoc`) or from here: `https://github.com/tomaz/appledoc`.
+Read the [online documentation](http://cocoadocs.org/docsets/SSKeychain/1.2.1/).
 
 ## Debugging
 
