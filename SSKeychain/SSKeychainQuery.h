@@ -17,6 +17,16 @@
 	#define SSKEYCHAIN_SYNCHRONIZABLE_AVAILABLE 1
 #endif
 
+#ifdef SSKEYCHAIN_SYNCHRONIZABLE_AVAILABLE
+typedef enum {
+  
+  SSKeychainQuerySynchronizableNo,
+	SSKeychainQuerySynchronizableYes,
+  SSKeychainQuerySynchronizableAny,
+  
+} SSKeychainQuerySynchronizable;
+#endif
+
 /**
  Simple interface for querying or modifying keychain items.
  */
@@ -38,7 +48,7 @@
 
 #ifdef SSKEYCHAIN_SYNCHRONIZABLE_AVAILABLE
 /** kSecAttrSynchronizable */
-@property (nonatomic, getter = isSynchronizable) BOOL synchronizable;
+@property (nonatomic) SSKeychainQuerySynchronizable synchronizable;
 #endif
 
 /** Root storage for password information */

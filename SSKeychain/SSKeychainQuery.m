@@ -181,9 +181,24 @@
 #endif
     
 #ifdef SSKEYCHAIN_SYNCHRONIZABLE_AVAILABLE
-    if (self.isSynchronizable) {
-        [dictionary setObject:@YES forKey:(__bridge id)(kSecAttrSynchronizable)];
+  id value;
+  
+  switch (self.synchronizable) {
+    case SSKeychainQuerySynchronizableNo: {
+      value = @NO;
+      break;
     }
+    case SSKeychainQuerySynchronizableYes: {
+      value = @YES;
+      break;
+    }
+    case SSKeychainQuerySynchronizableAny: {
+      value = (__bridge id)(kSecAttrSynchronizableAny);
+      break;
+    }
+  }
+  
+  [dictionary setObject:value forKey:(__bridge id)(kSecAttrSynchronizable)];
 #endif
 
     return dictionary;
