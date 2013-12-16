@@ -21,7 +21,7 @@
 #endif
 
 #ifdef SSKEYCHAIN_SYNCHRONIZABLE_AVAILABLE
-@synthesize synchronizable = _synchronizable;
+@synthesize synchronizationMode = _synchronizationMode;
 #endif
 
 #pragma mark - Public
@@ -181,9 +181,24 @@
 #endif
     
 #ifdef SSKEYCHAIN_SYNCHRONIZABLE_AVAILABLE
-    if (self.isSynchronizable) {
-        [dictionary setObject:@YES forKey:(__bridge id)(kSecAttrSynchronizable)];
+  id value;
+  
+  switch (self.synchronizationMode) {
+    case SSKeychainQuerySynchronizationModeNo: {
+      value = @NO;
+      break;
     }
+    case SSKeychainQuerySynchronizationModeYes: {
+      value = @YES;
+      break;
+    }
+    case SSKeychainQuerySynchronizationModeAny: {
+      value = (__bridge id)(kSecAttrSynchronizableAny);
+      break;
+    }
+  }
+  
+  [dictionary setObject:value forKey:(__bridge id)(kSecAttrSynchronizable)];
 #endif
 
     return dictionary;
