@@ -20,11 +20,11 @@
 #ifdef SSKEYCHAIN_SYNCHRONIZABLE_AVAILABLE
 typedef enum {
   
-  SSKeychainQuerySynchronizableNo,
-	SSKeychainQuerySynchronizableYes,
-  SSKeychainQuerySynchronizableAny,
+  SSKeychainQuerySynchronizationModeNo,
+	SSKeychainQuerySynchronizationModeYes,
+  SSKeychainQuerySynchronizationModeAny,
   
-} SSKeychainQuerySynchronizable;
+} SSKeychainQuerySynchronizationMode;
 #endif
 
 /**
@@ -48,7 +48,7 @@ typedef enum {
 
 #ifdef SSKEYCHAIN_SYNCHRONIZABLE_AVAILABLE
 /** kSecAttrSynchronizable */
-@property (nonatomic) SSKeychainQuerySynchronizable synchronizable;
+@property (nonatomic) SSKeychainQuerySynchronizationMode synchronizationMode;
 #endif
 
 /** Root storage for password information */

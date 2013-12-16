@@ -21,7 +21,7 @@
 #endif
 
 #ifdef SSKEYCHAIN_SYNCHRONIZABLE_AVAILABLE
-@synthesize synchronizable = _synchronizable;
+@synthesize synchronizationMode = _synchronizationMode;
 #endif
 
 #pragma mark - Public
@@ -183,16 +183,16 @@
 #ifdef SSKEYCHAIN_SYNCHRONIZABLE_AVAILABLE
   id value;
   
-  switch (self.synchronizable) {
-    case SSKeychainQuerySynchronizableNo: {
+  switch (self.synchronizationMode) {
+    case SSKeychainQuerySynchronizationModeNo: {
       value = @NO;
       break;
     }
-    case SSKeychainQuerySynchronizableYes: {
+    case SSKeychainQuerySynchronizationModeYes: {
       value = @YES;
       break;
     }
-    case SSKeychainQuerySynchronizableAny: {
+    case SSKeychainQuerySynchronizationModeAny: {
       value = (__bridge id)(kSecAttrSynchronizableAny);
       break;
     }

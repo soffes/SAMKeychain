@@ -113,14 +113,14 @@ static NSString *kSSToolkitTestsLabel = @"SSToolkitLabel";
     query.service = kSSToolkitTestsServiceName;
     query.account = kSSToolkitTestsAccountName;
     query.password = kSSToolkitTestsPassword;
-    query.synchronizable = SSKeychainQuerySynchronizableYes;
+    query.synchronizationMode = SSKeychainQuerySynchronizationModeYes;
     XCTAssertTrue([query save:&error], @"Unable to save item: %@", error);
 
     query = [[SSKeychainQuery alloc] init];
     query.service = kSSToolkitTestsServiceName;
     query.account = kSSToolkitTestsAccountName;
     query.password = nil;
-    query.synchronizable = SSKeychainQuerySynchronizableNo;
+    query.synchronizationMode = SSKeychainQuerySynchronizationModeNo;
     XCTAssertFalse([query fetch:&error], @"Fetch should fail when trying to fetch an unsynced password that was saved as synced.");
     XCTAssertNotEqualObjects(query.password, kSSToolkitTestsPassword, @"Passwords should not be equal when trying to fetch an unsynced password that was saved as synced.");
   
@@ -128,7 +128,7 @@ static NSString *kSSToolkitTestsLabel = @"SSToolkitLabel";
     query.service = kSSToolkitTestsServiceName;
     query.account = kSSToolkitTestsAccountName;
     query.password = nil;
-    query.synchronizable = SSKeychainQuerySynchronizableAny;
+    query.synchronizationMode = SSKeychainQuerySynchronizationModeAny;
     XCTAssertTrue([query fetch:&error], @"Unable to fetch keychain item: %@", error);
     XCTAssertEqualObjects(query.password, kSSToolkitTestsPassword, @"Passwords were not equal");
 }
