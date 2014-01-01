@@ -3,7 +3,7 @@
 //  SSKeychain
 //
 //  Created by Sam Soffes on 5/19/10.
-//  Copyright (c) 2010-2013 Sam Soffes. All rights reserved.
+//  Copyright (c) 2010-2014 Sam Soffes. All rights reserved.
 //
 
 #import "SSKeychainQuery.h"
