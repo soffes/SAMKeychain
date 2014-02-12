@@ -8,6 +8,7 @@
 
 #import "SSKeychainQuery.h"
 #import "SSKeychain.h"
+#import <UIKit/UIKit.h>
 
 @implementation SSKeychainQuery
 
@@ -180,26 +181,26 @@
 #endif
 #endif
     
-#ifdef SSKEYCHAIN_SYNCHRONIZABLE_AVAILABLE
-  id value;
-  
-  switch (self.synchronizationMode) {
-    case SSKeychainQuerySynchronizationModeNo: {
-      value = @NO;
-      break;
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
+        id value;
+
+        switch (self.synchronizationMode) {
+        case SSKeychainQuerySynchronizationModeNo: {
+          value = @NO;
+          break;
+        }
+        case SSKeychainQuerySynchronizationModeYes: {
+          value = @YES;
+          break;
+        }
+        case SSKeychainQuerySynchronizationModeAny: {
+          value = (__bridge id)(kSecAttrSynchronizableAny);
+          break;
+        }
+        }
+
+        [dictionary setObject:value forKey:(__bridge id)(kSecAttrSynchronizable)];
     }
-    case SSKeychainQuerySynchronizationModeYes: {
-      value = @YES;
-      break;
-    }
-    case SSKeychainQuerySynchronizationModeAny: {
-      value = (__bridge id)(kSecAttrSynchronizableAny);
-      break;
-    }
-  }
-  
-  [dictionary setObject:value forKey:(__bridge id)(kSecAttrSynchronizable)];
-#endif
 
     return dictionary;
 }
