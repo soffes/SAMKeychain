@@ -21,7 +21,7 @@
 @synthesize accessGroup = _accessGroup;
 #endif
 
-#ifdef SSKEYCHAIN_SYNCHRONIZABLE_AVAILABLE
+#ifdef SSKEYCHAIN_SYNCHRONIZATION_AVAILABLE
 @synthesize synchronizationMode = _synchronizationMode;
 #endif
 
@@ -159,6 +159,23 @@
 }
 
 
+#pragma mark - Synchronization Status
+
+#ifdef SSKEYCHAIN_SYNCHRONIZATION_AVAILABLE
++ (BOOL)isSynchronizationAvailable {
+#if TARGET_OS_IPHONE
+	// Apple suggested way to check for 7.0 at runtime
+	// https://developer.apple.com/library/ios/documentation/userexperience/conceptual/transitionguide/SupportingEarlieriOS.html
+	return floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1;
+#elif
+	return floor(NSFoundationVersionNumber) > NSFoundationVersionNumber10_8_4
+#else
+	return NO;
+#endif
+}
+#endif
+
+
 #pragma mark - Private
 
 - (NSMutableDictionary *)query {
@@ -173,34 +190,34 @@
         [dictionary setObject:self.account forKey:(__bridge id)kSecAttrAccount];
     }
 
-#if __IPHONE_3_0 && TARGET_OS_IPHONE
-#if !(TARGET_IPHONE_SIMULATOR)
+#if __IPHONE_3_0 && TARGET_OS_IPHONE && !TARGET_IPHONE_SIMULATOR
     if (self.accessGroup) {
         [dictionary setObject:self.accessGroup forKey:(__bridge id)kSecAttrAccessGroup];
     }
 #endif
-#endif
-    
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
+
+#ifdef SSKEYCHAIN_SYNCHRONIZATION_AVAILABLE
+    if ([[self class] isSynchronizationAvailable]) {
         id value;
 
         switch (self.synchronizationMode) {
-        case SSKeychainQuerySynchronizationModeNo: {
-          value = @NO;
-          break;
-        }
-        case SSKeychainQuerySynchronizationModeYes: {
-          value = @YES;
-          break;
-        }
-        case SSKeychainQuerySynchronizationModeAny: {
-          value = (__bridge id)(kSecAttrSynchronizableAny);
-          break;
-        }
+			case SSKeychainQuerySynchronizationModeNo: {
+			  value = @NO;
+			  break;
+			}
+			case SSKeychainQuerySynchronizationModeYes: {
+			  value = @YES;
+			  break;
+			}
+			case SSKeychainQuerySynchronizationModeAny: {
+			  value = (__bridge id)(kSecAttrSynchronizableAny);
+			  break;
+			}
         }
 
         [dictionary setObject:value forKey:(__bridge id)(kSecAttrSynchronizable)];
     }
+#endif
 
     return dictionary;
 }
@@ -259,7 +276,7 @@
     }
 
     NSDictionary *userInfo = nil;
-    if (message != nil) {
+    if (message) {
         userInfo = @{ NSLocalizedDescriptionKey : message };
     }
     return [NSError errorWithDomain:kSSKeychainErrorDomain code:code userInfo:userInfo];

@@ -9,22 +9,17 @@
 #import <Foundation/Foundation.h>
 #import <Security/Security.h>
 
-#ifdef __IPHONE_7_0
-	#define SSKEYCHAIN_SYNCHRONIZABLE_AVAILABLE 1
+#if __IPHONE_7_0 || __MAC_10_9
+	// Keychain synchronization available at compile time
+	#define SSKEYCHAIN_SYNCHRONIZATION_AVAILABLE 1
 #endif
 
-#ifdef __MAC_10_9
-	#define SSKEYCHAIN_SYNCHRONIZABLE_AVAILABLE 1
-#endif
-
-#ifdef SSKEYCHAIN_SYNCHRONIZABLE_AVAILABLE
-typedef enum {
-  
-  SSKeychainQuerySynchronizationModeNo,
-	SSKeychainQuerySynchronizationModeYes,
-  SSKeychainQuerySynchronizationModeAny,
-  
-} SSKeychainQuerySynchronizationMode;
+#ifdef SSKEYCHAIN_SYNCHRONIZATION_AVAILABLE
+typedef NS_ENUM(NSUInteger, SSKeychainQuerySynchronizationMode) {
+    SSKeychainQuerySynchronizationModeNo,
+    SSKeychainQuerySynchronizationModeYes,
+    SSKeychainQuerySynchronizationModeAny
+};
 #endif
 
 /**
@@ -46,7 +41,7 @@ typedef enum {
 @property (nonatomic, copy) NSString *accessGroup;
 #endif
 
-#ifdef SSKEYCHAIN_SYNCHRONIZABLE_AVAILABLE
+#ifdef SSKEYCHAIN_SYNCHRONIZATION_AVAILABLE
 /** kSecAttrSynchronizable */
 @property (nonatomic) SSKeychainQuerySynchronizationMode synchronizationMode;
 #endif
@@ -66,6 +61,11 @@ typedef enum {
  */
 @property (nonatomic, copy) NSString *password;
 
+
+///------------------------
+/// @name Saving & Deleting
+///------------------------
+
 /**
  Save the receiver's attributes as a keychain item. Existing items with the
  given account, service, and access group will first be deleted.
@@ -84,6 +84,11 @@ typedef enum {
  @return `YES` if saving was successful, `NO` otherwise.
  */
 - (BOOL)deleteItem:(NSError **)error;
+
+
+///---------------
+/// @name Fetching
+///---------------
 
 /**
  Fetch all keychain items that match the given account, service, and access
@@ -108,5 +113,21 @@ typedef enum {
  @return `YES` if fetching was successful, `NO` otherwise.
  */
 - (BOOL)fetch:(NSError **)error;
+
+
+///-----------------------------
+/// @name Synchronization Status
+///-----------------------------
+
+#ifdef SSKEYCHAIN_SYNCHRONIZATION_AVAILABLE
+/**
+ Returns a boolean indicating if keychain synchronization is available on the device at runtime. The #define 
+ SSKEYCHAIN_SYNCHRONIZATION_AVAILABLE is only for compile time. If you are checking for the presence of synchronization,
+ you should use this method.
+ 
+ @return A value indicating if keychain synchronization is available
+ */
++ (BOOL)isSynchronizationAvailable;
+#endif
 
 @end
