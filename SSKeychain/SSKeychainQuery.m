@@ -8,7 +8,6 @@
 
 #import "SSKeychainQuery.h"
 #import "SSKeychain.h"
-#import <UIKit/UIKit.h>
 
 @implementation SSKeychainQuery
 

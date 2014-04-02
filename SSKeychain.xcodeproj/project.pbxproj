@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21B85B4418EC9456009D2B98 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CC42C317DB874300201DDC /* XCTest.framework */; };
+		21B85B6418EC957C009D2B98 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21B85B5918EC9572009D2B98 /* MainMenu.xib */; };
+		21B85B6518EC957F009D2B98 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21B85B5B18EC9572009D2B98 /* main.m */; };
+		21B85B6718EC95B1009D2B98 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CC42F017DB878300201DDC /* SSKeychain.m */; };
+		21B85B6818EC95B1009D2B98 /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CC42F217DB878300201DDC /* SSKeychainQuery.m */; };
+		21B85B6918EC95B1009D2B98 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CC42F017DB878300201DDC /* SSKeychain.m */; };
+		21B85B6A18EC95B1009D2B98 /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CC42F217DB878300201DDC /* SSKeychainQuery.m */; };
+		21B85B6B18EC95B6009D2B98 /* SSKeychainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CC42DB17DB877900201DDC /* SSKeychainTests.m */; };
+		21B85B6C18EC9607009D2B98 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B85B1E18EC9391009D2B98 /* Security.framework */; };
+		21B85B6D18EC960B009D2B98 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B85B1E18EC9391009D2B98 /* Security.framework */; };
+		21B85B6F18EC963A009D2B98 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B85B6E18EC963A009D2B98 /* Cocoa.framework */; };
+		21B85B7018EC963F009D2B98 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B85B6E18EC963A009D2B98 /* Cocoa.framework */; };
 		21CC42AB17DB874300201DDC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CC42AA17DB874300201DDC /* Foundation.framework */; };
 		21CC42AD17DB874300201DDC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CC42AC17DB874300201DDC /* CoreGraphics.framework */; };
 		21CC42AF17DB874300201DDC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CC42AE17DB874300201DDC /* UIKit.framework */; };
@@ -28,6 +40,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		21B85B7118EC96A2009D2B98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21CC429F17DB874300201DDC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21B85B2318EC9455009D2B98;
+			remoteInfo = SSKeychainMac;
+		};
 		21CC42C717DB874300201DDC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 21CC429F17DB874300201DDC /* Project object */;
@@ -38,6 +57,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		21B85B1E18EC9391009D2B98 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		21B85B2418EC9455009D2B98 /* SSKeychainMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSKeychainMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		21B85B2518EC9455009D2B98 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		21B85B2818EC9455009D2B98 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		21B85B2918EC9455009D2B98 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		21B85B2A18EC9455009D2B98 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		21B85B4318EC9456009D2B98 /* SSKeychainMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSKeychainMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		21B85B5618EC9554009D2B98 /* SSKeychainMacTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SSKeychainMacTests-Info.plist"; sourceTree = "<group>"; };
+		21B85B5A18EC9572009D2B98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		21B85B5B18EC9572009D2B98 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		21B85B5E18EC9572009D2B98 /* SSKeychainMac-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SSKeychainMac-Info.plist"; sourceTree = "<group>"; };
+		21B85B6E18EC963A009D2B98 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		21CC42A717DB874300201DDC /* SSKeychain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSKeychain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21CC42AA17DB874300201DDC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		21CC42AC17DB874300201DDC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -61,6 +92,25 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		21B85B2118EC9455009D2B98 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21B85B6F18EC963A009D2B98 /* Cocoa.framework in Frameworks */,
+				21B85B6C18EC9607009D2B98 /* Security.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21B85B4018EC9456009D2B98 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21B85B7018EC963F009D2B98 /* Cocoa.framework in Frameworks */,
+				21B85B6D18EC960B009D2B98 /* Security.framework in Frameworks */,
+				21B85B4418EC9456009D2B98 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		21CC42A417DB874300201DDC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -86,6 +136,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21B85B2718EC9455009D2B98 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				21B85B2818EC9455009D2B98 /* AppKit.framework */,
+				21B85B2918EC9455009D2B98 /* CoreData.framework */,
+				21B85B2A18EC9455009D2B98 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		21B85B5818EC9572009D2B98 /* Mac */ = {
+			isa = PBXGroup;
+			children = (
+				21B85B5918EC9572009D2B98 /* MainMenu.xib */,
+				21B85B5B18EC9572009D2B98 /* main.m */,
+				21B85B5E18EC9572009D2B98 /* SSKeychainMac-Info.plist */,
+			);
+			path = Mac;
+			sourceTree = "<group>";
+		};
 		21CC429E17DB874300201DDC = {
 			isa = PBXGroup;
 			children = (
@@ -96,12 +166,15 @@
 				21CC42A817DB874300201DDC /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 1;
 		};
 		21CC42A817DB874300201DDC /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				21CC42A717DB874300201DDC /* SSKeychain.app */,
 				21CC42C217DB874300201DDC /* SSKeychainTests.xctest */,
+				21B85B2418EC9455009D2B98 /* SSKeychainMac.app */,
+				21B85B4318EC9456009D2B98 /* SSKeychainMacTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,11 +182,15 @@
 		21CC42A917DB874300201DDC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				21B85B6E18EC963A009D2B98 /* Cocoa.framework */,
+				21B85B1E18EC9391009D2B98 /* Security.framework */,
 				21CC42F917DB87C300201DDC /* Security.framework */,
 				21CC42AA17DB874300201DDC /* Foundation.framework */,
 				21CC42AC17DB874300201DDC /* CoreGraphics.framework */,
 				21CC42AE17DB874300201DDC /* UIKit.framework */,
 				21CC42C317DB874300201DDC /* XCTest.framework */,
+				21B85B2518EC9455009D2B98 /* Cocoa.framework */,
+				21B85B2718EC9455009D2B98 /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -122,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				21CC42DA17DB877900201DDC /* SSKeychainTests-Info.plist */,
+				21B85B5618EC9554009D2B98 /* SSKeychainMacTests-Info.plist */,
 				21CC42DB17DB877900201DDC /* SSKeychainTests.m */,
 			);
 			path = Tests;
@@ -130,6 +208,7 @@
 		21CC42DE17DB877E00201DDC /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				21B85B5818EC9572009D2B98 /* Mac */,
 				21CC42DF17DB877E00201DDC /* Classes */,
 				21CC42E217DB877E00201DDC /* Other Sources */,
 				21CC42E517DB877E00201DDC /* Resources */,
@@ -179,6 +258,41 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		21B85B2318EC9455009D2B98 /* SSKeychainMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21B85B5018EC9456009D2B98 /* Build configuration list for PBXNativeTarget "SSKeychainMac" */;
+			buildPhases = (
+				21B85B2018EC9455009D2B98 /* Sources */,
+				21B85B2118EC9455009D2B98 /* Frameworks */,
+				21B85B2218EC9455009D2B98 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SSKeychainMac;
+			productName = SSKeychainMac;
+			productReference = 21B85B2418EC9455009D2B98 /* SSKeychainMac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		21B85B4218EC9456009D2B98 /* SSKeychainMacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21B85B5318EC9456009D2B98 /* Build configuration list for PBXNativeTarget "SSKeychainMacTests" */;
+			buildPhases = (
+				21B85B3F18EC9456009D2B98 /* Sources */,
+				21B85B4018EC9456009D2B98 /* Frameworks */,
+				21B85B4118EC9456009D2B98 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				21B85B7218EC96A2009D2B98 /* PBXTargetDependency */,
+			);
+			name = SSKeychainMacTests;
+			productName = SSKeychainMacTests;
+			productReference = 21B85B4318EC9456009D2B98 /* SSKeychainMacTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		21CC42A617DB874300201DDC /* SSKeychain */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 21CC42D317DB874300201DDC /* Build configuration list for PBXNativeTarget "SSKeychain" */;
@@ -224,6 +338,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Sam Soffes";
 				TargetAttributes = {
+					21B85B4218EC9456009D2B98 = {
+						TestTargetID = 21CC42A617DB874300201DDC;
+					};
 					21CC42C117DB874300201DDC = {
 						TestTargetID = 21CC42A617DB874300201DDC;
 					};
@@ -235,6 +352,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 21CC429E17DB874300201DDC;
 			productRefGroup = 21CC42A817DB874300201DDC /* Products */;
@@ -243,11 +361,28 @@
 			targets = (
 				21CC42A617DB874300201DDC /* SSKeychain */,
 				21CC42C117DB874300201DDC /* SSKeychainTests */,
+				21B85B2318EC9455009D2B98 /* SSKeychainMac */,
+				21B85B4218EC9456009D2B98 /* SSKeychainMacTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		21B85B2218EC9455009D2B98 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21B85B6418EC957C009D2B98 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21B85B4118EC9456009D2B98 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		21CC42A517DB874300201DDC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -268,6 +403,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		21B85B2018EC9455009D2B98 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21B85B6A18EC95B1009D2B98 /* SSKeychainQuery.m in Sources */,
+				21B85B6518EC957F009D2B98 /* main.m in Sources */,
+				21B85B6918EC95B1009D2B98 /* SSKeychain.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21B85B3F18EC9456009D2B98 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21B85B6B18EC95B6009D2B98 /* SSKeychainTests.m in Sources */,
+				21B85B6818EC95B1009D2B98 /* SSKeychainQuery.m in Sources */,
+				21B85B6718EC95B1009D2B98 /* SSKeychain.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		21CC42A317DB874300201DDC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -292,6 +447,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		21B85B7218EC96A2009D2B98 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 21B85B2318EC9455009D2B98 /* SSKeychainMac */;
+			targetProxy = 21B85B7118EC96A2009D2B98 /* PBXContainerItemProxy */;
+		};
 		21CC42C817DB874300201DDC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 21CC42A617DB874300201DDC /* SSKeychain */;
@@ -300,6 +460,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		21B85B5918EC9572009D2B98 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				21B85B5A18EC9572009D2B98 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
 		21CC42ED17DB878300201DDC /* SSKeychain.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -311,6 +479,98 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		21B85B5118EC9456009D2B98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "$(SRCROOT)/Example/Mac/SSKeychainMac-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		21B85B5218EC9456009D2B98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "$(SRCROOT)/Example/Mac/SSKeychainMac-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		21B85B5418EC9456009D2B98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SSKeychainMac.app/Contents/MacOS/SSKeychainMac";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "Tests/SSKeychainMacTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		21B85B5518EC9456009D2B98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SSKeychainMac.app/Contents/MacOS/SSKeychainMac";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "Tests/SSKeychainMacTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 		21CC42D117DB874300201DDC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -343,6 +603,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -375,6 +636,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -446,6 +708,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		21B85B5018EC9456009D2B98 /* Build configuration list for PBXNativeTarget "SSKeychainMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21B85B5118EC9456009D2B98 /* Debug */,
+				21B85B5218EC9456009D2B98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21B85B5318EC9456009D2B98 /* Build configuration list for PBXNativeTarget "SSKeychainMacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21B85B5418EC9456009D2B98 /* Debug */,
+				21B85B5518EC9456009D2B98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		21CC42A217DB874300201DDC /* Build configuration list for PBXProject "SSKeychain" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
