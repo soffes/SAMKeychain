@@ -13,12 +13,10 @@
  For codes returned by the operating system, refer to SecBase.h for your
  platform.
  */
-typedef enum {
-
+typedef NS_ENUM(NSUInteger, SSKeychainErrorCode) {
 	/** Some of the arguments were invalid. */
 	SSKeychainErrorBadArguments = -1001,
-
-} SSKeychainErrorCode;
+};
 
 /** SSKeychain error domain */
 extern NSString *const kSSKeychainErrorDomain;

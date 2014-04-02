@@ -16,9 +16,9 @@
 
 #ifdef SSKEYCHAIN_SYNCHRONIZATION_AVAILABLE
 typedef NS_ENUM(NSUInteger, SSKeychainQuerySynchronizationMode) {
-    SSKeychainQuerySynchronizationModeNo,
-    SSKeychainQuerySynchronizationModeYes,
-    SSKeychainQuerySynchronizationModeAny
+	SSKeychainQuerySynchronizationModeNo,
+	SSKeychainQuerySynchronizationModeYes,
+	SSKeychainQuerySynchronizationModeAny
 };
 #endif
 
