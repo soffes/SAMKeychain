@@ -13,7 +13,7 @@
  For codes returned by the operating system, refer to SecBase.h for your
  platform.
  */
-typedef NS_ENUM(NSUInteger, SSKeychainErrorCode) {
+typedef NS_ENUM(OSStatus, SSKeychainErrorCode) {
 	/** Some of the arguments were invalid. */
 	SSKeychainErrorBadArguments = -1001,
 };

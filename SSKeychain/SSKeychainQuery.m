@@ -166,10 +166,8 @@
 	// Apple suggested way to check for 7.0 at runtime
 	// https://developer.apple.com/library/ios/documentation/userexperience/conceptual/transitionguide/SupportingEarlieriOS.html
 	return floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1;
-#elif
-	return floor(NSFoundationVersionNumber) > NSFoundationVersionNumber10_8_4
 #else
-	return NO;
+	return floor(NSFoundationVersionNumber) > NSFoundationVersionNumber10_8_4;
 #endif
 }
 #endif
