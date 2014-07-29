@@ -37,7 +37,7 @@ Easy as that. (See [SSKeychain.h](https://github.com/soffes/sskeychain/blob/mast
 
 ### Use prepared documentation
 
-Read the [online documentation](http://cocoadocs.org/docsets/SSKeychain/1.2.1/).
+Read the [online documentation](http://cocoadocs.org/docsets/SSKeychain).
 
 ## Debugging
 
