@@ -124,7 +124,7 @@ extern NSString *const kSSKeychainWhereKey;
 
  @param serviceName The service for which to return the corresponding accounts.
 
- @return An array of dictionaries containing the Keychain's accountsfor a given `serviceName`, or `nil` if the Keychain
+ @return An array of dictionaries containing the Keychain's accounts for a given `serviceName`, or `nil` if the Keychain
  doesn't have any accounts for the given `serviceName`. The order of the objects in the array isn't defined.
  */
 + (NSArray *)accountsForService:(NSString *)serviceName;

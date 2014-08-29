@@ -77,7 +77,7 @@ typedef NS_ENUM(NSUInteger, SSKeychainQuerySynchronizationMode) {
 - (BOOL)save:(NSError **)error;
 
 /**
- Dete keychain items that match the given account, service, and access group.
+ Delete keychain items that match the given account, service, and access group.
 
  @param error Populated should an error occur.
 
