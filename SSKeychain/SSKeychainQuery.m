@@ -120,8 +120,10 @@
 	[query setObject:(__bridge id)kSecMatchLimitOne forKey:(__bridge id)kSecMatchLimit];
 	status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &result);
 
-	if (status != errSecSuccess && error != NULL) {
-		*error = [[self class] errorWithCode:status];
+	if (status != errSecSuccess) {
+		if (error) {
+			*error = [[self class] errorWithCode:status];
+		}
 		return NO;
 	}
 
