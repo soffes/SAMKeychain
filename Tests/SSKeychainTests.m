@@ -78,7 +78,6 @@ static NSString *const kSSKeychainLabel = @"SSToolkitLabel";
 	XCTAssertEqualObjects(query.passwordObject, dictionary, @"Passwords were not equal");
 }
 
-
 - (void)testMissingInformation {
 	SSKeychainQuery *query = [[SSKeychainQuery alloc] init];
 	query.service = kSSKeychainServiceName;
@@ -97,7 +96,6 @@ static NSString *const kSSKeychainLabel = @"SSToolkitLabel";
 	query.service = kSSKeychainServiceName;
 	XCTAssertFalse([query save:&error], @"Function save should return NO if not all needed information is provided: %@", error);
 }
-
 
 - (void)testDeleteWithMissingInformation {
 	SSKeychainQuery *query = [[SSKeychainQuery alloc] init];
@@ -118,6 +116,10 @@ static NSString *const kSSKeychainLabel = @"SSToolkitLabel";
 	query = [[SSKeychainQuery alloc] init];
 	query.service = kSSKeychainServiceName;
 	XCTAssertFalse([query fetch:&error], @"Function fetch should return NO if not all needed information is provided: %@", error);
+
+	query = [[SSKeychainQuery alloc] init];
+	query.service = kSSKeychainServiceName;
+	XCTAssertFalse([query fetch:NULL], @"Function fetch should return NO if not all needed information is provided and error is NULL");
 }
 
 
@@ -136,7 +138,9 @@ static NSString *const kSSKeychainLabel = @"SSToolkitLabel";
 	query.account = kSSKeychainAccountName;
 	query.password = nil;
 	query.synchronizationMode = SSKeychainQuerySynchronizationModeNo;
-	XCTAssertFalse([query fetch:&error], @"Fetch should fail when trying to fetch an unsynced password that was saved as synced.");
+	XCTAssertFalse([query fetch:&error], @"Fetch should fail when trying to fetch an unsynced password that was saved as synced: %@", error);
+	XCTAssertFalse([query fetch:NULL], @"Fetch should fail when trying to fetch an unsynced password that was saved as synced. error == NULL");
+
 	XCTAssertNotEqualObjects(query.password, kSSKeychainPassword, @"Passwords should not be equal when trying to fetch an unsynced password that was saved as synced.");
   
 	query = [[SSKeychainQuery alloc] init];
