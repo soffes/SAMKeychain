@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0510"
+   LastUpgradeVersion = "0610"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,23 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "21CC42A617DB874300201DDC"
-               BuildableName = "SSKeychain.app"
-               BlueprintName = "SSKeychain"
+               BlueprintIdentifier = "E8A666331A844CC400287CA3"
+               BuildableName = "SSKeychain.framework"
+               BlueprintName = "SSKeychain iOS"
+               ReferencedContainer = "container:SSKeychain.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E8A666541A844D3A00287CA3"
+               BuildableName = "SSKeychain iOS Tests.xctest"
+               BlueprintName = "SSKeychain iOS Tests"
                ReferencedContainer = "container:SSKeychain.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +46,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "21CC42C117DB874300201DDC"
-               BuildableName = "SSKeychainTests.xctest"
-               BlueprintName = "SSKeychainTests"
+               BlueprintIdentifier = "E8A666541A844D3A00287CA3"
+               BuildableName = "SSKeychain iOS Tests.xctest"
+               BlueprintName = "SSKeychain iOS Tests"
                ReferencedContainer = "container:SSKeychain.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -42,9 +56,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "21CC42A617DB874300201DDC"
-            BuildableName = "SSKeychain.app"
-            BlueprintName = "SSKeychain"
+            BlueprintIdentifier = "E8A666331A844CC400287CA3"
+            BuildableName = "SSKeychain.framework"
+            BlueprintName = "SSKeychain iOS"
             ReferencedContainer = "container:SSKeychain.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -58,15 +72,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "21CC42A617DB874300201DDC"
-            BuildableName = "SSKeychain.app"
-            BlueprintName = "SSKeychain"
+            BlueprintIdentifier = "E8A666331A844CC400287CA3"
+            BuildableName = "SSKeychain.framework"
+            BlueprintName = "SSKeychain iOS"
             ReferencedContainer = "container:SSKeychain.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -76,15 +90,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "21CC42A617DB874300201DDC"
-            BuildableName = "SSKeychain.app"
-            BlueprintName = "SSKeychain"
+            BlueprintIdentifier = "E8A666331A844CC400287CA3"
+            BuildableName = "SSKeychain.framework"
+            BlueprintName = "SSKeychain iOS"
             ReferencedContainer = "container:SSKeychain.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
