@@ -10,6 +10,12 @@ Simply add the following to your Podfile if you're using CocoaPods:
 pod 'SSKeychain'
 ```
 
+or Cartfile if you're using Carthage:
+
+```
+github "soffes/SSKeychain"
+```
+
 To manually add to your project:
 
 1. Add `Security.framework` to your target
