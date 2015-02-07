@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E8A666331A844CC400287CA3"
+               BlueprintIdentifier = "E8A6666E1A844E4100287CA3"
                BuildableName = "SSKeychain.framework"
-               BlueprintName = "SSKeychain iOS"
+               BlueprintName = "SSKeychain Mac"
                ReferencedContainer = "container:SSKeychain.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,9 +28,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E8A666541A844D3A00287CA3"
-               BuildableName = "SSKeychain iOS Tests.xctest"
-               BlueprintName = "SSKeychain iOS Tests"
+               BlueprintIdentifier = "E8A666781A844E4100287CA3"
+               BuildableName = "SSKeychain Mac Tests.xctest"
+               BlueprintName = "SSKeychain Mac Tests"
                ReferencedContainer = "container:SSKeychain.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,9 +46,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E8A666541A844D3A00287CA3"
-               BuildableName = "SSKeychain iOS Tests.xctest"
-               BlueprintName = "SSKeychain iOS Tests"
+               BlueprintIdentifier = "E8A666781A844E4100287CA3"
+               BuildableName = "SSKeychain Mac Tests.xctest"
+               BlueprintName = "SSKeychain Mac Tests"
                ReferencedContainer = "container:SSKeychain.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -56,9 +56,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E8A666331A844CC400287CA3"
+            BlueprintIdentifier = "E8A6666E1A844E4100287CA3"
             BuildableName = "SSKeychain.framework"
-            BlueprintName = "SSKeychain iOS"
+            BlueprintName = "SSKeychain Mac"
             ReferencedContainer = "container:SSKeychain.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -75,9 +75,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E8A666331A844CC400287CA3"
+            BlueprintIdentifier = "E8A6666E1A844E4100287CA3"
             BuildableName = "SSKeychain.framework"
-            BlueprintName = "SSKeychain iOS"
+            BlueprintName = "SSKeychain Mac"
             ReferencedContainer = "container:SSKeychain.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -93,9 +93,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E8A666331A844CC400287CA3"
+            BlueprintIdentifier = "E8A6666E1A844E4100287CA3"
             BuildableName = "SSKeychain.framework"
-            BlueprintName = "SSKeychain iOS"
+            BlueprintName = "SSKeychain Mac"
             ReferencedContainer = "container:SSKeychain.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
