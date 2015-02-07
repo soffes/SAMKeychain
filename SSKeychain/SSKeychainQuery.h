@@ -6,8 +6,8 @@
 //  Copyright (c) 2013-2014 Sam Soffes. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <Security/Security.h>
+@import Foundation;
+@import Security;
 
 #if __IPHONE_7_0 || __MAC_10_9
 	// Keychain synchronization available at compile time
