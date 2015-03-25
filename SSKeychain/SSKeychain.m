@@ -65,14 +65,24 @@ NSString *const kSSKeychainWhereKey = @"svce";
 
 
 + (NSArray *)allAccounts {
-	return [self accountsForService:nil];
+	return [self allAccounts:nil];
+}
+
+
++ (NSArray *)allAccounts:(NSError *__autoreleasing *)error {
+    return [self accountsForService:nil error:error];
 }
 
 
 + (NSArray *)accountsForService:(NSString *)serviceName {
-	SSKeychainQuery *query = [[SSKeychainQuery alloc] init];
-	query.service = serviceName;
-	return [query fetchAll:nil];
+	return [self accountsForService:serviceName error:nil];
+}
+
+
++ (NSArray *)accountsForService:(NSString *)serviceName error:(NSError *__autoreleasing *)error {
+    SSKeychainQuery *query = [[SSKeychainQuery alloc] init];
+    query.service = serviceName;
+    return [query fetchAll:error];
 }
 
 

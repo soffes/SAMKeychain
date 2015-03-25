@@ -113,6 +113,7 @@ extern NSString *const kSSKeychainWhereKey;
  accounts. The order of the objects in the array isn't defined.
  */
 + (NSArray *)allAccounts;
++ (NSArray *)allAccounts:(NSError *__autoreleasing *)error;
 
 
 /**
@@ -128,6 +129,7 @@ extern NSString *const kSSKeychainWhereKey;
  doesn't have any accounts for the given `serviceName`. The order of the objects in the array isn't defined.
  */
 + (NSArray *)accountsForService:(NSString *)serviceName;
++ (NSArray *)accountsForService:(NSString *)serviceName error:(NSError *__autoreleasing *)error;
 
 
 #pragma mark - Configuration
