@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = 'SSKeychain'
-  spec.version      = '1.2.2'
+  spec.version      = '1.2.3'
   spec.summary      = 'Simple Cocoa wrapper for the keychain that works on Mac and iOS.'
   spec.homepage     = 'https://github.com/soffes/sskeychain'
   spec.author       = { 'Sam Soffes' => 'sam@soff.es' }
