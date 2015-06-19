@@ -36,6 +36,19 @@ NSString *const kSSKeychainWhereKey = @"svce";
 	return query.password;
 }
 
++ (NSData *)passwordDataForService:(NSString *)serviceName account:(NSString *)account {
+	return [self passwordDataForService:serviceName account:account error:nil];
+}
+
++ (NSData *)passwordDataForService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error {
+    SSKeychainQuery *query = [[SSKeychainQuery alloc] init];
+    query.service = serviceName;
+    query.account = account;
+    [query fetch:error];
+
+    return query.passwordData;
+}
+
 
 + (BOOL)deletePasswordForService:(NSString *)serviceName account:(NSString *)account {
 	return [self deletePasswordForService:serviceName account:account error:nil];
@@ -63,6 +76,18 @@ NSString *const kSSKeychainWhereKey = @"svce";
 	return [query save:error];
 }
 
++ (BOOL)setPasswordData:(NSData *)password forService:(NSString *)serviceName account:(NSString *)account {
+	return [self setPasswordData:password forService:serviceName account:account error:nil];
+}
+
+
++ (BOOL)setPasswordData:(NSData *)password forService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error {
+    SSKeychainQuery *query = [[SSKeychainQuery alloc] init];
+    query.service = serviceName;
+    query.account = account;
+    query.passwordData = password;
+    return [query save:error];
+}
 
 + (NSArray *)allAccounts {
 	return [self allAccounts:nil];
