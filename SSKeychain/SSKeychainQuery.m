@@ -93,6 +93,12 @@
 	NSMutableDictionary *query = [self query];
 	[query setObject:@YES forKey:(__bridge id)kSecReturnAttributes];
 	[query setObject:(__bridge id)kSecMatchLimitAll forKey:(__bridge id)kSecMatchLimit];
+#if __IPHONE_4_0 && TARGET_OS_IPHONE
+	CFTypeRef accessibilityType = [SSKeychain accessibilityType];
+	if (accessibilityType) {
+		[query setObject:(__bridge id)accessibilityType forKey:(__bridge id)kSecAttrAccessible];
+	}
+#endif
 
 	CFTypeRef result = NULL;
 	status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &result);
