@@ -34,28 +34,31 @@
 		}
 		return NO;
 	}
-
-	[self deleteItem:nil];
-
-	NSMutableDictionary *query = [self query];
-	[query setObject:self.passwordData forKey:(__bridge id)kSecValueData];
-	if (self.label) {
-		[query setObject:self.label forKey:(__bridge id)kSecAttrLabel];
-	}
+	NSMutableDictionary *query = nil;
+	NSMutableDictionary * searchQuery = [self query];
+	status = SecItemCopyMatching((__bridge CFDictionaryRef)searchQuery, nil);
+	if (status == errSecSuccess) {//item already exists, update it!
+		query = [[NSMutableDictionary alloc]init];
+		[query setObject:self.passwordData forKey:(__bridge id)kSecValueData];
+		status = SecItemUpdate((__bridge CFDictionaryRef)(searchQuery), (__bridge CFDictionaryRef)(query));
+	}else if(status == errSecItemNotFound){//item not found, create it!
+		query = [self query];
+		if (self.label) {
+			[query setObject:self.label forKey:(__bridge id)kSecAttrLabel];
+		}
+		[query setObject:self.passwordData forKey:(__bridge id)kSecValueData];
 #if __IPHONE_4_0 && TARGET_OS_IPHONE
-	CFTypeRef accessibilityType = [SSKeychain accessibilityType];
-	if (accessibilityType) {
-		[query setObject:(__bridge id)accessibilityType forKey:(__bridge id)kSecAttrAccessible];
-	}
+		CFTypeRef accessibilityType = [SSKeychain accessibilityType];
+		if (accessibilityType) {
+			[query setObject:(__bridge id)accessibilityType forKey:(__bridge id)kSecAttrAccessible];
+		}
 #endif
-	status = SecItemAdd((__bridge CFDictionaryRef)query, NULL);
-
+		status = SecItemAdd((__bridge CFDictionaryRef)query, NULL);
+	}
 	if (status != errSecSuccess && error != NULL) {
 		*error = [[self class] errorWithCode:status];
 	}
-
-	return (status == errSecSuccess);
-}
+	return (status == errSecSuccess);}
 
 
 - (BOOL)deleteItem:(NSError *__autoreleasing *)error {
