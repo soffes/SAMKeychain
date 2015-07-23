@@ -19,6 +19,11 @@
 	#define SSKEYCHAIN_SYNCHRONIZATION_AVAILABLE 1
 #endif
 
+#if __IPHONE_3_0 || __MAC_10_9
+	// Keychain access group available at compile time
+	#define SSKEYCHAIN_ACCESS_GROUP_AVAILABLE 1
+#endif
+
 #ifdef SSKEYCHAIN_SYNCHRONIZATION_AVAILABLE
 typedef NS_ENUM(NSUInteger, SSKeychainQuerySynchronizationMode) {
 	SSKeychainQuerySynchronizationModeAny,
@@ -41,7 +46,7 @@ typedef NS_ENUM(NSUInteger, SSKeychainQuerySynchronizationMode) {
 /** kSecAttrLabel */
 @property (nonatomic, copy) NSString *label;
 
-#if __IPHONE_3_0 && TARGET_OS_IPHONE
+#ifdef SSKEYCHAIN_ACCESS_GROUP_AVAILABLE
 /** kSecAttrAccessGroup (only used on iOS) */
 @property (nonatomic, copy) NSString *accessGroup;
 #endif

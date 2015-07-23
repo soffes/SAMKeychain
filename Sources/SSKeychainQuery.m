@@ -16,7 +16,7 @@
 @synthesize label = _label;
 @synthesize passwordData = _passwordData;
 
-#if __IPHONE_3_0 && TARGET_OS_IPHONE
+#ifdef SSKEYCHAIN_ACCESS_GROUP_AVAILABLE
 @synthesize accessGroup = _accessGroup;
 #endif
 
@@ -203,10 +203,12 @@
 		[dictionary setObject:self.account forKey:(__bridge id)kSecAttrAccount];
 	}
 
-#if __IPHONE_3_0 && TARGET_OS_IPHONE && !TARGET_IPHONE_SIMULATOR
+#ifdef SSKEYCHAIN_ACCESS_GROUP_AVAILABLE
+#if !TARGET_IPHONE_SIMULATOR
 	if (self.accessGroup) {
 		[dictionary setObject:self.accessGroup forKey:(__bridge id)kSecAttrAccessGroup];
 	}
+#endif
 #endif
 
 #ifdef SSKEYCHAIN_SYNCHRONIZATION_AVAILABLE
