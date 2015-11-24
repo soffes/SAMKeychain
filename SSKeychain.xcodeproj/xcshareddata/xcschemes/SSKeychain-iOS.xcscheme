@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0720"
+   LastUpgradeVersion = "0710"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -16,21 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E8A666331A844CC400287CA3"
                BuildableName = "SSKeychain.framework"
-               BlueprintName = "SSKeychain iOS"
-               ReferencedContainer = "container:SSKeychain.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E8A666541A844D3A00287CA3"
-               BuildableName = "SSKeychain iOS Tests.xctest"
-               BlueprintName = "SSKeychain iOS Tests"
+               BlueprintName = "SSKeychain-iOS"
                ReferencedContainer = "container:SSKeychain.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E8A666541A844D3A00287CA3"
-               BuildableName = "SSKeychain iOS Tests.xctest"
-               BlueprintName = "SSKeychain iOS Tests"
+               BuildableName = "SSKeychainTests-iOS.xctest"
+               BlueprintName = "SSKeychainTests-iOS"
                ReferencedContainer = "container:SSKeychain.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -58,7 +44,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E8A666331A844CC400287CA3"
             BuildableName = "SSKeychain.framework"
-            BlueprintName = "SSKeychain iOS"
+            BlueprintName = "SSKeychain-iOS"
             ReferencedContainer = "container:SSKeychain.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -80,7 +66,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E8A666331A844CC400287CA3"
             BuildableName = "SSKeychain.framework"
-            BlueprintName = "SSKeychain iOS"
+            BlueprintName = "SSKeychain-iOS"
             ReferencedContainer = "container:SSKeychain.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -98,7 +84,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E8A666331A844CC400287CA3"
             BuildableName = "SSKeychain.framework"
-            BlueprintName = "SSKeychain iOS"
+            BlueprintName = "SSKeychain-iOS"
             ReferencedContainer = "container:SSKeychain.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

@@ -60,10 +60,10 @@
 		21CC42F917DB87C300201DDC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E8A666341A844CC400287CA3 /* SSKeychain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSKeychain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8A6664F1A844CF100287CA3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E8A666551A844D3A00287CA3 /* SSKeychain iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SSKeychain iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8A666551A844D3A00287CA3 /* SSKeychainTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SSKeychainTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8A666621A844D6100287CA3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8A6666F1A844E4100287CA3 /* SSKeychain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSKeychain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E8A666791A844E4100287CA3 /* SSKeychain Mac Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SSKeychain Mac Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8A666791A844E4100287CA3 /* SSKeychainTests-OSX.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SSKeychainTests-OSX.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,9 +125,9 @@
 			isa = PBXGroup;
 			children = (
 				E8A666341A844CC400287CA3 /* SSKeychain.framework */,
-				E8A666551A844D3A00287CA3 /* SSKeychain iOS Tests.xctest */,
+				E8A666551A844D3A00287CA3 /* SSKeychainTests-iOS.xctest */,
 				E8A6666F1A844E4100287CA3 /* SSKeychain.framework */,
-				E8A666791A844E4100287CA3 /* SSKeychain Mac Tests.xctest */,
+				E8A666791A844E4100287CA3 /* SSKeychainTests-OSX.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -194,9 +194,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		E8A666331A844CC400287CA3 /* SSKeychain iOS */ = {
+		E8A666331A844CC400287CA3 /* SSKeychain-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E8A666471A844CC400287CA3 /* Build configuration list for PBXNativeTarget "SSKeychain iOS" */;
+			buildConfigurationList = E8A666471A844CC400287CA3 /* Build configuration list for PBXNativeTarget "SSKeychain-iOS" */;
 			buildPhases = (
 				E8A6662F1A844CC400287CA3 /* Sources */,
 				E8A666301A844CC400287CA3 /* Frameworks */,
@@ -207,14 +207,14 @@
 			);
 			dependencies = (
 			);
-			name = "SSKeychain iOS";
+			name = "SSKeychain-iOS";
 			productName = "SSKeychain iOS";
 			productReference = E8A666341A844CC400287CA3 /* SSKeychain.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		E8A666541A844D3A00287CA3 /* SSKeychain iOS Tests */ = {
+		E8A666541A844D3A00287CA3 /* SSKeychainTests-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E8A6665E1A844D3A00287CA3 /* Build configuration list for PBXNativeTarget "SSKeychain iOS Tests" */;
+			buildConfigurationList = E8A6665E1A844D3A00287CA3 /* Build configuration list for PBXNativeTarget "SSKeychainTests-iOS" */;
 			buildPhases = (
 				E8A666511A844D3A00287CA3 /* Sources */,
 				E8A666521A844D3A00287CA3 /* Frameworks */,
@@ -224,14 +224,14 @@
 			dependencies = (
 				E8A6665D1A844D3A00287CA3 /* PBXTargetDependency */,
 			);
-			name = "SSKeychain iOS Tests";
+			name = "SSKeychainTests-iOS";
 			productName = "SSKeychain iOS Tests";
-			productReference = E8A666551A844D3A00287CA3 /* SSKeychain iOS Tests.xctest */;
+			productReference = E8A666551A844D3A00287CA3 /* SSKeychainTests-iOS.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		E8A6666E1A844E4100287CA3 /* SSKeychain Mac */ = {
+		E8A6666E1A844E4100287CA3 /* SSKeychain-OSX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E8A666821A844E4100287CA3 /* Build configuration list for PBXNativeTarget "SSKeychain Mac" */;
+			buildConfigurationList = E8A666821A844E4100287CA3 /* Build configuration list for PBXNativeTarget "SSKeychain-OSX" */;
 			buildPhases = (
 				E8A6666A1A844E4100287CA3 /* Sources */,
 				E8A6666B1A844E4100287CA3 /* Frameworks */,
@@ -242,14 +242,14 @@
 			);
 			dependencies = (
 			);
-			name = "SSKeychain Mac";
+			name = "SSKeychain-OSX";
 			productName = "SSKeychain Mac";
 			productReference = E8A6666F1A844E4100287CA3 /* SSKeychain.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		E8A666781A844E4100287CA3 /* SSKeychain Mac Tests */ = {
+		E8A666781A844E4100287CA3 /* SSKeychainTests-OSX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E8A666861A844E4100287CA3 /* Build configuration list for PBXNativeTarget "SSKeychain Mac Tests" */;
+			buildConfigurationList = E8A666861A844E4100287CA3 /* Build configuration list for PBXNativeTarget "SSKeychainTests-OSX" */;
 			buildPhases = (
 				E8A666751A844E4100287CA3 /* Sources */,
 				E8A666761A844E4100287CA3 /* Frameworks */,
@@ -260,9 +260,9 @@
 			dependencies = (
 				E8A6667C1A844E4100287CA3 /* PBXTargetDependency */,
 			);
-			name = "SSKeychain Mac Tests";
+			name = "SSKeychainTests-OSX";
 			productName = "SSKeychain MacTests";
-			productReference = E8A666791A844E4100287CA3 /* SSKeychain Mac Tests.xctest */;
+			productReference = E8A666791A844E4100287CA3 /* SSKeychainTests-OSX.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -302,10 +302,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E8A666331A844CC400287CA3 /* SSKeychain iOS */,
-				E8A666541A844D3A00287CA3 /* SSKeychain iOS Tests */,
-				E8A6666E1A844E4100287CA3 /* SSKeychain Mac */,
-				E8A666781A844E4100287CA3 /* SSKeychain Mac Tests */,
+				E8A666331A844CC400287CA3 /* SSKeychain-iOS */,
+				E8A666541A844D3A00287CA3 /* SSKeychainTests-iOS */,
+				E8A6666E1A844E4100287CA3 /* SSKeychain-OSX */,
+				E8A666781A844E4100287CA3 /* SSKeychainTests-OSX */,
 			);
 		};
 /* End PBXProject section */
@@ -376,12 +376,12 @@
 /* Begin PBXTargetDependency section */
 		E8A6665D1A844D3A00287CA3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E8A666331A844CC400287CA3 /* SSKeychain iOS */;
+			target = E8A666331A844CC400287CA3 /* SSKeychain-iOS */;
 			targetProxy = E8A6665C1A844D3A00287CA3 /* PBXContainerItemProxy */;
 		};
 		E8A6667C1A844E4100287CA3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E8A6666E1A844E4100287CA3 /* SSKeychain Mac */;
+			target = E8A6666E1A844E4100287CA3 /* SSKeychain-OSX */;
 			targetProxy = E8A6667B1A844E4100287CA3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -834,7 +834,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E8A666471A844CC400287CA3 /* Build configuration list for PBXNativeTarget "SSKeychain iOS" */ = {
+		E8A666471A844CC400287CA3 /* Build configuration list for PBXNativeTarget "SSKeychain-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E8A666481A844CC400287CA3 /* Debug */,
@@ -844,7 +844,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E8A6665E1A844D3A00287CA3 /* Build configuration list for PBXNativeTarget "SSKeychain iOS Tests" */ = {
+		E8A6665E1A844D3A00287CA3 /* Build configuration list for PBXNativeTarget "SSKeychainTests-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E8A6665F1A844D3A00287CA3 /* Debug */,
@@ -854,7 +854,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E8A666821A844E4100287CA3 /* Build configuration list for PBXNativeTarget "SSKeychain Mac" */ = {
+		E8A666821A844E4100287CA3 /* Build configuration list for PBXNativeTarget "SSKeychain-OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E8A666831A844E4100287CA3 /* Debug */,
@@ -864,7 +864,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E8A666861A844E4100287CA3 /* Build configuration list for PBXNativeTarget "SSKeychain Mac Tests" */ = {
+		E8A666861A844E4100287CA3 /* Build configuration list for PBXNativeTarget "SSKeychainTests-OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E8A666871A844E4100287CA3 /* Debug */,
