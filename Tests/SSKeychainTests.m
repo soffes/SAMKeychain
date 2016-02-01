@@ -181,6 +181,26 @@ static NSString *const kSSKeychainLabel = @"SSToolkitLabel";
 #endif
 }
 
+- (void)testUpdateAccessibilityType {
+	NSError *error = nil;
+	[SSKeychain setAccessibilityType:kSecAttrAccessibleWhenUnlockedThisDeviceOnly];
+	
+	// create a new keychain item
+	XCTAssertTrue([SSKeychain setPassword:kSSKeychainPassword forService:kSSKeychainServiceName account:kSSKeychainAccountName error:&error], @"Unable to save item: %@", error);
+	// check all accounts
+	XCTAssertTrue([self _accounts:[SSKeychain allAccounts] containsAccountWithName:kSSKeychainAccountName], @"Matching account was not returned");
+	// check account
+	XCTAssertTrue([self _accounts:[SSKeychain accountsForService:kSSKeychainServiceName] containsAccountWithName:kSSKeychainAccountName], @"Matching account was not returned");
+	
+	[SSKeychain setAccessibilityType:kSecAttrAccessibleAlwaysThisDeviceOnly];
+	XCTAssertTrue([SSKeychain setPassword:kSSKeychainPassword forService:kSSKeychainServiceName account:kSSKeychainAccountName error:&error], @"Unable to save item: %@", error);
+	// check all accounts
+	XCTAssertTrue([self _accounts:[SSKeychain allAccounts] containsAccountWithName:kSSKeychainAccountName], @"Matching account was not returned");
+	// check account
+	XCTAssertTrue([self _accounts:[SSKeychain accountsForService:kSSKeychainServiceName] containsAccountWithName:kSSKeychainAccountName], @"Matching account was not returned");
+	
+	[SSKeychain setAccessibilityType:kSecAttrAccessibleAlwaysThisDeviceOnly];
+}
 
 #pragma mark - Private
 

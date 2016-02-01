@@ -40,6 +40,12 @@
 	if (status == errSecSuccess) {//item already exists, update it!
 		query = [[NSMutableDictionary alloc]init];
 		[query setObject:self.passwordData forKey:(__bridge id)kSecValueData];
+#if __IPHONE_4_0 && TARGET_OS_IPHONE
+		CFTypeRef accessibilityType = [SSKeychain accessibilityType];
+		if (accessibilityType) {
+			[query setObject:(__bridge id)accessibilityType forKey:(__bridge id)kSecAttrAccessible];
+		}
+#endif
 		status = SecItemUpdate((__bridge CFDictionaryRef)(searchQuery), (__bridge CFDictionaryRef)(query));
 	}else if(status == errSecItemNotFound){//item not found, create it!
 		query = [self query];
