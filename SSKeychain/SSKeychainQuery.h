@@ -9,6 +9,8 @@
 @import Foundation;
 @import Security;
 
+NS_ASSUME_NONNULL_BEGIN
+
 #if __IPHONE_7_0 || __MAC_10_9
 	// Keychain synchronization available at compile time
 	#define SSKEYCHAIN_SYNCHRONIZATION_AVAILABLE 1
@@ -28,17 +30,17 @@ typedef NS_ENUM(NSUInteger, SSKeychainQuerySynchronizationMode) {
 @interface SSKeychainQuery : NSObject
 
 /** kSecAttrAccount */
-@property (nonatomic, copy) NSString *account;
+@property (nonatomic, copy, nullable) NSString *account;
 
 /** kSecAttrService */
-@property (nonatomic, copy) NSString *service;
+@property (nonatomic, copy, nullable) NSString *service;
 
 /** kSecAttrLabel */
-@property (nonatomic, copy) NSString *label;
+@property (nonatomic, copy, nullable) NSString *label;
 
 #if __IPHONE_3_0 && TARGET_OS_IPHONE
 /** kSecAttrAccessGroup (only used on iOS) */
-@property (nonatomic, copy) NSString *accessGroup;
+@property (nonatomic, copy, nullable) NSString *accessGroup;
 #endif
 
 #ifdef SSKEYCHAIN_SYNCHRONIZATION_AVAILABLE
@@ -47,19 +49,19 @@ typedef NS_ENUM(NSUInteger, SSKeychainQuerySynchronizationMode) {
 #endif
 
 /** Root storage for password information */
-@property (nonatomic, copy) NSData *passwordData;
+@property (nonatomic, copy, nullable) NSData *passwordData;
 
 /**
  This property automatically transitions between an object and the value of
  `passwordData` using NSKeyedArchiver and NSKeyedUnarchiver.
  */
-@property (nonatomic, copy) id<NSCoding> passwordObject;
+@property (nonatomic, copy, nullable) id<NSCoding> passwordObject;
 
 /**
  Convenience accessor for setting and getting a password string. Passes through
  to `passwordData` using UTF-8 string encoding.
  */
-@property (nonatomic, copy) NSString *password;
+@property (nonatomic, copy, nullable) NSString *password;
 
 
 ///------------------------
@@ -100,7 +102,7 @@ typedef NS_ENUM(NSUInteger, SSKeychainQuerySynchronizationMode) {
  `nil` should an error occur.
  The order of the items is not determined.
  */
-- (NSArray *)fetchAll:(NSError **)error;
+- (nullable NSArray *)fetchAll:(NSError **)error;
 
 /**
  Fetch the keychain item that matches the given account, service, and access
@@ -131,3 +133,5 @@ typedef NS_ENUM(NSUInteger, SSKeychainQuerySynchronizationMode) {
 #endif
 
 @end
+
+NS_ASSUME_NONNULL_END
