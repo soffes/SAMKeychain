@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21632D821C92599100C40D7D /* SSKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 21632D7C1C92599100C40D7D /* SSKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21632D831C92599100C40D7D /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 21632D7D1C92599100C40D7D /* SSKeychain.m */; };
+		21632D841C92599100C40D7D /* SSKeychainQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 21632D7E1C92599100C40D7D /* SSKeychainQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21632D851C92599100C40D7D /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 21632D7F1C92599100C40D7D /* SSKeychainQuery.m */; };
+		21632D8B1C9259B400C40D7D /* SSKeychain.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21632D871C9259B400C40D7D /* SSKeychain.strings */; };
+		21632D8E1C9259B900C40D7D /* SSKeychain.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21632D871C9259B400C40D7D /* SSKeychain.strings */; };
+		21632D8F1C9259C100C40D7D /* SSKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 21632D7C1C92599100C40D7D /* SSKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21632D901C9259C100C40D7D /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 21632D7D1C92599100C40D7D /* SSKeychain.m */; };
+		21632D911C9259C100C40D7D /* SSKeychainQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 21632D7E1C92599100C40D7D /* SSKeychainQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21632D921C9259C100C40D7D /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 21632D7F1C92599100C40D7D /* SSKeychainQuery.m */; };
 		E8A6665B1A844D3A00287CA3 /* SSKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A666341A844CC400287CA3 /* SSKeychain.framework */; };
-		E8A666641A844DB700287CA3 /* SSKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CC42EF17DB878300201DDC /* SSKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E8A666651A844DB700287CA3 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CC42F017DB878300201DDC /* SSKeychain.m */; };
-		E8A666661A844DB700287CA3 /* SSKeychainQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CC42F117DB878300201DDC /* SSKeychainQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E8A666671A844DB700287CA3 /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CC42F217DB878300201DDC /* SSKeychainQuery.m */; };
-		E8A666681A844DBA00287CA3 /* SSKeychain.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21CC42ED17DB878300201DDC /* SSKeychain.strings */; };
 		E8A666691A844E0500287CA3 /* SSKeychainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CC42DB17DB877900201DDC /* SSKeychainTests.m */; };
 		E8A6667A1A844E4100287CA3 /* SSKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A6666F1A844E4100287CA3 /* SSKeychain.framework */; };
-		E8A6668A1A844E5400287CA3 /* SSKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CC42EF17DB878300201DDC /* SSKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E8A6668B1A844E5400287CA3 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CC42F017DB878300201DDC /* SSKeychain.m */; };
-		E8A6668C1A844E5400287CA3 /* SSKeychainQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 21CC42F117DB878300201DDC /* SSKeychainQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E8A6668D1A844E5400287CA3 /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CC42F217DB878300201DDC /* SSKeychainQuery.m */; };
-		E8A6668E1A844E5700287CA3 /* SSKeychain.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21CC42ED17DB878300201DDC /* SSKeychain.strings */; };
 		E8A6668F1A844E8300287CA3 /* SSKeychainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CC42DB17DB877900201DDC /* SSKeychainTests.m */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +41,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		21632D7C1C92599100C40D7D /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
+		21632D7D1C92599100C40D7D /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
+		21632D7E1C92599100C40D7D /* SSKeychainQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychainQuery.h; sourceTree = "<group>"; };
+		21632D7F1C92599100C40D7D /* SSKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainQuery.m; sourceTree = "<group>"; };
+		21632D881C9259B400C40D7D /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SSKeychain.strings; sourceTree = "<group>"; };
+		21632D891C9259B400C40D7D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21632D8A1C9259B400C40D7D /* Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		21B85B1E18EC9391009D2B98 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		21B85B2518EC9455009D2B98 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		21B85B2818EC9455009D2B98 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -52,16 +59,9 @@
 		21CC42AE17DB874300201DDC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		21CC42C317DB874300201DDC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		21CC42DB17DB877900201DDC /* SSKeychainTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainTests.m; sourceTree = "<group>"; };
-		21CC42EE17DB878300201DDC /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SSKeychain.strings; sourceTree = "<group>"; };
-		21CC42EF17DB878300201DDC /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
-		21CC42F017DB878300201DDC /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
-		21CC42F117DB878300201DDC /* SSKeychainQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychainQuery.h; sourceTree = "<group>"; };
-		21CC42F217DB878300201DDC /* SSKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainQuery.m; sourceTree = "<group>"; };
 		21CC42F917DB87C300201DDC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E8A666341A844CC400287CA3 /* SSKeychain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSKeychain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E8A6664F1A844CF100287CA3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8A666551A844D3A00287CA3 /* SSKeychainTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SSKeychainTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E8A666621A844D6100287CA3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8A6666F1A844E4100287CA3 /* SSKeychain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSKeychain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8A666791A844E4100287CA3 /* SSKeychainTests-OSX.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SSKeychainTests-OSX.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -100,6 +100,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21632D781C92599100C40D7D /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				21632D7C1C92599100C40D7D /* SSKeychain.h */,
+				21632D7D1C92599100C40D7D /* SSKeychain.m */,
+				21632D7E1C92599100C40D7D /* SSKeychainQuery.h */,
+				21632D7F1C92599100C40D7D /* SSKeychainQuery.m */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		21632D861C9259B400C40D7D /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				21632D871C9259B400C40D7D /* SSKeychain.strings */,
+				21632D891C9259B400C40D7D /* Info.plist */,
+				21632D8A1C9259B400C40D7D /* Tests-Info.plist */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		21B85B2718EC9455009D2B98 /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,8 +134,9 @@
 		21CC429E17DB874300201DDC = {
 			isa = PBXGroup;
 			children = (
-				21CC42EC17DB878300201DDC /* SSKeychain */,
+				21632D781C92599100C40D7D /* Sources */,
 				21CC42D917DB877900201DDC /* Tests */,
+				21632D861C9259B400C40D7D /* Support */,
 				21CC42A917DB874300201DDC /* Frameworks */,
 				21CC42A817DB874300201DDC /* Products */,
 			);
@@ -151,23 +173,9 @@
 		21CC42D917DB877900201DDC /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				E8A666621A844D6100287CA3 /* Info.plist */,
 				21CC42DB17DB877900201DDC /* SSKeychainTests.m */,
 			);
 			path = Tests;
-			sourceTree = "<group>";
-		};
-		21CC42EC17DB878300201DDC /* SSKeychain */ = {
-			isa = PBXGroup;
-			children = (
-				E8A6664F1A844CF100287CA3 /* Info.plist */,
-				21CC42ED17DB878300201DDC /* SSKeychain.strings */,
-				21CC42EF17DB878300201DDC /* SSKeychain.h */,
-				21CC42F017DB878300201DDC /* SSKeychain.m */,
-				21CC42F117DB878300201DDC /* SSKeychainQuery.h */,
-				21CC42F217DB878300201DDC /* SSKeychainQuery.m */,
-			);
-			path = SSKeychain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,8 +185,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8A666641A844DB700287CA3 /* SSKeychain.h in Headers */,
-				E8A666661A844DB700287CA3 /* SSKeychainQuery.h in Headers */,
+				21632D821C92599100C40D7D /* SSKeychain.h in Headers */,
+				21632D841C92599100C40D7D /* SSKeychainQuery.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,8 +194,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8A6668A1A844E5400287CA3 /* SSKeychain.h in Headers */,
-				E8A6668C1A844E5400287CA3 /* SSKeychainQuery.h in Headers */,
+				21632D8F1C9259C100C40D7D /* SSKeychain.h in Headers */,
+				21632D911C9259C100C40D7D /* SSKeychainQuery.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,7 +323,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8A666681A844DBA00287CA3 /* SSKeychain.strings in Resources */,
+				21632D8B1C9259B400C40D7D /* SSKeychain.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,7 +331,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8A6668E1A844E5700287CA3 /* SSKeychain.strings in Resources */,
+				21632D8E1C9259B900C40D7D /* SSKeychain.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,8 +349,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8A666671A844DB700287CA3 /* SSKeychainQuery.m in Sources */,
-				E8A666651A844DB700287CA3 /* SSKeychain.m in Sources */,
+				21632D851C92599100C40D7D /* SSKeychainQuery.m in Sources */,
+				21632D831C92599100C40D7D /* SSKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,8 +366,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8A6668D1A844E5400287CA3 /* SSKeychainQuery.m in Sources */,
-				E8A6668B1A844E5400287CA3 /* SSKeychain.m in Sources */,
+				21632D921C9259C100C40D7D /* SSKeychainQuery.m in Sources */,
+				21632D901C9259C100C40D7D /* SSKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,10 +395,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		21CC42ED17DB878300201DDC /* SSKeychain.strings */ = {
+		21632D871C9259B400C40D7D /* SSKeychain.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				21CC42EE17DB878300201DDC /* en */,
+				21632D881C9259B400C40D7D /* en */,
 			);
 			name = SSKeychain.strings;
 			sourceTree = "<group>";
@@ -525,7 +533,7 @@
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = SSKeychain/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Support/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -552,7 +560,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = SSKeychain/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Support/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -579,7 +587,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = SSKeychain/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Support/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -607,7 +615,7 @@
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = Tests/Info.plist;
+				INFOPLIST_FILE = "Support/Tests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -627,7 +635,7 @@
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = Tests/Info.plist;
+				INFOPLIST_FILE = "Support/Tests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -647,7 +655,7 @@
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = Tests/Info.plist;
+				INFOPLIST_FILE = "Support/Tests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -675,7 +683,7 @@
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = SSKeychain/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Support/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -705,7 +713,7 @@
 				FRAMEWORK_VERSION = A;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = SSKeychain/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Support/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -735,7 +743,7 @@
 				FRAMEWORK_VERSION = A;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = SSKeychain/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Support/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -765,7 +773,7 @@
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = Tests/Info.plist;
+				INFOPLIST_FILE = "Support/Tests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -788,7 +796,7 @@
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = Tests/Info.plist;
+				INFOPLIST_FILE = "Support/Tests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -811,7 +819,7 @@
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = Tests/Info.plist;
+				INFOPLIST_FILE = "Support/Tests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
