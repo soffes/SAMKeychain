@@ -22,7 +22,6 @@
 		21632DB21C925A6000C40D7D /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 21632D7D1C92599100C40D7D /* SSKeychain.m */; };
 		21632DB31C925A6000C40D7D /* SSKeychainQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 21632D7E1C92599100C40D7D /* SSKeychainQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21632DB41C925A6000C40D7D /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 21632D7F1C92599100C40D7D /* SSKeychainQuery.m */; };
-		21632DB51C925A6800C40D7D /* SSKeychainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CC42DB17DB877900201DDC /* SSKeychainTests.m */; };
 		21632DB61C925A6D00C40D7D /* SSKeychain.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21632D871C9259B400C40D7D /* SSKeychain.strings */; };
 		21632DC51C925B3700C40D7D /* SSKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 21632D7C1C92599100C40D7D /* SSKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21632DC61C925B3700C40D7D /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 21632D7D1C92599100C40D7D /* SSKeychain.m */; };
@@ -33,9 +32,7 @@
 		21632DD41C9282BD00C40D7D /* KeychainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21632DD21C9282BD00C40D7D /* KeychainTests.swift */; };
 		21632DD51C9282BD00C40D7D /* KeychainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21632DD21C9282BD00C40D7D /* KeychainTests.swift */; };
 		E8A6665B1A844D3A00287CA3 /* SSKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A666341A844CC400287CA3 /* SSKeychain.framework */; };
-		E8A666691A844E0500287CA3 /* SSKeychainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CC42DB17DB877900201DDC /* SSKeychainTests.m */; };
 		E8A6667A1A844E4100287CA3 /* SSKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A6666F1A844E4100287CA3 /* SSKeychain.framework */; };
-		E8A6668F1A844E8300287CA3 /* SSKeychainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CC42DB17DB877900201DDC /* SSKeychainTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,7 +81,6 @@
 		21CC42AC17DB874300201DDC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		21CC42AE17DB874300201DDC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		21CC42C317DB874300201DDC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		21CC42DB17DB877900201DDC /* SSKeychainTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainTests.m; sourceTree = "<group>"; };
 		21CC42F917DB87C300201DDC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E8A666341A844CC400287CA3 /* SSKeychain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSKeychain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8A666551A844D3A00287CA3 /* SSKeychainTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SSKeychainTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -224,7 +220,6 @@
 		21CC42D917DB877900201DDC /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				21CC42DB17DB877900201DDC /* SSKeychainTests.m */,
 				21632DD21C9282BD00C40D7D /* KeychainTests.swift */,
 			);
 			path = Tests;
@@ -518,7 +513,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21632DB51C925A6800C40D7D /* SSKeychainTests.m in Sources */,
 				21632DD51C9282BD00C40D7D /* KeychainTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -545,7 +539,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8A666691A844E0500287CA3 /* SSKeychainTests.m in Sources */,
 				21632DD31C9282BD00C40D7D /* KeychainTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -563,7 +556,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8A6668F1A844E8300287CA3 /* SSKeychainTests.m in Sources */,
 				21632DD41C9282BD00C40D7D /* KeychainTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
