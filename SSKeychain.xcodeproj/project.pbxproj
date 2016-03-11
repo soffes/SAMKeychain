@@ -24,6 +24,11 @@
 		21632DB41C925A6000C40D7D /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 21632D7F1C92599100C40D7D /* SSKeychainQuery.m */; };
 		21632DB51C925A6800C40D7D /* SSKeychainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CC42DB17DB877900201DDC /* SSKeychainTests.m */; };
 		21632DB61C925A6D00C40D7D /* SSKeychain.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21632D871C9259B400C40D7D /* SSKeychain.strings */; };
+		21632DC51C925B3700C40D7D /* SSKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 21632D7C1C92599100C40D7D /* SSKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21632DC61C925B3700C40D7D /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 21632D7D1C92599100C40D7D /* SSKeychain.m */; };
+		21632DC71C925B3700C40D7D /* SSKeychainQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 21632D7E1C92599100C40D7D /* SSKeychainQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21632DC81C925B3700C40D7D /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 21632D7F1C92599100C40D7D /* SSKeychainQuery.m */; };
+		21632DC91C925B4000C40D7D /* SSKeychain.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21632D871C9259B400C40D7D /* SSKeychain.strings */; };
 		E8A6665B1A844D3A00287CA3 /* SSKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A666341A844CC400287CA3 /* SSKeychain.framework */; };
 		E8A666691A844E0500287CA3 /* SSKeychainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CC42DB17DB877900201DDC /* SSKeychainTests.m */; };
 		E8A6667A1A844E4100287CA3 /* SSKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A6666F1A844E4100287CA3 /* SSKeychain.framework */; };
@@ -64,6 +69,7 @@
 		21632D8A1C9259B400C40D7D /* Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		21632D981C925A3C00C40D7D /* SSKeychain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSKeychain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21632DA11C925A3C00C40D7D /* SSKeychainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSKeychainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		21632DBC1C925B1F00C40D7D /* SSKeychain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSKeychain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21B85B1E18EC9391009D2B98 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		21B85B2518EC9455009D2B98 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		21B85B2818EC9455009D2B98 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -95,6 +101,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				21632DA21C925A3C00C40D7D /* SSKeychain.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21632DB81C925B1F00C40D7D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,6 +196,7 @@
 				E8A666791A844E4100287CA3 /* SSKeychainTests-OSX.xctest */,
 				21632D981C925A3C00C40D7D /* SSKeychain.framework */,
 				21632DA11C925A3C00C40D7D /* SSKeychainTests.xctest */,
+				21632DBC1C925B1F00C40D7D /* SSKeychain.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -220,6 +234,15 @@
 			files = (
 				21632DB11C925A6000C40D7D /* SSKeychain.h in Headers */,
 				21632DB31C925A6000C40D7D /* SSKeychainQuery.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21632DB91C925B1F00C40D7D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21632DC51C925B3700C40D7D /* SSKeychain.h in Headers */,
+				21632DC71C925B3700C40D7D /* SSKeychainQuery.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +302,24 @@
 			productName = SSKeychainTests;
 			productReference = 21632DA11C925A3C00C40D7D /* SSKeychainTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		21632DBB1C925B1F00C40D7D /* SSKeychain-watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21632DC11C925B1F00C40D7D /* Build configuration list for PBXNativeTarget "SSKeychain-watchOS" */;
+			buildPhases = (
+				21632DB71C925B1F00C40D7D /* Sources */,
+				21632DB81C925B1F00C40D7D /* Frameworks */,
+				21632DB91C925B1F00C40D7D /* Headers */,
+				21632DBA1C925B1F00C40D7D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SSKeychain-watchOS";
+			productName = SSKeychain;
+			productReference = 21632DBC1C925B1F00C40D7D /* SSKeychain.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 		E8A666331A844CC400287CA3 /* SSKeychain-iOS */ = {
 			isa = PBXNativeTarget;
@@ -367,6 +408,9 @@
 					21632DA01C925A3C00C40D7D = {
 						CreatedOnToolsVersion = 7.3;
 					};
+					21632DBB1C925B1F00C40D7D = {
+						CreatedOnToolsVersion = 7.3;
+					};
 					E8A666331A844CC400287CA3 = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
@@ -400,6 +444,7 @@
 				E8A666781A844E4100287CA3 /* SSKeychainTests-OSX */,
 				21632D971C925A3C00C40D7D /* SSKeychain-tvOS */,
 				21632DA01C925A3C00C40D7D /* SSKeychainTests-tvOS */,
+				21632DBB1C925B1F00C40D7D /* SSKeychain-watchOS */,
 			);
 		};
 /* End PBXProject section */
@@ -417,6 +462,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21632DBA1C925B1F00C40D7D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21632DC91C925B4000C40D7D /* SSKeychain.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +513,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				21632DB51C925A6800C40D7D /* SSKeychainTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21632DB71C925B1F00C40D7D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21632DC81C925B3700C40D7D /* SSKeychainQuery.m in Sources */,
+				21632DC61C925B3700C40D7D /* SSKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,6 +780,101 @@
 				PRODUCT_NAME = SSKeychainTests;
 				SDKROOT = appletvos;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Release;
+		};
+		21632DC21C925B1F00C40D7D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = Support/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.samsoffes.SSKeychain;
+				PRODUCT_NAME = SSKeychain;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		21632DC31C925B1F00C40D7D /* Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = Support/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.samsoffes.SSKeychain;
+				PRODUCT_NAME = SSKeychain;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Test;
+		};
+		21632DC41C925B1F00C40D7D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = Support/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.samsoffes.SSKeychain;
+				PRODUCT_NAME = SSKeychain;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Release;
 		};
@@ -1124,6 +1281,15 @@
 				21632DAE1C925A3C00C40D7D /* Debug */,
 				21632DAF1C925A3C00C40D7D /* Test */,
 				21632DB01C925A3C00C40D7D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		21632DC11C925B1F00C40D7D /* Build configuration list for PBXNativeTarget "SSKeychain-watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21632DC21C925B1F00C40D7D /* Debug */,
+				21632DC31C925B1F00C40D7D /* Test */,
+				21632DC41C925B1F00C40D7D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

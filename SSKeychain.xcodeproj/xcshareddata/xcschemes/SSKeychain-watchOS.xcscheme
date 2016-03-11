@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "21632D971C925A3C00C40D7D"
+               BlueprintIdentifier = "21632DBB1C925B1F00C40D7D"
                BuildableName = "SSKeychain.framework"
-               BlueprintName = "SSKeychain-tvOS"
+               BlueprintName = "SSKeychain-watchOS"
                ReferencedContainer = "container:SSKeychain.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,26 +28,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "21632DA01C925A3C00C40D7D"
-               BuildableName = "SSKeychainTests.xctest"
-               BlueprintName = "SSKeychainTests-tvOS"
-               ReferencedContainer = "container:SSKeychain.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "21632D971C925A3C00C40D7D"
-            BuildableName = "SSKeychain.framework"
-            BlueprintName = "SSKeychain-tvOS"
-            ReferencedContainer = "container:SSKeychain.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -64,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "21632D971C925A3C00C40D7D"
+            BlueprintIdentifier = "21632DBB1C925B1F00C40D7D"
             BuildableName = "SSKeychain.framework"
-            BlueprintName = "SSKeychain-tvOS"
+            BlueprintName = "SSKeychain-watchOS"
             ReferencedContainer = "container:SSKeychain.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -82,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "21632D971C925A3C00C40D7D"
+            BlueprintIdentifier = "21632DBB1C925B1F00C40D7D"
             BuildableName = "SSKeychain.framework"
-            BlueprintName = "SSKeychain-tvOS"
+            BlueprintName = "SSKeychain-watchOS"
             ReferencedContainer = "container:SSKeychain.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
