@@ -139,8 +139,8 @@ extern NSString *const kSSKeychainWhereKey;
  @return An array of dictionaries containing the Keychain's accounts, or `nil` if the Keychain doesn't have any
  accounts. The order of the objects in the array isn't defined.
  */
-+ (NSArray *)allAccounts;
-+ (NSArray *)allAccounts:(NSError *__autoreleasing *)error __attribute__((swift_error(none)));
++ (NSArray<NSDictionary<NSString *, id> *> *)allAccounts;
++ (NSArray<NSDictionary<NSString *, id> *> *)allAccounts:(NSError *__autoreleasing *)error __attribute__((swift_error(none)));
 
 
 /**
@@ -155,8 +155,8 @@ extern NSString *const kSSKeychainWhereKey;
  @return An array of dictionaries containing the Keychain's accounts for a given `serviceName`, or `nil` if the Keychain
  doesn't have any accounts for the given `serviceName`. The order of the objects in the array isn't defined.
  */
-+ (NSArray *)accountsForService:(NSString *)serviceName;
-+ (NSArray *)accountsForService:(NSString *)serviceName error:(NSError *__autoreleasing *)error __attribute__((swift_error(none)));
++ (NSArray<NSDictionary<NSString *, id> *> *)accountsForService:(NSString *)serviceName;
++ (NSArray<NSDictionary<NSString *, id> *> *)accountsForService:(NSString *)serviceName error:(NSError *__autoreleasing *)error __attribute__((swift_error(none)));
 
 
 #pragma mark - Configuration

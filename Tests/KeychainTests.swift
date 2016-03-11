@@ -88,6 +88,28 @@ class KeychainTests: XCTestCase {
 		query.password = testPassword
 		XCTAssertThrowsError(try query.save())
 	}
+
+	func testUpdateAccessibilityType() {
+		SSKeychain.setAccessibilityType(kSecAttrAccessibleWhenUnlockedThisDeviceOnly)
+
+		// Create a new item
+		SSKeychain.setPassword(testPassword, forService: testServiceName, account: testAccountName)
+
+		// Check all accounts
+		XCTAssertTrue(accounts(SSKeychain.allAccounts(), containsAccountWithName: testAccountName))
+
+		// Check account
+		XCTAssertTrue(accounts(SSKeychain.accountsForService(testServiceName), containsAccountWithName: testAccountName))
+
+		SSKeychain.setAccessibilityType(kSecAttrAccessibleAlwaysThisDeviceOnly)
+		SSKeychain.setPassword(testPassword, forService: testServiceName, account: testAccountName)
+
+		// Check all accounts
+		XCTAssertTrue(accounts(SSKeychain.allAccounts(), containsAccountWithName: testAccountName))
+
+		// Check account
+		XCTAssertTrue(accounts(SSKeychain.accountsForService(testServiceName), containsAccountWithName: testAccountName))
+	}
 	
 
 	// MARK: - Private
