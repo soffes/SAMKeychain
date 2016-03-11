@@ -6,6 +6,12 @@
 //  Copyright (c) 2010-2014 Sam Soffes. All rights reserved.
 //
 
+#if __has_feature(modules)
+	@import Foundation;
+#else
+	#import <Foundation/Foundation.h>
+#endif
+
 #import <SSKeychain/SSKeychainQuery.h>
 
 /**
