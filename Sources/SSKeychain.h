@@ -12,8 +12,6 @@
 	#import <Foundation/Foundation.h>
 #endif
 
-#import <SSKeychain/SSKeychainQuery.h>
-
 /**
  Error code specific to SSKeychain that can be returned in NSError objects.
  For codes returned by the operating system, refer to SecBase.h for your
