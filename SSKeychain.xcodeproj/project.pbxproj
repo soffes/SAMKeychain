@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02AB79B61CA69B4700E52F3D /* SSKeychain.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 02AB79B51CA69B4700E52F3D /* SSKeychain.bundle */; };
+		02AB79B71CA69B4700E52F3D /* SSKeychain.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 02AB79B51CA69B4700E52F3D /* SSKeychain.bundle */; };
+		02AB79B81CA69B4700E52F3D /* SSKeychain.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 02AB79B51CA69B4700E52F3D /* SSKeychain.bundle */; };
+		02AB79B91CA69B4700E52F3D /* SSKeychain.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 02AB79B51CA69B4700E52F3D /* SSKeychain.bundle */; };
 		21632D821C92599100C40D7D /* SSKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 21632D7C1C92599100C40D7D /* SSKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21632D831C92599100C40D7D /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 21632D7D1C92599100C40D7D /* SSKeychain.m */; };
 		21632D841C92599100C40D7D /* SSKeychainQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 21632D7E1C92599100C40D7D /* SSKeychainQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21632D851C92599100C40D7D /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 21632D7F1C92599100C40D7D /* SSKeychainQuery.m */; };
-		21632D8B1C9259B400C40D7D /* SSKeychain.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21632D871C9259B400C40D7D /* SSKeychain.strings */; };
-		21632D8E1C9259B900C40D7D /* SSKeychain.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21632D871C9259B400C40D7D /* SSKeychain.strings */; };
 		21632D8F1C9259C100C40D7D /* SSKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 21632D7C1C92599100C40D7D /* SSKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21632D901C9259C100C40D7D /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 21632D7D1C92599100C40D7D /* SSKeychain.m */; };
 		21632D911C9259C100C40D7D /* SSKeychainQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 21632D7E1C92599100C40D7D /* SSKeychainQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -22,12 +24,10 @@
 		21632DB21C925A6000C40D7D /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 21632D7D1C92599100C40D7D /* SSKeychain.m */; };
 		21632DB31C925A6000C40D7D /* SSKeychainQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 21632D7E1C92599100C40D7D /* SSKeychainQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21632DB41C925A6000C40D7D /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 21632D7F1C92599100C40D7D /* SSKeychainQuery.m */; };
-		21632DB61C925A6D00C40D7D /* SSKeychain.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21632D871C9259B400C40D7D /* SSKeychain.strings */; };
 		21632DC51C925B3700C40D7D /* SSKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 21632D7C1C92599100C40D7D /* SSKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21632DC61C925B3700C40D7D /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 21632D7D1C92599100C40D7D /* SSKeychain.m */; };
 		21632DC71C925B3700C40D7D /* SSKeychainQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 21632D7E1C92599100C40D7D /* SSKeychainQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21632DC81C925B3700C40D7D /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 21632D7F1C92599100C40D7D /* SSKeychainQuery.m */; };
-		21632DC91C925B4000C40D7D /* SSKeychain.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21632D871C9259B400C40D7D /* SSKeychain.strings */; };
 		21632DD31C9282BD00C40D7D /* KeychainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21632DD21C9282BD00C40D7D /* KeychainTests.swift */; };
 		21632DD41C9282BD00C40D7D /* KeychainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21632DD21C9282BD00C40D7D /* KeychainTests.swift */; };
 		21632DD51C9282BD00C40D7D /* KeychainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21632DD21C9282BD00C40D7D /* KeychainTests.swift */; };
@@ -60,11 +60,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02AB79B51CA69B4700E52F3D /* SSKeychain.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SSKeychain.bundle; sourceTree = "<group>"; };
 		21632D7C1C92599100C40D7D /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
 		21632D7D1C92599100C40D7D /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
 		21632D7E1C92599100C40D7D /* SSKeychainQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychainQuery.h; sourceTree = "<group>"; };
 		21632D7F1C92599100C40D7D /* SSKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainQuery.m; sourceTree = "<group>"; };
-		21632D881C9259B400C40D7D /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SSKeychain.strings; sourceTree = "<group>"; };
 		21632D891C9259B400C40D7D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21632D8A1C9259B400C40D7D /* Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		21632D981C925A3C00C40D7D /* SSKeychain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSKeychain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,7 +158,7 @@
 		21632D861C9259B400C40D7D /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				21632D871C9259B400C40D7D /* SSKeychain.strings */,
+				02AB79B51CA69B4700E52F3D /* SSKeychain.bundle */,
 				21632D891C9259B400C40D7D /* Info.plist */,
 				21632D8A1C9259B400C40D7D /* Tests-Info.plist */,
 			);
@@ -455,7 +455,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21632DB61C925A6D00C40D7D /* SSKeychain.strings in Resources */,
+				02AB79B81CA69B4700E52F3D /* SSKeychain.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,7 +470,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21632DC91C925B4000C40D7D /* SSKeychain.strings in Resources */,
+				02AB79B91CA69B4700E52F3D /* SSKeychain.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,7 +478,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21632D8B1C9259B400C40D7D /* SSKeychain.strings in Resources */,
+				02AB79B61CA69B4700E52F3D /* SSKeychain.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,7 +486,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21632D8E1C9259B900C40D7D /* SSKeychain.strings in Resources */,
+				02AB79B71CA69B4700E52F3D /* SSKeychain.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,17 +579,6 @@
 			targetProxy = E8A6667B1A844E4100287CA3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		21632D871C9259B400C40D7D /* SSKeychain.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				21632D881C9259B400C40D7D /* en */,
-			);
-			name = SSKeychain.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		215D7DE518ECA54500E7B508 /* Test */ = {

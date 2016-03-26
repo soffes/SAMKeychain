@@ -9,7 +9,7 @@ Pod::Spec.new do |spec|
   spec.license      = { :type => 'MIT', :file => 'LICENSE' }
 
   spec.source_files = 'Sources/*.{h,m}'
-  spec.resources = 'Support/*.lproj'
+  spec.resources = 'Support/SSKeychain.bundle'
 
   spec.frameworks = 'Security', 'Foundation'
 
