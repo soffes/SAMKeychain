@@ -195,3 +195,5 @@ extern NSString *const kSSKeychainWhereKey;
 #endif
 
 @end
+
+#import <SSKeychain/SSKeychainQuery.h>
