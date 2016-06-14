@@ -22,7 +22,7 @@ class KeychainTests: XCTestCase {
 	// MARK: - XCTestCase
 
 	override func tearDown() {
-		SSKeychain.deletePasswordForService(testService, account: testAccount)
+		SSKeychain.deletePassword(forService: testService, account: testAccount)
 		super.tearDown()
 	}
 
@@ -131,20 +131,20 @@ class KeychainTests: XCTestCase {
 		createQuery.service = testService
 		createQuery.account = testAccount
 		createQuery.password = testPassword
-		createQuery.synchronizationMode = .Yes
+		createQuery.synchronizationMode = .yes
 		try! createQuery.save()
 
 		let noFetchQuery = SSKeychainQuery()
 		noFetchQuery.service = testService
 		noFetchQuery.account = testAccount
-	    noFetchQuery.synchronizationMode = .No
+	    noFetchQuery.synchronizationMode = .no
 		XCTAssertThrowsError(try noFetchQuery.fetch())
 		XCTAssertNotEqual(createQuery.password, noFetchQuery.password)
 
 		let anyFetchQuery = SSKeychainQuery()
 		anyFetchQuery.service = testService
 		anyFetchQuery.account = testAccount
-		anyFetchQuery.synchronizationMode = .Any
+		anyFetchQuery.synchronizationMode = .any
 		try! anyFetchQuery.fetch()
 		XCTAssertEqual(createQuery.password, anyFetchQuery.password)
 	}
@@ -154,13 +154,13 @@ class KeychainTests: XCTestCase {
 		SSKeychain.setPassword(testPassword, forService: testService, account: testAccount)
 
 		// Check password
-		XCTAssertEqual(testPassword, SSKeychain.passwordForService(testService, account: testAccount))
+		XCTAssertEqual(testPassword, SSKeychain.password(forService: testService, account: testAccount))
 
 		// Check all accounts
 		XCTAssertTrue(accounts(SSKeychain.allAccounts(), containsAccountWithName: testAccount))
 
 		// Check account
-		XCTAssertTrue(accounts(SSKeychain.accountsForService(testService), containsAccountWithName: testAccount))
+		XCTAssertTrue(accounts(SSKeychain.accounts(forService: testService), containsAccountWithName: testAccount))
 
 		#if !os(OSX)
 			SSKeychain.setAccessibilityType(kSecAttrAccessibleWhenUnlockedThisDeviceOnly)
@@ -168,32 +168,34 @@ class KeychainTests: XCTestCase {
 		#endif
 	}
 
-	func testUpdateAccessibilityType() {
-		SSKeychain.setAccessibilityType(kSecAttrAccessibleWhenUnlockedThisDeviceOnly)
+	#if !os(OSX)
+		func testUpdateAccessibilityType() {
+			SSKeychain.setAccessibilityType(kSecAttrAccessibleWhenUnlockedThisDeviceOnly)
 
-		// Create a new item
-		SSKeychain.setPassword(testPassword, forService: testService, account: testAccount)
+			// Create a new item
+			SSKeychain.setPassword(testPassword, forService: testService, account: testAccount)
 
-		// Check all accounts
-		XCTAssertTrue(accounts(SSKeychain.allAccounts(), containsAccountWithName: testAccount))
+			// Check all accounts
+			XCTAssertTrue(accounts(SSKeychain.allAccounts(), containsAccountWithName: testAccount))
 
-		// Check account
-		XCTAssertTrue(accounts(SSKeychain.accountsForService(testService), containsAccountWithName: testAccount))
+			// Check account
+			XCTAssertTrue(accounts(SSKeychain.accounts(forService: testService), containsAccountWithName: testAccount))
 
-		SSKeychain.setAccessibilityType(kSecAttrAccessibleAlwaysThisDeviceOnly)
-		SSKeychain.setPassword(testPassword, forService: testService, account: testAccount)
+			SSKeychain.setAccessibilityType(kSecAttrAccessibleAlwaysThisDeviceOnly)
+			SSKeychain.setPassword(testPassword, forService: testService, account: testAccount)
 
-		// Check all accounts
-		XCTAssertTrue(accounts(SSKeychain.allAccounts(), containsAccountWithName: testAccount))
+			// Check all accounts
+			XCTAssertTrue(accounts(SSKeychain.allAccounts(), containsAccountWithName: testAccount))
 
-		// Check account
-		XCTAssertTrue(accounts(SSKeychain.accountsForService(testService), containsAccountWithName: testAccount))
-	}
+			// Check account
+			XCTAssertTrue(accounts(SSKeychain.accounts(forService: testService), containsAccountWithName: testAccount))
+		}
+	#endif
 	
 
 	// MARK: - Private
 
-	private func accounts(accounts: [[String: AnyObject]], containsAccountWithName name: String) -> Bool {
+	private func accounts(_ accounts: [[String: AnyObject]], containsAccountWithName name: String) -> Bool {
 		for account in accounts {
 			if let acct = account["acct"] as? String where acct == name {
 				return true
