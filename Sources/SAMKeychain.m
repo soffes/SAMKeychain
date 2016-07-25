@@ -1,12 +1,12 @@
 //
-//  SSKeychain.m
+//  SAMKeychain.m
 //  SSKeychain
 //
 //  Created by Sam Soffes on 5/19/10.
 //  Copyright (c) 2010-2014 Sam Soffes. All rights reserved.
 //
 
-#import "SSKeychain.h"
+#import "SAMKeychain.h"
 #import "SAMKeychainQuery.h"
 
 NSString *const kSSKeychainErrorDomain = @"com.samsoffes.sskeychain";
@@ -22,7 +22,7 @@ NSString *const kSSKeychainWhereKey = @"svce";
 	static CFTypeRef SSKeychainAccessibilityType = NULL;
 #endif
 
-@implementation SSKeychain
+@implementation SAMKeychain
 
 + (NSString *)passwordForService:(NSString *)serviceName account:(NSString *)account {
 	return [self passwordForService:serviceName account:account error:nil];

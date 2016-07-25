@@ -1,5 +1,5 @@
 //
-//  SSKeychain.h
+//  SAMKeychain.h
 //  SSKeychain
 //
 //  Created by Sam Soffes on 5/19/10.
@@ -13,7 +13,7 @@
 #endif
 
 /**
- Error code specific to SSKeychain that can be returned in NSError objects.
+ Error code specific to SAMKeychain that can be returned in NSError objects.
  For codes returned by the operating system, refer to SecBase.h for your
  platform.
  */
@@ -22,7 +22,7 @@ typedef NS_ENUM(OSStatus, SSKeychainErrorCode) {
 	SSKeychainErrorBadArguments = -1001,
 };
 
-/** SSKeychain error domain */
+/** SAMKeychain error domain */
 extern NSString *const kSSKeychainErrorDomain;
 
 /** Account name. */
@@ -58,9 +58,9 @@ extern NSString *const kSSKeychainWhereKey;
  Keychain on Mac OS X and iOS.
 
  This was originally inspired by EMKeychain and SDKeychain (both of which are now gone). Thanks to the authors.
- SSKeychain has since switched to a simpler implementation that was abstracted from [SSToolkit](http://sstoolk.it).
+ SAMKeychain has since switched to a simpler implementation that was abstracted from [SSToolkit](http://sstoolk.it).
  */
-@interface SSKeychain : NSObject
+@interface SAMKeychain : NSObject
 
 #pragma mark - Classic methods
 
@@ -137,7 +137,7 @@ extern NSString *const kSSKeychainWhereKey;
 /**
  Returns an array containing the Keychain's accounts, or `nil` if the Keychain has no accounts.
 
- See the `NSString` constants declared in SSKeychain.h for a list of keys that can be used when accessing the
+ See the `NSString` constants declared in SAMKeychain.h for a list of keys that can be used when accessing the
  dictionaries returned by this method.
 
  @return An array of dictionaries containing the Keychain's accounts, or `nil` if the Keychain doesn't have any
@@ -151,7 +151,7 @@ extern NSString *const kSSKeychainWhereKey;
  Returns an array containing the Keychain's accounts for a given service, or `nil` if the Keychain doesn't have any
  accounts for the given service.
 
- See the `NSString` constants declared in SSKeychain.h for a list of keys that can be used when accessing the
+ See the `NSString` constants declared in SAMKeychain.h for a list of keys that can be used when accessing the
  dictionaries returned by this method.
 
  @param serviceName The service for which to return the corresponding accounts.

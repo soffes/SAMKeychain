@@ -22,7 +22,7 @@ class KeychainTests: XCTestCase {
 	// MARK: - XCTestCase
 
 	override func tearDown() {
-		SSKeychain.deletePasswordForService(testService, account: testAccount)
+		SAMKeychain.deletePasswordForService(testService, account: testAccount)
 		super.tearDown()
 	}
 
@@ -151,43 +151,43 @@ class KeychainTests: XCTestCase {
 
 	func testConvenienceMethods() {
 		// Create a new item
-		SSKeychain.setPassword(testPassword, forService: testService, account: testAccount)
+		SAMKeychain.setPassword(testPassword, forService: testService, account: testAccount)
 
 		// Check password
-		XCTAssertEqual(testPassword, SSKeychain.passwordForService(testService, account: testAccount))
+		XCTAssertEqual(testPassword, SAMKeychain.passwordForService(testService, account: testAccount))
 
 		// Check all accounts
-		XCTAssertTrue(accounts(SSKeychain.allAccounts(), containsAccountWithName: testAccount))
+		XCTAssertTrue(accounts(SAMKeychain.allAccounts(), containsAccountWithName: testAccount))
 
 		// Check account
-		XCTAssertTrue(accounts(SSKeychain.accountsForService(testService), containsAccountWithName: testAccount))
+		XCTAssertTrue(accounts(SAMKeychain.accountsForService(testService), containsAccountWithName: testAccount))
 
 		#if !os(OSX)
-			SSKeychain.setAccessibilityType(kSecAttrAccessibleWhenUnlockedThisDeviceOnly)
-			XCTAssertEqual(String(kSecAttrAccessibleWhenUnlockedThisDeviceOnly), String(SSKeychain.accessibilityType().takeRetainedValue()))
+			SAMKeychain.setAccessibilityType(kSecAttrAccessibleWhenUnlockedThisDeviceOnly)
+			XCTAssertEqual(String(kSecAttrAccessibleWhenUnlockedThisDeviceOnly), String(SAMKeychain.accessibilityType().takeRetainedValue()))
 		#endif
 	}
 
 	func testUpdateAccessibilityType() {
-		SSKeychain.setAccessibilityType(kSecAttrAccessibleWhenUnlockedThisDeviceOnly)
+		SAMKeychain.setAccessibilityType(kSecAttrAccessibleWhenUnlockedThisDeviceOnly)
 
 		// Create a new item
-		SSKeychain.setPassword(testPassword, forService: testService, account: testAccount)
+		SAMKeychain.setPassword(testPassword, forService: testService, account: testAccount)
 
 		// Check all accounts
-		XCTAssertTrue(accounts(SSKeychain.allAccounts(), containsAccountWithName: testAccount))
+		XCTAssertTrue(accounts(SAMKeychain.allAccounts(), containsAccountWithName: testAccount))
 
 		// Check account
-		XCTAssertTrue(accounts(SSKeychain.accountsForService(testService), containsAccountWithName: testAccount))
+		XCTAssertTrue(accounts(SAMKeychain.accountsForService(testService), containsAccountWithName: testAccount))
 
-		SSKeychain.setAccessibilityType(kSecAttrAccessibleAlwaysThisDeviceOnly)
-		SSKeychain.setPassword(testPassword, forService: testService, account: testAccount)
+		SAMKeychain.setAccessibilityType(kSecAttrAccessibleAlwaysThisDeviceOnly)
+		SAMKeychain.setPassword(testPassword, forService: testService, account: testAccount)
 
 		// Check all accounts
-		XCTAssertTrue(accounts(SSKeychain.allAccounts(), containsAccountWithName: testAccount))
+		XCTAssertTrue(accounts(SAMKeychain.allAccounts(), containsAccountWithName: testAccount))
 
 		// Check account
-		XCTAssertTrue(accounts(SSKeychain.accountsForService(testService), containsAccountWithName: testAccount))
+		XCTAssertTrue(accounts(SAMKeychain.accountsForService(testService), containsAccountWithName: testAccount))
 	}
 	
 

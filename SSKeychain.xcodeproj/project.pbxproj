@@ -11,21 +11,21 @@
 		02AB79B71CA69B4700E52F3D /* SSKeychain.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 02AB79B51CA69B4700E52F3D /* SSKeychain.bundle */; };
 		02AB79B81CA69B4700E52F3D /* SSKeychain.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 02AB79B51CA69B4700E52F3D /* SSKeychain.bundle */; };
 		02AB79B91CA69B4700E52F3D /* SSKeychain.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 02AB79B51CA69B4700E52F3D /* SSKeychain.bundle */; };
-		21632D821C92599100C40D7D /* SSKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 21632D7C1C92599100C40D7D /* SSKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		21632D831C92599100C40D7D /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 21632D7D1C92599100C40D7D /* SSKeychain.m */; };
+		21632D821C92599100C40D7D /* SAMKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 21632D7C1C92599100C40D7D /* SAMKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21632D831C92599100C40D7D /* SAMKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 21632D7D1C92599100C40D7D /* SAMKeychain.m */; };
 		21632D841C92599100C40D7D /* SAMKeychainQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 21632D7E1C92599100C40D7D /* SAMKeychainQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21632D851C92599100C40D7D /* SAMKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 21632D7F1C92599100C40D7D /* SAMKeychainQuery.m */; };
-		21632D8F1C9259C100C40D7D /* SSKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 21632D7C1C92599100C40D7D /* SSKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		21632D901C9259C100C40D7D /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 21632D7D1C92599100C40D7D /* SSKeychain.m */; };
+		21632D8F1C9259C100C40D7D /* SAMKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 21632D7C1C92599100C40D7D /* SAMKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21632D901C9259C100C40D7D /* SAMKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 21632D7D1C92599100C40D7D /* SAMKeychain.m */; };
 		21632D911C9259C100C40D7D /* SAMKeychainQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 21632D7E1C92599100C40D7D /* SAMKeychainQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21632D921C9259C100C40D7D /* SAMKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 21632D7F1C92599100C40D7D /* SAMKeychainQuery.m */; };
 		21632DA21C925A3C00C40D7D /* SSKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21632D981C925A3C00C40D7D /* SSKeychain.framework */; };
-		21632DB11C925A6000C40D7D /* SSKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 21632D7C1C92599100C40D7D /* SSKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		21632DB21C925A6000C40D7D /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 21632D7D1C92599100C40D7D /* SSKeychain.m */; };
+		21632DB11C925A6000C40D7D /* SAMKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 21632D7C1C92599100C40D7D /* SAMKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21632DB21C925A6000C40D7D /* SAMKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 21632D7D1C92599100C40D7D /* SAMKeychain.m */; };
 		21632DB31C925A6000C40D7D /* SAMKeychainQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 21632D7E1C92599100C40D7D /* SAMKeychainQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21632DB41C925A6000C40D7D /* SAMKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 21632D7F1C92599100C40D7D /* SAMKeychainQuery.m */; };
-		21632DC51C925B3700C40D7D /* SSKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 21632D7C1C92599100C40D7D /* SSKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		21632DC61C925B3700C40D7D /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 21632D7D1C92599100C40D7D /* SSKeychain.m */; };
+		21632DC51C925B3700C40D7D /* SAMKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 21632D7C1C92599100C40D7D /* SAMKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21632DC61C925B3700C40D7D /* SAMKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 21632D7D1C92599100C40D7D /* SAMKeychain.m */; };
 		21632DC71C925B3700C40D7D /* SAMKeychainQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 21632D7E1C92599100C40D7D /* SAMKeychainQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21632DC81C925B3700C40D7D /* SAMKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 21632D7F1C92599100C40D7D /* SAMKeychainQuery.m */; };
 		21632DD31C9282BD00C40D7D /* KeychainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21632DD21C9282BD00C40D7D /* KeychainTests.swift */; };
@@ -61,8 +61,8 @@
 
 /* Begin PBXFileReference section */
 		02AB79B51CA69B4700E52F3D /* SSKeychain.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SSKeychain.bundle; sourceTree = "<group>"; };
-		21632D7C1C92599100C40D7D /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
-		21632D7D1C92599100C40D7D /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
+		21632D7C1C92599100C40D7D /* SAMKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMKeychain.h; sourceTree = "<group>"; };
+		21632D7D1C92599100C40D7D /* SAMKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMKeychain.m; sourceTree = "<group>"; };
 		21632D7E1C92599100C40D7D /* SAMKeychainQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMKeychainQuery.h; sourceTree = "<group>"; };
 		21632D7F1C92599100C40D7D /* SAMKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMKeychainQuery.m; sourceTree = "<group>"; };
 		21632D891C9259B400C40D7D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -147,8 +147,8 @@
 		21632D781C92599100C40D7D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				21632D7C1C92599100C40D7D /* SSKeychain.h */,
-				21632D7D1C92599100C40D7D /* SSKeychain.m */,
+				21632D7C1C92599100C40D7D /* SAMKeychain.h */,
+				21632D7D1C92599100C40D7D /* SAMKeychain.m */,
 				21632D7E1C92599100C40D7D /* SAMKeychainQuery.h */,
 				21632D7F1C92599100C40D7D /* SAMKeychainQuery.m */,
 			);
@@ -232,7 +232,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21632DB11C925A6000C40D7D /* SSKeychain.h in Headers */,
+				21632DB11C925A6000C40D7D /* SAMKeychain.h in Headers */,
 				21632DB31C925A6000C40D7D /* SAMKeychainQuery.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,7 +241,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21632DC51C925B3700C40D7D /* SSKeychain.h in Headers */,
+				21632DC51C925B3700C40D7D /* SAMKeychain.h in Headers */,
 				21632DC71C925B3700C40D7D /* SAMKeychainQuery.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,7 +250,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21632D821C92599100C40D7D /* SSKeychain.h in Headers */,
+				21632D821C92599100C40D7D /* SAMKeychain.h in Headers */,
 				21632D841C92599100C40D7D /* SAMKeychainQuery.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,7 +259,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21632D8F1C9259C100C40D7D /* SSKeychain.h in Headers */,
+				21632D8F1C9259C100C40D7D /* SAMKeychain.h in Headers */,
 				21632D911C9259C100C40D7D /* SAMKeychainQuery.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -505,7 +505,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21632DB41C925A6000C40D7D /* SAMKeychainQuery.m in Sources */,
-				21632DB21C925A6000C40D7D /* SSKeychain.m in Sources */,
+				21632DB21C925A6000C40D7D /* SAMKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,7 +522,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21632DC81C925B3700C40D7D /* SAMKeychainQuery.m in Sources */,
-				21632DC61C925B3700C40D7D /* SSKeychain.m in Sources */,
+				21632DC61C925B3700C40D7D /* SAMKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,7 +531,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21632D851C92599100C40D7D /* SAMKeychainQuery.m in Sources */,
-				21632D831C92599100C40D7D /* SSKeychain.m in Sources */,
+				21632D831C92599100C40D7D /* SAMKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,7 +548,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21632D921C9259C100C40D7D /* SAMKeychainQuery.m in Sources */,
-				21632D901C9259C100C40D7D /* SSKeychain.m in Sources */,
+				21632D901C9259C100C40D7D /* SAMKeychain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
