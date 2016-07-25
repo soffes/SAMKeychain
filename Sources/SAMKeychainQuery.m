@@ -16,11 +16,11 @@
 @synthesize label = _label;
 @synthesize passwordData = _passwordData;
 
-#ifdef SSKEYCHAIN_ACCESS_GROUP_AVAILABLE
+#ifdef SAMKEYCHAIN_ACCESS_GROUP_AVAILABLE
 @synthesize accessGroup = _accessGroup;
 #endif
 
-#ifdef SSKEYCHAIN_SYNCHRONIZATION_AVAILABLE
+#ifdef SAMKEYCHAIN_SYNCHRONIZATION_AVAILABLE
 @synthesize synchronizationMode = _synchronizationMode;
 #endif
 
@@ -185,7 +185,7 @@
 
 #pragma mark - Synchronization Status
 
-#ifdef SSKEYCHAIN_SYNCHRONIZATION_AVAILABLE
+#ifdef SAMKEYCHAIN_SYNCHRONIZATION_AVAILABLE
 + (BOOL)isSynchronizationAvailable {
 #if TARGET_OS_IPHONE
 	// Apple suggested way to check for 7.0 at runtime
@@ -212,7 +212,7 @@
 		[dictionary setObject:self.account forKey:(__bridge id)kSecAttrAccount];
 	}
 
-#ifdef SSKEYCHAIN_ACCESS_GROUP_AVAILABLE
+#ifdef SAMKEYCHAIN_ACCESS_GROUP_AVAILABLE
 #if !TARGET_IPHONE_SIMULATOR
 	if (self.accessGroup) {
 		[dictionary setObject:self.accessGroup forKey:(__bridge id)kSecAttrAccessGroup];
@@ -220,7 +220,7 @@
 #endif
 #endif
 
-#ifdef SSKEYCHAIN_SYNCHRONIZATION_AVAILABLE
+#ifdef SAMKEYCHAIN_SYNCHRONIZATION_AVAILABLE
 	if ([[self class] isSynchronizationAvailable]) {
 		id value;
 
