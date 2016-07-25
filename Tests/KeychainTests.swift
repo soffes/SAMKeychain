@@ -1,13 +1,13 @@
 //
 //  KeychainTests.swift
-//  SSKeychain
+//  SAMKeychain
 //
 //  Created by Sam Soffes on 3/10/16.
 //  Copyright © 2010-2016 Sam Soffes. All rights reserved.
 //
 
 import XCTest
-import SSKeychain
+import SAMKeychain
 
 class KeychainTests: XCTestCase {
 
