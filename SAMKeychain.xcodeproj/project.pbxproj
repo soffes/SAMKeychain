@@ -36,26 +36,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		21632DA31C925A3C00C40D7D /* PBXContainerItemProxy */ = {
+		852915A51D4670E400871559 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 21CC429F17DB874300201DDC /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 21632D971C925A3C00C40D7D;
-			remoteInfo = SSKeychain;
+			remoteInfo = "SAMKeychain-tvOS";
 		};
-		E8A6665C1A844D3A00287CA3 /* PBXContainerItemProxy */ = {
+		852915A11D4670A700871559 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 21CC429F17DB874300201DDC /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = E8A666331A844CC400287CA3;
-			remoteInfo = "SSKeychain iOS";
+			remoteInfo = "SAMKeychain-iOS";
 		};
-		E8A6667B1A844E4100287CA3 /* PBXContainerItemProxy */ = {
+		852915A31D4670C500871559 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 21CC429F17DB874300201DDC /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = E8A6666E1A844E4100287CA3;
-			remoteInfo = "SSKeychain Mac";
+			remoteInfo = "SAMKeychain-OSX";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -296,7 +296,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				21632DA41C925A3C00C40D7D /* PBXTargetDependency */,
+				852915A61D4670E400871559 /* PBXTargetDependency */,
 			);
 			name = "SAMKeychainTests-tvOS";
 			productName = SSKeychainTests;
@@ -349,7 +349,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				E8A6665D1A844D3A00287CA3 /* PBXTargetDependency */,
+				852915A21D4670A700871559 /* PBXTargetDependency */,
 			);
 			name = "SAMKeychainTests-iOS";
 			productName = "SSKeychain iOS Tests";
@@ -385,7 +385,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				E8A6667C1A844E4100287CA3 /* PBXTargetDependency */,
+				852915A41D4670C500871559 /* PBXTargetDependency */,
 			);
 			name = "SAMKeychainTests-OSX";
 			productName = "SSKeychain MacTests";
@@ -563,20 +563,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		21632DA41C925A3C00C40D7D /* PBXTargetDependency */ = {
+		852915A61D4670E400871559 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 21632D971C925A3C00C40D7D /* SAMKeychain-tvOS */;
-			targetProxy = 21632DA31C925A3C00C40D7D /* PBXContainerItemProxy */;
+			targetProxy = 852915A51D4670E400871559 /* PBXContainerItemProxy */;
 		};
-		E8A6665D1A844D3A00287CA3 /* PBXTargetDependency */ = {
+		852915A21D4670A700871559 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = E8A666331A844CC400287CA3 /* SAMKeychain-iOS */;
-			targetProxy = E8A6665C1A844D3A00287CA3 /* PBXContainerItemProxy */;
+			targetProxy = 852915A11D4670A700871559 /* PBXContainerItemProxy */;
 		};
-		E8A6667C1A844E4100287CA3 /* PBXTargetDependency */ = {
+		852915A41D4670C500871559 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = E8A6666E1A844E4100287CA3 /* SAMKeychain-OSX */;
-			targetProxy = E8A6667B1A844E4100287CA3 /* PBXContainerItemProxy */;
+			targetProxy = 852915A31D4670C500871559 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
