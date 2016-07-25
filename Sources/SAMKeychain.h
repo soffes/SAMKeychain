@@ -17,41 +17,41 @@
  For codes returned by the operating system, refer to SecBase.h for your
  platform.
  */
-typedef NS_ENUM(OSStatus, SSKeychainErrorCode) {
+typedef NS_ENUM(OSStatus, SAMKeychainErrorCode) {
 	/** Some of the arguments were invalid. */
-	SSKeychainErrorBadArguments = -1001,
+	SAMKeychainErrorBadArguments = -1001,
 };
 
 /** SAMKeychain error domain */
-extern NSString *const kSSKeychainErrorDomain;
+extern NSString *const kSAMKeychainErrorDomain;
 
 /** Account name. */
-extern NSString *const kSSKeychainAccountKey;
+extern NSString *const kSAMKeychainAccountKey;
 
 /**
  Time the item was created.
 
  The value will be a string.
  */
-extern NSString *const kSSKeychainCreatedAtKey;
+extern NSString *const kSAMKeychainCreatedAtKey;
 
 /** Item class. */
-extern NSString *const kSSKeychainClassKey;
+extern NSString *const kSAMKeychainClassKey;
 
 /** Item description. */
-extern NSString *const kSSKeychainDescriptionKey;
+extern NSString *const kSAMKeychainDescriptionKey;
 
 /** Item label. */
-extern NSString *const kSSKeychainLabelKey;
+extern NSString *const kSAMKeychainLabelKey;
 
 /** Time the item was last modified.
 
  The value will be a string.
  */
-extern NSString *const kSSKeychainLastModifiedKey;
+extern NSString *const kSAMKeychainLastModifiedKey;
 
 /** Where the item was created. */
-extern NSString *const kSSKeychainWhereKey;
+extern NSString *const kSAMKeychainWhereKey;
 
 /**
  Simple wrapper for accessing accounts, getting passwords, setting passwords, and deleting passwords using the system

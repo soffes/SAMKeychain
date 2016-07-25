@@ -9,17 +9,17 @@
 #import "SAMKeychain.h"
 #import "SAMKeychainQuery.h"
 
-NSString *const kSSKeychainErrorDomain = @"com.samsoffes.sskeychain";
-NSString *const kSSKeychainAccountKey = @"acct";
-NSString *const kSSKeychainCreatedAtKey = @"cdat";
-NSString *const kSSKeychainClassKey = @"labl";
-NSString *const kSSKeychainDescriptionKey = @"desc";
-NSString *const kSSKeychainLabelKey = @"labl";
-NSString *const kSSKeychainLastModifiedKey = @"mdat";
-NSString *const kSSKeychainWhereKey = @"svce";
+NSString *const kSAMKeychainErrorDomain = @"com.samsoffes.samkeychain";
+NSString *const kSAMKeychainAccountKey = @"acct";
+NSString *const kSAMKeychainCreatedAtKey = @"cdat";
+NSString *const kSAMKeychainClassKey = @"labl";
+NSString *const kSAMKeychainDescriptionKey = @"desc";
+NSString *const kSAMKeychainLabelKey = @"labl";
+NSString *const kSAMKeychainLastModifiedKey = @"mdat";
+NSString *const kSAMKeychainWhereKey = @"svce";
 
 #if __IPHONE_4_0 && TARGET_OS_IPHONE
-	static CFTypeRef SSKeychainAccessibilityType = NULL;
+	static CFTypeRef SAMKeychainAccessibilityType = NULL;
 #endif
 
 @implementation SAMKeychain
@@ -114,16 +114,16 @@ NSString *const kSSKeychainWhereKey = @"svce";
 
 #if __IPHONE_4_0 && TARGET_OS_IPHONE
 + (CFTypeRef)accessibilityType {
-	return SSKeychainAccessibilityType;
+	return SAMKeychainAccessibilityType;
 }
 
 
 + (void)setAccessibilityType:(CFTypeRef)accessibilityType {
 	CFRetain(accessibilityType);
-	if (SSKeychainAccessibilityType) {
-		CFRelease(SSKeychainAccessibilityType);
+	if (SAMKeychainAccessibilityType) {
+		CFRelease(SAMKeychainAccessibilityType);
 	}
-	SSKeychainAccessibilityType = accessibilityType;
+	SAMKeychainAccessibilityType = accessibilityType;
 }
 #endif
 

@@ -27,7 +27,7 @@
 #pragma mark - Public
 
 - (BOOL)save:(NSError *__autoreleasing *)error {
-	OSStatus status = SSKeychainErrorBadArguments;
+	OSStatus status = SAMKeychainErrorBadArguments;
 	if (!self.service || !self.account || !self.passwordData) {
 		if (error) {
 			*error = [[self class] errorWithCode:status];
@@ -68,7 +68,7 @@
 
 
 - (BOOL)deleteItem:(NSError *__autoreleasing *)error {
-	OSStatus status = SSKeychainErrorBadArguments;
+	OSStatus status = SAMKeychainErrorBadArguments;
 	if (!self.service || !self.account) {
 		if (error) {
 			*error = [[self class] errorWithCode:status];
@@ -129,7 +129,7 @@
 
 
 - (BOOL)fetch:(NSError *__autoreleasing *)error {
-	OSStatus status = SSKeychainErrorBadArguments;
+	OSStatus status = SAMKeychainErrorBadArguments;
 	if (!self.service || !self.account) {
 		if (error) {
 			*error = [[self class] errorWithCode:status];
@@ -258,7 +258,7 @@
 	NSString *message = nil;
 	switch (code) {
 		case errSecSuccess: return nil;
-		case SSKeychainErrorBadArguments: message = NSLocalizedStringFromTableInBundle(@"SAMKeychainErrorBadArguments", @"SAMKeychain", resourcesBundle, nil); break;
+		case SAMKeychainErrorBadArguments: message = NSLocalizedStringFromTableInBundle(@"SAMKeychainErrorBadArguments", @"SAMKeychain", resourcesBundle, nil); break;
 
 #if TARGET_OS_IPHONE
 		case errSecUnimplemented: {
@@ -310,7 +310,7 @@
 	if (message) {
 		userInfo = @{ NSLocalizedDescriptionKey : message };
 	}
-	return [NSError errorWithDomain:kSSKeychainErrorDomain code:code userInfo:userInfo];
+	return [NSError errorWithDomain:kSAMKeychainErrorDomain code:code userInfo:userInfo];
 }
 
 @end
