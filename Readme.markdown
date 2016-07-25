@@ -13,7 +13,7 @@ pod 'SAMKeychain'
 or Cartfile if you're using Carthage:
 
 ```
-github "soffes/SSKeychain"
+github "soffes/SAMKeychain"
 ```
 
 To manually add to your project:
@@ -38,7 +38,7 @@ SAMKeychain has the following class methods for working with the system keychain
 + (BOOL)setPassword:(NSString *)password forService:(NSString *)serviceName account:(NSString *)account;
 ```
 
-Easy as that. (See [SAMKeychain.h](https://github.com/soffes/sskeychain/blob/master/Sources/SAMKeychain.h) and [SAMKeychainQuery.h](https://github.com/soffes/sskeychain/blob/master/Sources/SAMKeychainQuery.h) for all of the methods.)
+Easy as that. (See [SAMKeychain.h](https://github.com/soffes/samkeychain/blob/master/Sources/SAMKeychain.h) and [SAMKeychainQuery.h](https://github.com/soffes/samkeychain/blob/master/Sources/SAMKeychainQuery.h) for all of the methods.)
 
 
 ## Documentation
