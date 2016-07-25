@@ -398,7 +398,7 @@
 		21CC429F17DB874300201DDC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = SS;
+				CLASSPREFIX = SAM;
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Sam Soffes";
