@@ -251,54 +251,54 @@
 	static dispatch_once_t onceToken;
 	static NSBundle *resourcesBundle = nil;
 	dispatch_once(&onceToken, ^{
-		NSURL *url = [[NSBundle bundleForClass:[self class]] URLForResource:@"SSKeychain" withExtension:@"bundle"];
+		NSURL *url = [[NSBundle bundleForClass:[self class]] URLForResource:@"SAMKeychain" withExtension:@"bundle"];
 		resourcesBundle = [NSBundle bundleWithURL:url];
 	});
 	
 	NSString *message = nil;
 	switch (code) {
 		case errSecSuccess: return nil;
-		case SSKeychainErrorBadArguments: message = NSLocalizedStringFromTableInBundle(@"SSKeychainErrorBadArguments", @"SSKeychain", resourcesBundle, nil); break;
+		case SSKeychainErrorBadArguments: message = NSLocalizedStringFromTableInBundle(@"SAMKeychainErrorBadArguments", @"SAMKeychain", resourcesBundle, nil); break;
 
 #if TARGET_OS_IPHONE
 		case errSecUnimplemented: {
-			message = NSLocalizedStringFromTableInBundle(@"errSecUnimplemented", @"SSKeychain", resourcesBundle, nil);
+			message = NSLocalizedStringFromTableInBundle(@"errSecUnimplemented", @"SAMKeychain", resourcesBundle, nil);
 			break;
 		}
 		case errSecParam: {
-			message = NSLocalizedStringFromTableInBundle(@"errSecParam", @"SSKeychain", resourcesBundle, nil);
+			message = NSLocalizedStringFromTableInBundle(@"errSecParam", @"SAMKeychain", resourcesBundle, nil);
 			break;
 		}
 		case errSecAllocate: {
-			message = NSLocalizedStringFromTableInBundle(@"errSecAllocate", @"SSKeychain", resourcesBundle, nil);
+			message = NSLocalizedStringFromTableInBundle(@"errSecAllocate", @"SAMKeychain", resourcesBundle, nil);
 			break;
 		}
 		case errSecNotAvailable: {
-			message = NSLocalizedStringFromTableInBundle(@"errSecNotAvailable", @"SSKeychain", resourcesBundle, nil);
+			message = NSLocalizedStringFromTableInBundle(@"errSecNotAvailable", @"SAMKeychain", resourcesBundle, nil);
 			break;
 		}
 		case errSecDuplicateItem: {
-			message = NSLocalizedStringFromTableInBundle(@"errSecDuplicateItem", @"SSKeychain", resourcesBundle, nil);
+			message = NSLocalizedStringFromTableInBundle(@"errSecDuplicateItem", @"SAMKeychain", resourcesBundle, nil);
 			break;
 		}
 		case errSecItemNotFound: {
-			message = NSLocalizedStringFromTableInBundle(@"errSecItemNotFound", @"SSKeychain", resourcesBundle, nil);
+			message = NSLocalizedStringFromTableInBundle(@"errSecItemNotFound", @"SAMKeychain", resourcesBundle, nil);
 			break;
 		}
 		case errSecInteractionNotAllowed: {
-			message = NSLocalizedStringFromTableInBundle(@"errSecInteractionNotAllowed", @"SSKeychain", resourcesBundle, nil);
+			message = NSLocalizedStringFromTableInBundle(@"errSecInteractionNotAllowed", @"SAMKeychain", resourcesBundle, nil);
 			break;
 		}
 		case errSecDecode: {
-			message = NSLocalizedStringFromTableInBundle(@"errSecDecode", @"SSKeychain", resourcesBundle, nil);
+			message = NSLocalizedStringFromTableInBundle(@"errSecDecode", @"SAMKeychain", resourcesBundle, nil);
 			break;
 		}
 		case errSecAuthFailed: {
-			message = NSLocalizedStringFromTableInBundle(@"errSecAuthFailed", @"SSKeychain", resourcesBundle, nil);
+			message = NSLocalizedStringFromTableInBundle(@"errSecAuthFailed", @"SAMKeychain", resourcesBundle, nil);
 			break;
 		}
 		default: {
-			message = NSLocalizedStringFromTableInBundle(@"errSecDefault", @"SSKeychain", resourcesBundle, nil);
+			message = NSLocalizedStringFromTableInBundle(@"errSecDefault", @"SAMKeychain", resourcesBundle, nil);
 		}
 #else
 		default:
