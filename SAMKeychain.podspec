@@ -1,5 +1,5 @@
 Pod::Spec.new do |spec|
-  spec.name         = 'SSKeychain'
+  spec.name         = 'SAMKeychain'
   spec.version      = '1.4.0'
   spec.description  = 'Simple Cocoa wrapper for the keychain that works on OS X, iOS, tvOS, and watchOS.'
   spec.summary      = 'Simple Cocoa wrapper for the keychain.'
@@ -9,7 +9,7 @@ Pod::Spec.new do |spec|
   spec.license      = { :type => 'MIT', :file => 'LICENSE' }
 
   spec.source_files = 'Sources/*.{h,m}'
-  spec.resources = 'Support/SSKeychain.bundle'
+  spec.resources = 'Support/SAMKeychain.bundle'
 
   spec.frameworks = 'Security', 'Foundation'
 
