@@ -7,7 +7,7 @@
 //
 
 #import "SSKeychain.h"
-#import "SSKeychainQuery.h"
+#import "SAMKeychainQuery.h"
 
 NSString *const kSSKeychainErrorDomain = @"com.samsoffes.sskeychain";
 NSString *const kSSKeychainAccountKey = @"acct";
@@ -30,7 +30,7 @@ NSString *const kSSKeychainWhereKey = @"svce";
 
 
 + (NSString *)passwordForService:(NSString *)serviceName account:(NSString *)account error:(NSError *__autoreleasing *)error {
-	SSKeychainQuery *query = [[SSKeychainQuery alloc] init];
+	SAMKeychainQuery *query = [[SAMKeychainQuery alloc] init];
 	query.service = serviceName;
 	query.account = account;
 	[query fetch:error];
@@ -42,7 +42,7 @@ NSString *const kSSKeychainWhereKey = @"svce";
 }
 
 + (NSData *)passwordDataForService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error {
-    SSKeychainQuery *query = [[SSKeychainQuery alloc] init];
+    SAMKeychainQuery *query = [[SAMKeychainQuery alloc] init];
     query.service = serviceName;
     query.account = account;
     [query fetch:error];
@@ -57,7 +57,7 @@ NSString *const kSSKeychainWhereKey = @"svce";
 
 
 + (BOOL)deletePasswordForService:(NSString *)serviceName account:(NSString *)account error:(NSError *__autoreleasing *)error {
-	SSKeychainQuery *query = [[SSKeychainQuery alloc] init];
+	SAMKeychainQuery *query = [[SAMKeychainQuery alloc] init];
 	query.service = serviceName;
 	query.account = account;
 	return [query deleteItem:error];
@@ -70,7 +70,7 @@ NSString *const kSSKeychainWhereKey = @"svce";
 
 
 + (BOOL)setPassword:(NSString *)password forService:(NSString *)serviceName account:(NSString *)account error:(NSError *__autoreleasing *)error {
-	SSKeychainQuery *query = [[SSKeychainQuery alloc] init];
+	SAMKeychainQuery *query = [[SAMKeychainQuery alloc] init];
 	query.service = serviceName;
 	query.account = account;
 	query.password = password;
@@ -83,7 +83,7 @@ NSString *const kSSKeychainWhereKey = @"svce";
 
 
 + (BOOL)setPasswordData:(NSData *)password forService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error {
-    SSKeychainQuery *query = [[SSKeychainQuery alloc] init];
+    SAMKeychainQuery *query = [[SAMKeychainQuery alloc] init];
     query.service = serviceName;
     query.account = account;
     query.passwordData = password;
@@ -106,7 +106,7 @@ NSString *const kSSKeychainWhereKey = @"svce";
 
 
 + (NSArray *)accountsForService:(NSString *)serviceName error:(NSError *__autoreleasing *)error {
-    SSKeychainQuery *query = [[SSKeychainQuery alloc] init];
+    SAMKeychainQuery *query = [[SAMKeychainQuery alloc] init];
     query.service = serviceName;
     return [query fetchAll:error];
 }
