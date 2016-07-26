@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "21632D971C925A3C00C40D7D"
-               BuildableName = "SSKeychain.framework"
-               BlueprintName = "SSKeychain-tvOS"
-               ReferencedContainer = "container:SSKeychain.xcodeproj">
+               BlueprintIdentifier = "E8A6666E1A844E4100287CA3"
+               BuildableName = "SAMKeychain.framework"
+               BlueprintName = "SAMKeychain-OSX"
+               ReferencedContainer = "container:SAMKeychain.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,20 +32,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "21632DA01C925A3C00C40D7D"
-               BuildableName = "SSKeychainTests.xctest"
-               BlueprintName = "SSKeychainTests-tvOS"
-               ReferencedContainer = "container:SSKeychain.xcodeproj">
+               BlueprintIdentifier = "E8A666781A844E4100287CA3"
+               BuildableName = "SAMKeychainTests-OSX.xctest"
+               BlueprintName = "SAMKeychainTests-OSX"
+               ReferencedContainer = "container:SAMKeychain.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "21632D971C925A3C00C40D7D"
-            BuildableName = "SSKeychain.framework"
-            BlueprintName = "SSKeychain-tvOS"
-            ReferencedContainer = "container:SSKeychain.xcodeproj">
+            BlueprintIdentifier = "E8A6666E1A844E4100287CA3"
+            BuildableName = "SAMKeychain.framework"
+            BlueprintName = "SAMKeychain-OSX"
+            ReferencedContainer = "container:SAMKeychain.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -64,10 +64,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "21632D971C925A3C00C40D7D"
-            BuildableName = "SSKeychain.framework"
-            BlueprintName = "SSKeychain-tvOS"
-            ReferencedContainer = "container:SSKeychain.xcodeproj">
+            BlueprintIdentifier = "E8A6666E1A844E4100287CA3"
+            BuildableName = "SAMKeychain.framework"
+            BlueprintName = "SAMKeychain-OSX"
+            ReferencedContainer = "container:SAMKeychain.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -82,10 +82,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "21632D971C925A3C00C40D7D"
-            BuildableName = "SSKeychain.framework"
-            BlueprintName = "SSKeychain-tvOS"
-            ReferencedContainer = "container:SSKeychain.xcodeproj">
+            BlueprintIdentifier = "E8A6666E1A844E4100287CA3"
+            BuildableName = "SAMKeychain.framework"
+            BlueprintName = "SAMKeychain-OSX"
+            ReferencedContainer = "container:SAMKeychain.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

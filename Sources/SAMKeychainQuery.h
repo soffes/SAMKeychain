@@ -1,6 +1,6 @@
 //
-//  SSKeychainQuery.h
-//  SSKeychain
+//  SAMKeychainQuery.h
+//  SAMKeychain
 //
 //  Created by Caleb Davenport on 3/19/13.
 //  Copyright (c) 2013-2014 Sam Soffes. All rights reserved.
@@ -16,26 +16,26 @@
 
 #if __IPHONE_7_0 || __MAC_10_9
 	// Keychain synchronization available at compile time
-	#define SSKEYCHAIN_SYNCHRONIZATION_AVAILABLE 1
+	#define SAMKEYCHAIN_SYNCHRONIZATION_AVAILABLE 1
 #endif
 
 #if __IPHONE_3_0 || __MAC_10_9
 	// Keychain access group available at compile time
-	#define SSKEYCHAIN_ACCESS_GROUP_AVAILABLE 1
+	#define SAMKEYCHAIN_ACCESS_GROUP_AVAILABLE 1
 #endif
 
-#ifdef SSKEYCHAIN_SYNCHRONIZATION_AVAILABLE
-typedef NS_ENUM(NSUInteger, SSKeychainQuerySynchronizationMode) {
-	SSKeychainQuerySynchronizationModeAny,
-	SSKeychainQuerySynchronizationModeNo,
-	SSKeychainQuerySynchronizationModeYes
+#ifdef SAMKEYCHAIN_SYNCHRONIZATION_AVAILABLE
+typedef NS_ENUM(NSUInteger, SAMKeychainQuerySynchronizationMode) {
+	SAMKeychainQuerySynchronizationModeAny,
+	SAMKeychainQuerySynchronizationModeNo,
+	SAMKeychainQuerySynchronizationModeYes
 };
 #endif
 
 /**
  Simple interface for querying or modifying keychain items.
  */
-@interface SSKeychainQuery : NSObject
+@interface SAMKeychainQuery : NSObject
 
 /** kSecAttrAccount */
 @property (nonatomic, copy) NSString *account;
@@ -46,14 +46,14 @@ typedef NS_ENUM(NSUInteger, SSKeychainQuerySynchronizationMode) {
 /** kSecAttrLabel */
 @property (nonatomic, copy) NSString *label;
 
-#ifdef SSKEYCHAIN_ACCESS_GROUP_AVAILABLE
+#ifdef SAMKEYCHAIN_ACCESS_GROUP_AVAILABLE
 /** kSecAttrAccessGroup (only used on iOS) */
 @property (nonatomic, copy) NSString *accessGroup;
 #endif
 
-#ifdef SSKEYCHAIN_SYNCHRONIZATION_AVAILABLE
+#ifdef SAMKEYCHAIN_SYNCHRONIZATION_AVAILABLE
 /** kSecAttrSynchronizable */
-@property (nonatomic) SSKeychainQuerySynchronizationMode synchronizationMode;
+@property (nonatomic) SAMKeychainQuerySynchronizationMode synchronizationMode;
 #endif
 
 /** Root storage for password information */
@@ -129,10 +129,10 @@ typedef NS_ENUM(NSUInteger, SSKeychainQuerySynchronizationMode) {
 /// @name Synchronization Status
 ///-----------------------------
 
-#ifdef SSKEYCHAIN_SYNCHRONIZATION_AVAILABLE
+#ifdef SAMKEYCHAIN_SYNCHRONIZATION_AVAILABLE
 /**
  Returns a boolean indicating if keychain synchronization is available on the device at runtime. The #define 
- SSKEYCHAIN_SYNCHRONIZATION_AVAILABLE is only for compile time. If you are checking for the presence of synchronization,
+ SAMKEYCHAIN_SYNCHRONIZATION_AVAILABLE is only for compile time. If you are checking for the presence of synchronization,
  you should use this method.
  
  @return A value indicating if keychain synchronization is available

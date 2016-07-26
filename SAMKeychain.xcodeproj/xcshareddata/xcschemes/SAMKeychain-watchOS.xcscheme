@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "21632DBB1C925B1F00C40D7D"
-               BuildableName = "SSKeychain.framework"
-               BlueprintName = "SSKeychain-watchOS"
-               ReferencedContainer = "container:SSKeychain.xcodeproj">
+               BuildableName = "SAMKeychain.framework"
+               BlueprintName = "SAMKeychain-watchOS"
+               ReferencedContainer = "container:SAMKeychain.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,9 +46,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "21632DBB1C925B1F00C40D7D"
-            BuildableName = "SSKeychain.framework"
-            BlueprintName = "SSKeychain-watchOS"
-            ReferencedContainer = "container:SSKeychain.xcodeproj">
+            BuildableName = "SAMKeychain.framework"
+            BlueprintName = "SAMKeychain-watchOS"
+            ReferencedContainer = "container:SAMKeychain.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -64,9 +64,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "21632DBB1C925B1F00C40D7D"
-            BuildableName = "SSKeychain.framework"
-            BlueprintName = "SSKeychain-watchOS"
-            ReferencedContainer = "container:SSKeychain.xcodeproj">
+            BuildableName = "SAMKeychain.framework"
+            BlueprintName = "SAMKeychain-watchOS"
+            ReferencedContainer = "container:SAMKeychain.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
