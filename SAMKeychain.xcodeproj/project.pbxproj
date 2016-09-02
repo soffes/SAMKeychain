@@ -36,13 +36,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		852915A51D4670E400871559 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 21CC429F17DB874300201DDC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 21632D971C925A3C00C40D7D;
-			remoteInfo = "SAMKeychain-tvOS";
-		};
 		852915A11D4670A700871559 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 21CC429F17DB874300201DDC /* Project object */;
@@ -56,6 +49,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = E8A6666E1A844E4100287CA3;
 			remoteInfo = "SAMKeychain-OSX";
+		};
+		852915A51D4670E400871559 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 21CC429F17DB874300201DDC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 21632D971C925A3C00C40D7D;
+			remoteInfo = "SAMKeychain-tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -563,11 +563,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		852915A61D4670E400871559 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 21632D971C925A3C00C40D7D /* SAMKeychain-tvOS */;
-			targetProxy = 852915A51D4670E400871559 /* PBXContainerItemProxy */;
-		};
 		852915A21D4670A700871559 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = E8A666331A844CC400287CA3 /* SAMKeychain-iOS */;
@@ -577,6 +572,11 @@
 			isa = PBXTargetDependency;
 			target = E8A6666E1A844E4100287CA3 /* SAMKeychain-OSX */;
 			targetProxy = 852915A31D4670C500871559 /* PBXContainerItemProxy */;
+		};
+		852915A61D4670E400871559 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 21632D971C925A3C00C40D7D /* SAMKeychain-tvOS */;
+			targetProxy = 852915A51D4670E400871559 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -715,6 +715,7 @@
 		21632DAE1C925A3C00C40D7D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -724,7 +725,6 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = "Support/Tests-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.samsoffes.SAMKeychainTests;
 				PRODUCT_NAME = SAMKeychainTests;
@@ -737,6 +737,7 @@
 		21632DAF1C925A3C00C40D7D /* Test */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -747,7 +748,6 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = "Support/Tests-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.samsoffes.SAMKeychainTests;
 				PRODUCT_NAME = SAMKeychainTests;
@@ -760,6 +760,7 @@
 		21632DB01C925A3C00C40D7D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -770,7 +771,6 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = "Support/Tests-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.samsoffes.SAMKeychainTests;
 				PRODUCT_NAME = SAMKeychainTests;
@@ -1029,6 +1029,7 @@
 		E8A6665F1A844D3A00287CA3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1055,6 +1056,7 @@
 		E8A666601A844D3A00287CA3 /* Test */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1077,6 +1079,7 @@
 		E8A666611A844D3A00287CA3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1185,6 +1188,7 @@
 		E8A666871A844E4100287CA3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1213,6 +1217,7 @@
 		E8A666881A844E4100287CA3 /* Test */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1238,6 +1243,7 @@
 		E8A666891A844E4100287CA3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				COMBINE_HIDPI_IMAGES = YES;
