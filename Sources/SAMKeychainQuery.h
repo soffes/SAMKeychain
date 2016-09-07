@@ -1,33 +1,43 @@
 //
-//  SSKeychainQuery.h
-//  SSKeychain
+//  SAMKeychainQuery.h
+//  SAMKeychain
 //
 //  Created by Caleb Davenport on 3/19/13.
 //  Copyright (c) 2013-2014 Sam Soffes. All rights reserved.
 //
 
-@import Foundation;
-@import Security;
+#if __has_feature(modules)
+	@import Foundation;
+	@import Security;
+#else
+	#import <Foundation/Foundation.h>
+	#import <Security/Security.h>
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
 
 #if __IPHONE_7_0 || __MAC_10_9
 	// Keychain synchronization available at compile time
-	#define SSKEYCHAIN_SYNCHRONIZATION_AVAILABLE 1
+	#define SAMKEYCHAIN_SYNCHRONIZATION_AVAILABLE 1
 #endif
 
-#ifdef SSKEYCHAIN_SYNCHRONIZATION_AVAILABLE
-typedef NS_ENUM(NSUInteger, SSKeychainQuerySynchronizationMode) {
-	SSKeychainQuerySynchronizationModeAny,
-	SSKeychainQuerySynchronizationModeNo,
-	SSKeychainQuerySynchronizationModeYes
+#if __IPHONE_3_0 || __MAC_10_9
+	// Keychain access group available at compile time
+	#define SAMKEYCHAIN_ACCESS_GROUP_AVAILABLE 1
+#endif
+
+#ifdef SAMKEYCHAIN_SYNCHRONIZATION_AVAILABLE
+typedef NS_ENUM(NSUInteger, SAMKeychainQuerySynchronizationMode) {
+	SAMKeychainQuerySynchronizationModeAny,
+	SAMKeychainQuerySynchronizationModeNo,
+	SAMKeychainQuerySynchronizationModeYes
 };
 #endif
 
 /**
  Simple interface for querying or modifying keychain items.
  */
-@interface SSKeychainQuery : NSObject
+@interface SAMKeychainQuery : NSObject
 
 /** kSecAttrAccount */
 @property (nonatomic, copy, nullable) NSString *account;
@@ -38,14 +48,14 @@ typedef NS_ENUM(NSUInteger, SSKeychainQuerySynchronizationMode) {
 /** kSecAttrLabel */
 @property (nonatomic, copy, nullable) NSString *label;
 
-#if __IPHONE_3_0 && TARGET_OS_IPHONE
+#ifdef SAMKEYCHAIN_ACCESS_GROUP_AVAILABLE
 /** kSecAttrAccessGroup (only used on iOS) */
 @property (nonatomic, copy, nullable) NSString *accessGroup;
 #endif
 
-#ifdef SSKEYCHAIN_SYNCHRONIZATION_AVAILABLE
+#ifdef SAMKEYCHAIN_SYNCHRONIZATION_AVAILABLE
 /** kSecAttrSynchronizable */
-@property (nonatomic) SSKeychainQuerySynchronizationMode synchronizationMode;
+@property (nonatomic) SAMKeychainQuerySynchronizationMode synchronizationMode;
 #endif
 
 /** Root storage for password information */
@@ -102,7 +112,7 @@ typedef NS_ENUM(NSUInteger, SSKeychainQuerySynchronizationMode) {
  `nil` should an error occur.
  The order of the items is not determined.
  */
-- (nullable NSArray *)fetchAll:(NSError **)error;
+- (nullable NSArray<NSDictionary<NSString *, id> *> *)fetchAll:(NSError **)error;
 
 /**
  Fetch the keychain item that matches the given account, service, and access
@@ -121,10 +131,10 @@ typedef NS_ENUM(NSUInteger, SSKeychainQuerySynchronizationMode) {
 /// @name Synchronization Status
 ///-----------------------------
 
-#ifdef SSKEYCHAIN_SYNCHRONIZATION_AVAILABLE
+#ifdef SAMKEYCHAIN_SYNCHRONIZATION_AVAILABLE
 /**
  Returns a boolean indicating if keychain synchronization is available on the device at runtime. The #define 
- SSKEYCHAIN_SYNCHRONIZATION_AVAILABLE is only for compile time. If you are checking for the presence of synchronization,
+ SAMKEYCHAIN_SYNCHRONIZATION_AVAILABLE is only for compile time. If you are checking for the presence of synchronization,
  you should use this method.
  
  @return A value indicating if keychain synchronization is available
