@@ -85,7 +85,7 @@
 		E8A666341A844CC400287CA3 /* SAMKeychain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SAMKeychain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8A666551A844D3A00287CA3 /* SAMKeychainTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SAMKeychainTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8A6666F1A844E4100287CA3 /* SAMKeychain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SAMKeychain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E8A666791A844E4100287CA3 /* SAMKeychainTests-OSX.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SAMKeychainTests-OSX.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8A666791A844E4100287CA3 /* SAMKeychainTests-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SAMKeychainTests-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,7 +193,7 @@
 				E8A666341A844CC400287CA3 /* SAMKeychain.framework */,
 				E8A666551A844D3A00287CA3 /* SAMKeychainTests-iOS.xctest */,
 				E8A6666F1A844E4100287CA3 /* SAMKeychain.framework */,
-				E8A666791A844E4100287CA3 /* SAMKeychainTests-OSX.xctest */,
+				E8A666791A844E4100287CA3 /* SAMKeychainTests-macOS.xctest */,
 				21632D981C925A3C00C40D7D /* SAMKeychain.framework */,
 				21632DA11C925A3C00C40D7D /* SAMKeychainTests.xctest */,
 				21632DBC1C925B1F00C40D7D /* SAMKeychain.framework */,
@@ -356,9 +356,9 @@
 			productReference = E8A666551A844D3A00287CA3 /* SAMKeychainTests-iOS.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		E8A6666E1A844E4100287CA3 /* SAMKeychain-OSX */ = {
+		E8A6666E1A844E4100287CA3 /* SAMKeychain-macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E8A666821A844E4100287CA3 /* Build configuration list for PBXNativeTarget "SAMKeychain-OSX" */;
+			buildConfigurationList = E8A666821A844E4100287CA3 /* Build configuration list for PBXNativeTarget "SAMKeychain-macOS" */;
 			buildPhases = (
 				E8A6666A1A844E4100287CA3 /* Sources */,
 				E8A6666B1A844E4100287CA3 /* Frameworks */,
@@ -369,14 +369,14 @@
 			);
 			dependencies = (
 			);
-			name = "SAMKeychain-OSX";
+			name = "SAMKeychain-macOS";
 			productName = "SSKeychain Mac";
 			productReference = E8A6666F1A844E4100287CA3 /* SAMKeychain.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		E8A666781A844E4100287CA3 /* SAMKeychainTests-OSX */ = {
+		E8A666781A844E4100287CA3 /* SAMKeychainTests-macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E8A666861A844E4100287CA3 /* Build configuration list for PBXNativeTarget "SAMKeychainTests-OSX" */;
+			buildConfigurationList = E8A666861A844E4100287CA3 /* Build configuration list for PBXNativeTarget "SAMKeychainTests-macOS" */;
 			buildPhases = (
 				E8A666751A844E4100287CA3 /* Sources */,
 				E8A666761A844E4100287CA3 /* Frameworks */,
@@ -387,9 +387,9 @@
 			dependencies = (
 				852915A41D4670C500871559 /* PBXTargetDependency */,
 			);
-			name = "SAMKeychainTests-OSX";
+			name = "SAMKeychainTests-macOS";
 			productName = "SSKeychain MacTests";
-			productReference = E8A666791A844E4100287CA3 /* SAMKeychainTests-OSX.xctest */;
+			productReference = E8A666791A844E4100287CA3 /* SAMKeychainTests-macOS.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -441,8 +441,8 @@
 			targets = (
 				E8A666331A844CC400287CA3 /* SAMKeychain-iOS */,
 				E8A666541A844D3A00287CA3 /* SAMKeychainTests-iOS */,
-				E8A6666E1A844E4100287CA3 /* SAMKeychain-OSX */,
-				E8A666781A844E4100287CA3 /* SAMKeychainTests-OSX */,
+				E8A6666E1A844E4100287CA3 /* SAMKeychain-macOS */,
+				E8A666781A844E4100287CA3 /* SAMKeychainTests-macOS */,
 				21632D971C925A3C00C40D7D /* SAMKeychain-tvOS */,
 				21632DA01C925A3C00C40D7D /* SAMKeychainTests-tvOS */,
 				21632DBB1C925B1F00C40D7D /* SAMKeychain-watchOS */,
@@ -570,7 +570,7 @@
 		};
 		852915A41D4670C500871559 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E8A6666E1A844E4100287CA3 /* SAMKeychain-OSX */;
+			target = E8A6666E1A844E4100287CA3 /* SAMKeychain-macOS */;
 			targetProxy = 852915A31D4670C500871559 /* PBXContainerItemProxy */;
 		};
 		852915A61D4670E400871559 /* PBXTargetDependency */ = {
@@ -1328,7 +1328,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E8A666821A844E4100287CA3 /* Build configuration list for PBXNativeTarget "SAMKeychain-OSX" */ = {
+		E8A666821A844E4100287CA3 /* Build configuration list for PBXNativeTarget "SAMKeychain-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E8A666831A844E4100287CA3 /* Debug */,
@@ -1338,7 +1338,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E8A666861A844E4100287CA3 /* Build configuration list for PBXNativeTarget "SAMKeychainTests-OSX" */ = {
+		E8A666861A844E4100287CA3 /* Build configuration list for PBXNativeTarget "SAMKeychainTests-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E8A666871A844E4100287CA3 /* Debug */,
