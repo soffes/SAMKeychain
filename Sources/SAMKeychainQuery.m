@@ -106,7 +106,7 @@
 }
 
 
-- (NSArray *)fetchAll:(NSError *__autoreleasing *)error {
+- (nullable NSArray *)fetchAll:(NSError *__autoreleasing *)error {
 	NSMutableDictionary *query = [self query];
 	[query setObject:@YES forKey:(__bridge id)kSecReturnAttributes];
 	[query setObject:(__bridge id)kSecMatchLimitAll forKey:(__bridge id)kSecMatchLimit];

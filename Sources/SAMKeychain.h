@@ -12,6 +12,8 @@
 	#import <Foundation/Foundation.h>
 #endif
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  Error code specific to SAMKeychain that can be returned in NSError objects.
  For codes returned by the operating system, refer to SecBase.h for your
@@ -75,8 +77,8 @@ extern NSString *const kSAMKeychainWhereKey;
  @return Returns a string containing the password for a given account and service, or `nil` if the Keychain doesn't
  have a password for the given parameters.
  */
-+ (NSString *)passwordForService:(NSString *)serviceName account:(NSString *)account;
-+ (NSString *)passwordForService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error __attribute__((swift_error(none)));
++ (nullable NSString *)passwordForService:(NSString *)serviceName account:(NSString *)account;
++ (nullable NSString *)passwordForService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error __attribute__((swift_error(none)));
 
 /**
  Returns a nsdata containing the password for a given account and service, or `nil` if the Keychain doesn't have a
@@ -89,8 +91,8 @@ extern NSString *const kSAMKeychainWhereKey;
  @return Returns a nsdata containing the password for a given account and service, or `nil` if the Keychain doesn't
  have a password for the given parameters.
  */
-+ (NSData *)passwordDataForService:(NSString *)serviceName account:(NSString *)account;
-+ (NSData *)passwordDataForService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error __attribute__((swift_error(none)));
++ (nullable NSData *)passwordDataForService:(NSString *)serviceName account:(NSString *)account;
++ (nullable NSData *)passwordDataForService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error __attribute__((swift_error(none)));
 
 
 /**
@@ -143,8 +145,8 @@ extern NSString *const kSAMKeychainWhereKey;
  @return An array of dictionaries containing the Keychain's accounts, or `nil` if the Keychain doesn't have any
  accounts. The order of the objects in the array isn't defined.
  */
-+ (NSArray<NSDictionary<NSString *, id> *> *)allAccounts;
-+ (NSArray<NSDictionary<NSString *, id> *> *)allAccounts:(NSError *__autoreleasing *)error __attribute__((swift_error(none)));
++ (nullable NSArray<NSDictionary<NSString *, id> *> *)allAccounts;
++ (nullable NSArray<NSDictionary<NSString *, id> *> *)allAccounts:(NSError *__autoreleasing *)error __attribute__((swift_error(none)));
 
 
 /**
@@ -159,8 +161,8 @@ extern NSString *const kSAMKeychainWhereKey;
  @return An array of dictionaries containing the Keychain's accounts for a given `serviceName`, or `nil` if the Keychain
  doesn't have any accounts for the given `serviceName`. The order of the objects in the array isn't defined.
  */
-+ (NSArray<NSDictionary<NSString *, id> *> *)accountsForService:(NSString *)serviceName;
-+ (NSArray<NSDictionary<NSString *, id> *> *)accountsForService:(NSString *)serviceName error:(NSError *__autoreleasing *)error __attribute__((swift_error(none)));
++ (nullable NSArray<NSDictionary<NSString *, id> *> *)accountsForService:(nullable NSString *)serviceName;
++ (nullable NSArray<NSDictionary<NSString *, id> *> *)accountsForService:(nullable NSString *)serviceName error:(NSError *__autoreleasing *)error __attribute__((swift_error(none)));
 
 
 #pragma mark - Configuration
@@ -195,5 +197,7 @@ extern NSString *const kSAMKeychainWhereKey;
 #endif
 
 @end
+
+NS_ASSUME_NONNULL_END
 
 #import <SAMKeychain/SAMKeychainQuery.h>

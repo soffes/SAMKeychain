@@ -24,12 +24,12 @@ NSString *const kSAMKeychainWhereKey = @"svce";
 
 @implementation SAMKeychain
 
-+ (NSString *)passwordForService:(NSString *)serviceName account:(NSString *)account {
++ (nullable NSString *)passwordForService:(NSString *)serviceName account:(NSString *)account {
 	return [self passwordForService:serviceName account:account error:nil];
 }
 
 
-+ (NSString *)passwordForService:(NSString *)serviceName account:(NSString *)account error:(NSError *__autoreleasing *)error {
++ (nullable NSString *)passwordForService:(NSString *)serviceName account:(NSString *)account error:(NSError *__autoreleasing *)error {
 	SAMKeychainQuery *query = [[SAMKeychainQuery alloc] init];
 	query.service = serviceName;
 	query.account = account;
@@ -37,11 +37,11 @@ NSString *const kSAMKeychainWhereKey = @"svce";
 	return query.password;
 }
 
-+ (NSData *)passwordDataForService:(NSString *)serviceName account:(NSString *)account {
++ (nullable NSData *)passwordDataForService:(NSString *)serviceName account:(NSString *)account {
 	return [self passwordDataForService:serviceName account:account error:nil];
 }
 
-+ (NSData *)passwordDataForService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error {
++ (nullable NSData *)passwordDataForService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error {
     SAMKeychainQuery *query = [[SAMKeychainQuery alloc] init];
     query.service = serviceName;
     query.account = account;
@@ -90,22 +90,22 @@ NSString *const kSAMKeychainWhereKey = @"svce";
     return [query save:error];
 }
 
-+ (NSArray *)allAccounts {
++ (nullable NSArray *)allAccounts {
 	return [self allAccounts:nil];
 }
 
 
-+ (NSArray *)allAccounts:(NSError *__autoreleasing *)error {
++ (nullable NSArray *)allAccounts:(NSError *__autoreleasing *)error {
     return [self accountsForService:nil error:error];
 }
 
 
-+ (NSArray *)accountsForService:(NSString *)serviceName {
++ (nullable NSArray *)accountsForService:(nullable NSString *)serviceName {
 	return [self accountsForService:serviceName error:nil];
 }
 
 
-+ (NSArray *)accountsForService:(NSString *)serviceName error:(NSError *__autoreleasing *)error {
++ (nullable NSArray *)accountsForService:(nullable NSString *)serviceName error:(NSError *__autoreleasing *)error {
     SAMKeychainQuery *query = [[SAMKeychainQuery alloc] init];
     query.service = serviceName;
     return [query fetchAll:error];
