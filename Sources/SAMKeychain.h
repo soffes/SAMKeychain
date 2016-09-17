@@ -77,7 +77,7 @@ extern NSString *const kSAMKeychainWhereKey;
  @return Returns a string containing the password for a given account and service, or `nil` if the Keychain doesn't
  have a password for the given parameters.
  */
-+ (nullable NSString *)passwordForService:(NSString *)serviceName account:(NSString *)account;
++ (nullable NSString *)passwordForService:(NSString *)serviceName account:(NSString *)account NS_SWIFT_UNAVAILABLE("Use passwordForService:account:error: instead.");
 + (nullable NSString *)passwordForService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error __attribute__((swift_error(none)));
 
 /**
@@ -91,7 +91,7 @@ extern NSString *const kSAMKeychainWhereKey;
  @return Returns a nsdata containing the password for a given account and service, or `nil` if the Keychain doesn't
  have a password for the given parameters.
  */
-+ (nullable NSData *)passwordDataForService:(NSString *)serviceName account:(NSString *)account;
++ (nullable NSData *)passwordDataForService:(NSString *)serviceName account:(NSString *)account NS_SWIFT_UNAVAILABLE("Use passwordDataForService:account:error: instead.");
 + (nullable NSData *)passwordDataForService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error __attribute__((swift_error(none)));
 
 
@@ -104,7 +104,7 @@ extern NSString *const kSAMKeychainWhereKey;
 
  @return Returns `YES` on success, or `NO` on failure.
  */
-+ (BOOL)deletePasswordForService:(NSString *)serviceName account:(NSString *)account;
++ (BOOL)deletePasswordForService:(NSString *)serviceName account:(NSString *)account NS_SWIFT_UNAVAILABLE("Use deletePasswordForService:account:error: instead.");
 + (BOOL)deletePasswordForService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error __attribute__((swift_error(none)));
 
 
@@ -119,7 +119,7 @@ extern NSString *const kSAMKeychainWhereKey;
 
  @return Returns `YES` on success, or `NO` on failure.
  */
-+ (BOOL)setPassword:(NSString *)password forService:(NSString *)serviceName account:(NSString *)account;
++ (BOOL)setPassword:(NSString *)password forService:(NSString *)serviceName account:(NSString *)account NS_SWIFT_UNAVAILABLE("Use setPassword:account:error: instead.");
 + (BOOL)setPassword:(NSString *)password forService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error __attribute__((swift_error(none)));
 
 /**
@@ -133,7 +133,7 @@ extern NSString *const kSAMKeychainWhereKey;
 
  @return Returns `YES` on success, or `NO` on failure.
  */
-+ (BOOL)setPasswordData:(NSData *)password forService:(NSString *)serviceName account:(NSString *)account;
++ (BOOL)setPasswordData:(NSData *)password forService:(NSString *)serviceName account:(NSString *)account NS_SWIFT_UNAVAILABLE("Use setPasswordData:account:error: instead.");
 + (BOOL)setPasswordData:(NSData *)password forService:(NSString *)serviceName account:(NSString *)account error:(NSError **)error __attribute__((swift_error(none)));
 
 /**
@@ -145,7 +145,7 @@ extern NSString *const kSAMKeychainWhereKey;
  @return An array of dictionaries containing the Keychain's accounts, or `nil` if the Keychain doesn't have any
  accounts. The order of the objects in the array isn't defined.
  */
-+ (nullable NSArray<NSDictionary<NSString *, id> *> *)allAccounts;
++ (nullable NSArray<NSDictionary<NSString *, id> *> *)allAccounts NS_SWIFT_UNAVAILABLE("Use allAccounts:error: instead.");
 + (nullable NSArray<NSDictionary<NSString *, id> *> *)allAccounts:(NSError *__autoreleasing *)error __attribute__((swift_error(none)));
 
 
@@ -161,7 +161,7 @@ extern NSString *const kSAMKeychainWhereKey;
  @return An array of dictionaries containing the Keychain's accounts for a given `serviceName`, or `nil` if the Keychain
  doesn't have any accounts for the given `serviceName`. The order of the objects in the array isn't defined.
  */
-+ (nullable NSArray<NSDictionary<NSString *, id> *> *)accountsForService:(nullable NSString *)serviceName;
++ (nullable NSArray<NSDictionary<NSString *, id> *> *)accountsForService:(nullable NSString *)serviceName NS_SWIFT_UNAVAILABLE("Use accountsForService:error: instead.");
 + (nullable NSArray<NSDictionary<NSString *, id> *> *)accountsForService:(nullable NSString *)serviceName error:(NSError *__autoreleasing *)error __attribute__((swift_error(none)));
 
 

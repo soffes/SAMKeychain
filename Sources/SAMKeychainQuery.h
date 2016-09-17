@@ -86,7 +86,7 @@ typedef NS_ENUM(NSUInteger, SAMKeychainQuerySynchronizationMode) {
 
  @return `YES` if saving was successful, `NO` otherwise.
  */
-- (BOOL)save:(NSError **)error;
+- (BOOL)save:(NSError **)error __attribute__((swift_error(none)));
 
 /**
  Delete keychain items that match the given account, service, and access group.
@@ -95,7 +95,7 @@ typedef NS_ENUM(NSUInteger, SAMKeychainQuerySynchronizationMode) {
 
  @return `YES` if saving was successful, `NO` otherwise.
  */
-- (BOOL)deleteItem:(NSError **)error;
+- (BOOL)deleteItem:(NSError **)error __attribute__((swift_error(none)));
 
 
 ///---------------
@@ -112,7 +112,7 @@ typedef NS_ENUM(NSUInteger, SAMKeychainQuerySynchronizationMode) {
  `nil` should an error occur.
  The order of the items is not determined.
  */
-- (nullable NSArray<NSDictionary<NSString *, id> *> *)fetchAll:(NSError **)error;
+- (nullable NSArray<NSDictionary<NSString *, id> *> *)fetchAll:(NSError **)error __attribute__((swift_error(none)));
 
 /**
  Fetch the keychain item that matches the given account, service, and access
@@ -124,7 +124,7 @@ typedef NS_ENUM(NSUInteger, SAMKeychainQuerySynchronizationMode) {
 
  @return `YES` if fetching was successful, `NO` otherwise.
  */
-- (BOOL)fetch:(NSError **)error;
+- (BOOL)fetch:(NSError **)error __attribute__((swift_error(none)));
 
 
 ///-----------------------------
