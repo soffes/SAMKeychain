@@ -82,6 +82,6 @@ for other options.
 
 ## Thanks
 
-This was originally inspired by EMKeychain and SDKeychain (both of which are now gone). Thanks to the authors. SAMKeychain has since switched to a simpler implementation that was abstracted from [SSToolkit](http://sstoolk.it).
+This was originally inspired by EMKeychain and SDKeychain (both of which are now gone). Thanks to the authors. SAMKeychain has since switched to a simpler implementation that was abstracted from [SSToolkit](https://github.com/soffes/sstoolkit).
 
 A huge thanks to [Caleb Davenport](https://github.com/calebd) for leading the way on version 1.0 of SAMKeychain.
